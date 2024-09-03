@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominic St-Laurent | Chanteur en Résidences - Experience Interactive</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Dominic St-Laurent | Chanteur en Résidences</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
@@ -13,9 +13,9 @@
             <div class="nav-links">
                 <a href="#bio">À Propos</a>
                 <a href="#services">Services</a>
-                <a href="pages/chansons-personnalisees.html">Chansons Personnalisées</a>
-                <a href="pages/roast-des-maries.html">Roast des Mariés</a>
-                <a href="pages/corpo-memorable.html">Corpo Mémorable</a>
+                <a href="chansons-personnalisees.html">Chansons Personnalisées</a>
+                <a href="roast-des-maries.html">Roast des Mariés</a>
+                <a href="corpo-memorable.html">Corpo Mémorable</a>
                 <a href="#contact">Contact</a>
             </div>
             <button class="mobile-menu-btn">☰</button>
@@ -25,9 +25,9 @@
     <div class="mobile-menu">
         <a href="#bio">À Propos</a>
         <a href="#services">Services</a>
-        <a href="pages/chansons-personnalisees.html">Chansons Personnalisées</a>
-        <a href="pages/roast-des-maries.html">Roast des Mariés</a>
-        <a href="pages/corpo-memorable.html">Corpo Mémorable</a>
+        <a href="chansons-personnalisees.html">Chansons Personnalisées</a>
+        <a href="roast-des-maries.html">Roast des Mariés</a>
+        <a href="corpo-memorable.html">Corpo Mémorable</a>
         <a href="#contact">Contact</a>
     </div>
 
@@ -39,7 +39,92 @@
     </section>
 
     <main class="main-content">
-        <!-- Content from the provided HTML goes here -->
+        <div class="container">
+            <section id="bio" class="bio">
+                <h2 class="section-title">À Propos</h2>
+                <p>Dominic St-Laurent est un chanteur passionné, spécialisé dans l'animation musicale pour les résidences de personnes âgées. Avec un répertoire varié et une approche chaleureuse, il crée des moments de joie et de nostalgie pour son public.</p>
+            </section>
+
+            <section id="services" class="services">
+                <h2 class="section-title">Mes Services</h2>
+                <div class="service-card">
+                    <h3>Animations en Résidences</h3>
+                    <p>Spectacles musicaux adaptés aux résidences pour personnes âgées.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Chansons Personnalisées</h3>
+                    <p>Création de chansons uniques pour vos événements spéciaux.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Roast des Mariés</h3>
+                    <p>Animation humoristique et musicale pour les mariages.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Événements d'Entreprise</h3>
+                    <p>Performances sur mesure pour vos événements corporatifs.</p>
+                </div>
+            </section>
+
+            <section class="repertoire">
+                <h2 class="section-title">Répertoire</h2>
+                <h3>Quelques titres populaires</h3>
+                <ul class="song-list">
+                    <li>La Mer - Charles Trenet</li>
+                    <li>Les Feuilles Mortes - Yves Montand</li>
+                    <li>Non, Je Ne Regrette Rien - Édith Piaf</li>
+                    <li>La Vie en Rose - Édith Piaf</li>
+                    <li>Que Sera, Sera - Doris Day</li>
+                    <li>My Way - Frank Sinatra</li>
+                    <li>Quand on n'a que l'amour - Jacques Brel</li>
+                    <li>La Bohème - Charles Aznavour</li>
+                    <li>Le Temps des Cerises - Yves Montand</li>
+                    <li>L'important c'est la rose - Gilbert Bécaud</li>
+                </ul>
+            </section>
+
+            <section class="video-section">
+                <h2 class="section-title">Dominic en action</h2>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="photo-carousel">
+                <h2 class="section-title">Galerie photos</h2>
+                <div class="carousel-container">
+                    <div class="carousel-item">
+                        <img src="images/gallery-performance-1.jpg" alt="Dominic chantant lors d'un événement en résidence">
+                        <div class="carousel-caption">Dominic en pleine performance</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/gallery-audience-1.jpg" alt="Résidents appréciant la performance de Dominic">
+                        <div class="carousel-caption">Les résidents profitent du spectacle</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/gallery-performance-2.jpg" alt="Dominic interagissant avec les résidents">
+                        <div class="carousel-caption">Moments d'interaction avec le public</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/gallery-audience-2.jpg" alt="Ambiance festive lors d'une performance de Dominic">
+                        <div class="carousel-caption">L'ambiance est à la fête !</div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="prev-btn">Précédent</button>
+                    <button class="next-btn">Suivant</button>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <h2 class="section-title">Contactez-moi</h2>
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
+                    <textarea name="message" placeholder="Votre message" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -48,6 +133,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
