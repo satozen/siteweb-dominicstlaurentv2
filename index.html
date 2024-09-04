@@ -6,6 +6,8 @@
     <title>Dominic St-Laurent - L'Artiste Caméléon</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
     <header>
@@ -25,8 +27,8 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Dominic St-Laurent</h1>
-            <h2>Entertainer</h2>
+            <h1 class="magic-text">Dominic St-Laurent</h1>
+            <h2 class="magic-text">Entertainer</h2>
             <p>Animateur | Imitateur | Chanteur | Comédien</p>
             <p class="subtitle">Le showman CLÉ EN MAIN avec la flexibilité d'un FORFAIT À LA CARTE</p>
             <a href="#contact" class="cta-button">Transformez votre événement !</a>
@@ -47,6 +49,10 @@
                     <p>Ambiance feutrée pour votre 5 à 7? Dominic transforme votre soirée en club jazz chic!</p>
                     <a href="#contact" class="service-cta">Réserver</a>
                 </div>
+                <div class="service-image">
+                    <img src="images/Dominic Radio Cassette.jpg" alt="Dominic en chanteur crooner">
+                </div>
+
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-briefcase"></i>
@@ -54,6 +60,9 @@
                     <h3>Animateur Corpo</h3>
                     <p>Un maître de cérémonie pro et hilarant pour votre événement d'entreprise? C'est Dominic!</p>
                     <a href="#contact" class="service-cta">Réserver</a>
+                </div>
+                <div class="service-image">
+                    <img src="images/Dominic espace.png" alt="Dominic animant un mariage">
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -63,12 +72,28 @@
                     <p>Une animation clé en main pour un mariage mémorable et pas quétaine? Dominic est votre homme!</p>
                     <a href="#contact" class="service-cta">Réserver</a>
                 </div>
+                <div class="service-image">
+                    <img src="images/Dominic radio cassette_2.JPG" alt="Dominic en animateur corpo">
+                </div>
+                
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-home"></i>
                     </div>
                     <h3>Résidences pour aînés</h3>
                     <p>Le Lapin Energizer de l'animation! Vos résidents vont rajeunir de 20 ans, garanti!</p>
+                    <a href="#contact" class="service-cta">Réserver</a>
+                </div>
+                <div class="service-image">
+                    <img src="images/Dominic Grease.png" alt="Dominic dans une résidence pour aînés">
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                        <i class="fas fa-laugh-beam"></i>
+                    </div>
+                    <h3>Party Privé</h3>
+                    <p>En chanson ou en humour (Je roast votre beau-frère pour ses 40 ans) vos invités vont s'en rappeler! </p>
                     <a href="#contact" class="service-cta">Réserver</a>
                 </div>
             </div>
@@ -120,7 +145,7 @@
 
     
         <section id="testimonials" class="container">
-            <h2 class="section-title">Ils ont survécu pour en parler</h2>
+            <h2 class="section-title">Voici les témoignages des gens satisfaits! </h2>
             <div class="testimonial-slider">
                 <div class="testimonial">
                     <p>"Dominic a ressuscité notre party de Noël plus vite que Jésus !"</p>
@@ -181,8 +206,8 @@
                     <option value="Résidences pour aînés">Résidences pour aînés</option>
                     <option value="Autre">Autre</option>
                 </select>
-                <textarea id="message" name="message" placeholder="Votre message" required></textarea>
-                <button type="submit" class="cta-button">Envoyer</button>
+                <textarea id="message" name="message" placeholder="Parlez-moi de votre événement extraordinaire à venir!" required></textarea>
+                <button type="submit" class="cta-button">Obtenir une soumission</button>
             </form>
         </section>
     </main>
@@ -198,5 +223,10 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        document.querySelectorAll('.magic-text').forEach(el => {
+            el.setAttribute('data-text', el.textContent);
+        });
+    </script>
 </body>
 </html>

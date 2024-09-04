@@ -56,3 +56,9 @@ slider.addEventListener('mousemove', (e) => {
 });
 
 // Rest of the JavaScript from the provided code goes here
+
+<script>
+  document.querySelectorAll('.magic-text').forEach(el => {
+    el.setAttribute('data-text', el.textContent);
+  });
+</script>
