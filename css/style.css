@@ -30,12 +30,32 @@ body {
 
 /* Header */
 header {
-  background-color: var(--primary-color);
-  padding: 0.5rem 0;
+  background-color: var(--primary-color); /* Gardez cette ligne comme fallback */
+  background-image: url('../images/headerdominic.png'); /* Remplacez par le chemin de votre image */
+  background-size: cover; /* Ceci assure que l'image couvre tout le header */
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  padding: 1rem 0; /* Ajustez selon vos besoins */
   position: fixed;
   width: 100%;
   z-index: 1000;
   transition: var(--transition);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajustez l'opacité selon vos besoins */
+  z-index: -1;
+}
+
+header nav {
+  position: relative;
+  z-index: 1;
 }
 
 header.sticky {
@@ -75,11 +95,98 @@ nav {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('path-to-your-hero-image.jpg') center/cover no-repeat;
+  background-color: var(--primary-color);
   color: #fff;
-  text-align: center;
-  padding-top: 60px;
+}
+
+.hero-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 50%;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content .subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--secondary-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--accent-color);
+}
+
+.hero-image {
+  flex: 1;
+  height: 100%;
+  background-image: url('../images/headerdominic.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0));
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .hero-image {
+    height: 50vh;
+    width: 100%;
+  }
 }
 
 /* Main Content */
@@ -134,20 +241,41 @@ nav {
 /* Testimonials Section */
 .testimonial-slider {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
 
 .testimonial {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
+  flex: 0 0 50%; /* Changé de 100% à 50% */
+  width: 50%; /* Ajouté pour assurer la cohérence */
+  box-sizing: border-box;
+  padding: 2rem;
   background-color: #fff;
   border-radius: 10px;
-  padding: 2rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  margin-right: 1rem;
+  transition: transform 0.5s ease;
+  animation: slide 40s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-400%); /* Changé de -800% à -400% car chaque témoignage occupe maintenant 50% de la largeur */
+  }
+}
+
+/* Optionnel : ajoutez un peu d'espace entre les témoignages */
+.testimonial:not(:last-child) {
+  margin-right: 2rem;
+}
+
+/* Assurez-vous que le conteneur des témoignages a une largeur maximale */
+#testimonials .container {
+  max-width: 800px; /* Ajustez selon vos besoins */
+  margin: 0 auto;
 }
 
 /* FAQ Section */
@@ -187,32 +315,41 @@ nav {
 
 /* Contact Form */
 #contact-form {
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
   margin: 0 auto;
 }
 
 #contact-form input,
+#contact-form select,
 #contact-form textarea {
-  width: 100%;
+  margin-bottom: 1rem;
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 1rem;
+}
+
+#contact-form textarea {
+  height: 150px;
+  resize: vertical;
 }
 
 #contact-form button {
+  align-self: flex-start;
+  padding: 0.8rem 1.5rem;
   background-color: var(--secondary-color);
   color: #fff;
   border: none;
-  padding: 1rem;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: var(--transition);
+  transition: background-color 0.3s ease;
 }
 
 #contact-form button:hover {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
 }
 
 /* Responsive Design */
@@ -240,5 +377,111 @@ nav {
 
   .section-title {
     font-size: 2rem;
+  }
+  .section-intro {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+  padding-top: 2rem; /* Ajout de padding en haut */
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: var(--text-color);
+  padding: 1.5rem 0; /* Ajout de padding en haut et en bas */
+}
+
+/* Ajustement du padding pour la première section après le hero */
+.main-content > section:first-child {
+  padding-top: 4rem;
+}
+
+/* Ajustement de l'espacement entre les sections */
+.main-content > section {
+  margin-bottom: 4rem;
+}
+
+/* Services Section */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 10px 10px 20px #d9d9d9, -10px -10px 20px #ffffff;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 15px 15px 30px #d9d9d9, -15px -15px 30px #ffffff;
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+
+.service-icon i {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.service-cta {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--secondary-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.service-cta:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
   }
 }
