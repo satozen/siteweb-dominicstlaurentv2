@@ -111,11 +111,62 @@ nav {
   display: block;  /* Assure que le nom prend toute la largeur */
 }
 
-.hero-content .entertainer {
-  font-size: 2rem;
-  color: var(--secondary-color);
-  margin-bottom: 1rem;
-  display: block;  /* Assure que "Entertainer" est sur sa propre ligne */
+.carousel-text {
+    position: relative;
+    height: 2.5rem;
+    overflow: hidden;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.entertainer-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: translateY(100%);
+}
+
+.entertainer-text.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.entertainer-text.previous {
+    transform: translateY(-100%);
+}
+
+@media (max-width: 768px) {
+    .carousel-text {
+        height: auto;
+        min-height: 2.5rem; /* Ajout d'une hauteur minimale */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .entertainer-text {
+        position: absolute;
+        height: auto;
+        transform: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .entertainer-text.active {
+        position: relative;
+        transform: none;
+    }
+
+    .entertainer-text.previous {
+        transform: none;
+    }
 }
 
 .mobile-break {
@@ -191,7 +242,7 @@ nav {
     font-size: 2.5rem;
   }
 
-  .hero-content .entertainer {
+  .hero-content .entertainer-wrapper {
     font-size: 1.8rem;
   }
 

@@ -74,3 +74,23 @@ document.querySelectorAll('.faq-question').forEach(question => {
 document.querySelectorAll('.magic-text').forEach(el => {
     el.setAttribute('data-text', el.textContent);
 });
+
+// Entertainer text carousel
+const entertainerTexts = document.querySelectorAll('.entertainer-text');
+let currentIndex = 0;
+
+function changeEntertainerText() {
+    entertainerTexts[currentIndex].classList.remove('active');
+    entertainerTexts[currentIndex].classList.add('previous');
+    
+    currentIndex = (currentIndex + 1) % entertainerTexts.length;
+    
+    entertainerTexts[currentIndex].classList.remove('previous');
+    entertainerTexts[currentIndex].classList.add('active');
+}
+
+// Set initial active text
+entertainerTexts[0].classList.add('active');
+
+// Change text every 1.5 seconds
+setInterval(changeEntertainerText, 1500);
