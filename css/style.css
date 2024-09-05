@@ -30,7 +30,7 @@ body {
 
 /* Header */
 header {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color); /* Utilise la couleur primaire définie dans vos variables CSS */
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -39,7 +39,6 @@ header {
     top: 0;
 }
 
-/* Ajoutez ceci pour l'effet de flottement */
 header.floating {
     background-color: rgba(26, 26, 26, 0.9); /* Utilisez la couleur primaire avec de l'opacité */
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -91,12 +90,18 @@ nav {
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  display: block;  /* Assure que le nom prend toute la largeur */
 }
 
-.hero-content h2 {
+.hero-content .entertainer {
   font-size: 2rem;
   color: var(--secondary-color);
   margin-bottom: 1rem;
+  display: block;  /* Assure que "Entertainer" est sur sa propre ligne */
+}
+
+.mobile-break {
+  display: none;  /* Cache le saut de ligne sur desktop */
 }
 
 .hero-content p {
@@ -155,21 +160,32 @@ nav {
   }
 }
 
+/* Media query pour les appareils mobiles */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    padding-top: 80px; /* Ajustez cette valeur selon la hauteur de votre barre de navigation */
   }
   
   .hero-content {
     max-width: 100%;
     text-align: center;
-    padding-top: 2rem;
   }
   
   .hero-image {
     height: 50vh;
     width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content .entertainer {
+    font-size: 1.8rem;
+  }
+
+  .mobile-break {
+    display: inline;  /* Affiche le saut de ligne sur mobile */
   }
 }
 
@@ -264,25 +280,37 @@ nav {
 
 /* FAQ Section */
 .faq-item {
-    margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .faq-question {
-    cursor: pointer;
-    padding: 1rem;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+}
+
+.faq-item.active .faq-question::after {
+  content: '-';
 }
 
 .faq-answer {
-    display: none;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 0 0 5px 5px;
+  display: none;
+  padding-top: 1rem;
 }
 
 .faq-item.active .faq-answer {
-    display: block;
+  display: block;
 }
 
 /* Contact Form */
@@ -328,17 +356,6 @@ nav {
 @media (max-width: 768px) {
   .nav-links {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--primary-color);
-    padding: 1rem;
-  }
-
-  .nav-links.show {
-    display: flex;
-    flex-direction: column;
   }
 
   .mobile-menu-btn {
@@ -512,14 +529,4 @@ nav {
   100% {
     background-position: -200% center;
   }
-}
-
-.mobile-break {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .mobile-break {
-        display: inline;
-    }
 }

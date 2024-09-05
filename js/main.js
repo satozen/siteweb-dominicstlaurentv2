@@ -2,9 +2,9 @@
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
-        header.classList.add('sticky');
+        header.classList.add('floating');
     } else {
-        header.classList.remove('sticky');
+        header.classList.remove('floating');
     }
 });
 
@@ -69,4 +69,8 @@ document.querySelectorAll('.faq-question').forEach(question => {
   question.addEventListener('click', () => {
     question.parentElement.classList.toggle('active');
   });
+});
+
+document.querySelectorAll('.magic-text').forEach(el => {
+    el.setAttribute('data-text', el.textContent);
 });
