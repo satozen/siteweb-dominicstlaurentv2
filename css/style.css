@@ -30,16 +30,18 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(to bottom, var(--primary-color), var(--primary-color-dark));
+    background-color: var(--primary-color);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
     z-index: 1000;
     transition: var(--transition);
+    top: 0;
 }
 
-header.sticky {
-    background-color: var(--primary-color);
+/* Ajoutez ceci pour l'effet de flottement */
+header.floating {
+    background-color: rgba(26, 26, 26, 0.9); /* Utilisez la couleur primaire avec de l'opacité */
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -262,37 +264,25 @@ nav {
 
 /* FAQ Section */
 .faq-item {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
 }
 
 .faq-question {
-  cursor: pointer;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.faq-question::after {
-  content: '+';
-  font-size: 1.5rem;
-}
-
-.faq-item.active .faq-question::after {
-  content: '-';
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 5px;
 }
 
 .faq-answer {
-  display: none;
-  padding-top: 1rem;
+    display: none;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
 }
 
 .faq-item.active .faq-answer {
-  display: block;
+    display: block;
 }
 
 /* Contact Form */
@@ -522,4 +512,14 @@ nav {
   100% {
     background-position: -200% center;
   }
+}
+
+.mobile-break {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-break {
+        display: inline;
+    }
 }

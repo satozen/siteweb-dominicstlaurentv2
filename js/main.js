@@ -16,11 +16,14 @@ mobileMenuBtn.addEventListener('click', () => {
 });
 
 // FAQ toggle
-const faqItems = document.querySelectorAll('.faq-item');
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-        item.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.closest('.faq-item');
+            faqItem.classList.toggle('active');
+        });
     });
 });
 
@@ -62,8 +65,8 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', function() 
 
 // Rest of the JavaScript from the provided code goes here
 
-<script>
-  document.querySelectorAll('.magic-text').forEach(el => {
-    el.setAttribute('data-text', el.textContent);
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    question.parentElement.classList.toggle('active');
   });
-</script>
+});
