@@ -55,6 +55,11 @@ slider.addEventListener('mousemove', (e) => {
     slider.scrollLeft = scrollLeft - walk;
 });
 
+// Mobile menu toggle
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('show');
+});
+
 // Rest of the JavaScript from the provided code goes here
 
 <script>
