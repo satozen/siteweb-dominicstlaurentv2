@@ -73,11 +73,22 @@ nav {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background-color: var(--primary-color);
   color: #fff;
+  padding-top: 60px; /* Ajoutez ceci pour donner de l'espace en haut */
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 80px; /* Augmentez cet espace sur mobile */
+  }
+
+  .hero-content {
+    padding-top: 2rem; /* Ajoutez un peu plus d'espace au contenu sur mobile */
+  }
 }
 
 .hero-content {
@@ -85,6 +96,7 @@ nav {
   padding: 2rem;
   max-width: 50%;
   animation: fadeInLeft 1s ease-out;
+  min-height: 100vh; /* Ajoutez ceci pour s'assurer que le contenu prend toute la hauteur */
 }
 
 .hero-content h1 {
