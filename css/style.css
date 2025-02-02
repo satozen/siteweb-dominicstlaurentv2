@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-  --primary-color: #1a1a1a;
-  --secondary-color: #e74c3c;
-  --accent-color: #3498db;
-  --text-color: #333;
-  --bg-color: #f8f8f8;
+  --primary-color: #0a0a0a;
+  --secondary-color: #c8a45c;
+  --accent-color: #ffffff;
+  --text-color: #ffffff;
+  --text-muted: #9a9a9a;
+  --text-dark: #0a0a0a;
+  --bg-color: #0a0a0a;
+  --bg-secondary: #1a1a1a;
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -64,7 +67,7 @@ nav {
 }
 
 .nav-links a {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
@@ -187,14 +190,17 @@ nav {
 .cta-button {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background-color: var(--secondary-color);
-  color: #fff;
+  background: var(--gradient-gold);
+  color: var(--text-dark);
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
-  width: fit-content; /* Ajoutez cette ligne */
-  white-space: nowrap; /* Ajoutez cette ligne pour éviter le retour à la ligne du texte */
+  transition: all 0.3s ease;
+  text-shadow: none;  /* Enlève tout shadow qui pourrait affecter la lisibilité */
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* Ajoute de la profondeur */
+  position: relative;  /* Pour l'effet hover */
+  overflow: hidden;    /* Pour l'effet hover */
 }
 
 @media (max-width: 768px) {
@@ -204,7 +210,10 @@ nav {
 }
 
 .cta-button:hover {
-  background-color: var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  color: var(--text-dark);  /* Garde la couleur du texte même au hover */
+  text-decoration: none;    /* Empêche le soulignement au hover */
 }
 
 .hero-image {
@@ -287,10 +296,11 @@ nav {
 .feature-card {
   text-align: center;
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--bg-secondary);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: var(--transition);
+  border: 1px solid var(--secondary-color);
 }
 
 .feature-card:hover {
@@ -334,9 +344,10 @@ nav {
   width: 50%; /* Ajouté pour assurer la cohérence */
   box-sizing: border-box;
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
   animation: slide 40s linear infinite;
 }
@@ -361,13 +372,18 @@ nav {
   margin: 0 auto;
 }
 
+.testimonial cite {
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
 /* FAQ Section */
 .faq-item {
-  background-color: #fff;
+  background-color: var(--bg-secondary);
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  color: var(--text-color);
 }
 
 .faq-question {
@@ -376,11 +392,18 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--text-dark);
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
 }
 
 .faq-question::after {
   content: '+';
+  color: var(--secondary-color);
   font-size: 1.5rem;
+  margin-left: 1rem;
 }
 
 .faq-item.active .faq-question::after {
@@ -388,12 +411,27 @@ nav {
 }
 
 .faq-answer {
-  display: none;
-  padding-top: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: #f5f5f5;
+  padding: 0 1rem;
+  color: #4a4a4a;
 }
 
 .faq-item.active .faq-answer {
-  display: block;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.faq-question {
+  position: relative;
+  cursor: pointer;
+}
+
+.faq-item.active .faq-question::after {
+  content: '-';
+  transform: rotate(0deg);
 }
 
 /* Contact Form */
@@ -470,6 +508,8 @@ nav {
 .section-title {
   margin-bottom: 1.5rem;
   padding-top: 2rem; /* Ajout de padding en haut */
+  color: var(--secondary-color);
+  font-weight: bold;
 }
 
 .section-intro {
@@ -507,13 +547,14 @@ nav {
 }
 
 .service-card {
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  background: #ffffff;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: #333333;  /* Gris foncé pour le texte */
 }
 
 .service-card:hover, .service-image:hover {
@@ -528,13 +569,14 @@ nav {
 
 .service-card h3 {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
+  margin-bottom: 1rem;
+  color: var(--text-dark);
 }
 
 .service-card p {
   font-size: 0.9rem;
   margin-bottom: 1rem;
+  color: #4a4a4a;  /* Gris un peu plus clair mais toujours lisible */
 }
 
 .service-cta {
@@ -612,4 +654,134 @@ nav {
   100% {
     background-position: -200% center;
   }
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.client-logo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.client-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo-carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+.partner-logo {
+    max-width: 150px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%);
+}
+
+.swiper-slide {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Style spécifique pour le CTA principal dans le hero */
+.hero-content .cta-button {
+    background: var(--secondary-color);    /* Utilise la couleur dorée directement */
+    color: var(--text-dark);              /* Texte noir */
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    border: none;
+}
+
+.hero-content .cta-button:hover {
+    transform: scale(1.05);
+    background: var(--secondary-color);    /* Garde la même couleur au hover */
+    color: var(--text-dark);
+}
+
+/* Styles pour la page Roast des Mariés */
+.roast-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.roast-card {
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.roast-card:hover {
+    transform: translateY(-5px);
+}
+
+.roast-header {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.roast-header i {
+    font-size: 1.5rem;
+}
+
+.roast-content {
+    padding: 2rem;
+}
+
+.roast-info, .roast-result {
+    margin-bottom: 1.5rem;
+}
+
+.roast-info h4, .roast-result h4 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.roast-info strong {
+    color: var(--secondary-color);
+}
+
+.cta-section {
+    background-color: var(--bg-secondary);
+    padding: 4rem 0;
+    text-align: center;
+    margin-top: 4rem;
 }

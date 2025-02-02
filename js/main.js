@@ -15,18 +15,6 @@ mobileMenuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
 });
 
-// FAQ toggle
-document.addEventListener('DOMContentLoaded', () => {
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const faqItem = question.closest('.faq-item');
-            faqItem.classList.toggle('active');
-        });
-    });
-});
-
 // Testimonial slider
 const slider = document.querySelector('.testimonial-slider');
 let isDown = false;
@@ -67,7 +55,8 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', function() 
 
 document.querySelectorAll('.faq-question').forEach(question => {
   question.addEventListener('click', () => {
-    question.parentElement.classList.toggle('active');
+    const faqItem = question.parentElement;
+    faqItem.classList.toggle('active');
   });
 });
 
@@ -94,3 +83,45 @@ entertainerTexts[0].classList.add('active');
 
 // Change text every 1.5 seconds
 setInterval(changeEntertainerText, 1500);
+
+// Test immédiat pour voir si JavaScript fonctionne
+console.log('JavaScript is loaded!');
+
+// Gestionnaire FAQ direct
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        const faqItem = question.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        
+        // Initialisation
+        answer.style.maxHeight = '0';
+        answer.style.overflow = 'hidden';
+        answer.style.transition = 'max-height 0.3s ease-out, padding 0.3s ease-out';
+        
+        question.addEventListener('click', function() {
+            const isOpening = !faqItem.classList.contains('active');
+            
+            // Ferme toutes les autres réponses
+            document.querySelectorAll('.faq-item.active').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = '0';
+                    item.querySelector('.faq-answer').style.padding = '0 1rem';
+                }
+            });
+            
+            // Bascule l'état actif
+            faqItem.classList.toggle('active');
+            
+            if (isOpening) {
+                answer.style.padding = '1rem';
+                answer.style.maxHeight = answer.scrollHeight + 20 + 'px'; // Ajoute un peu d'espace supplémentaire
+            } else {
+                answer.style.maxHeight = '0';
+                answer.style.padding = '0 1rem';
+            }
+        });
+    });
+});
