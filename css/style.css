@@ -74,6 +74,37 @@ nav {
   transition: var(--transition);
 }
 
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -685,7 +716,7 @@ nav {
 .logo-carousel {
     width: 100%;
     overflow: hidden;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .partner-logo {
@@ -784,4 +815,27 @@ nav {
     padding: 4rem 0;
     text-align: center;
     margin-top: 4rem;
+}
+
+#partners {
+    background-color: #ffffff;
+    padding: 2rem 0;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+#partners .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#partners .section-title {
+    color: var(--text-dark);
+}
+
+#partners .logo-carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
 }

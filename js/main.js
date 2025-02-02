@@ -10,9 +10,17 @@ window.addEventListener('scroll', () => {
 
 // Mobile menu toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenu = document.querySelector('.mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
 mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
+    navLinks.classList.toggle('show');
+});
+
+// Fermer le menu quand on clique sur un lien
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+    });
 });
 
 // Testimonial slider
