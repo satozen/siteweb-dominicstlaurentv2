@@ -107,144 +107,152 @@ nav {
 
 /* Hero Section */
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background-color: var(--primary-color);
-  color: #fff;
-  padding-top: 60px; /* Ajoutez ceci pour donner de l'espace en haut */
-  position: relative; /* Ajoutez ceci */
-  overflow: hidden; /* Ajoutez ceci pour éviter tout débordement */
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding-top: 80px; /* Augmentez cet espace sur mobile */
-  }
-
-  .hero-content {
-    padding-top: 2rem; /* Ajoutez un peu plus d'espace au contenu sur mobile */
-  }
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
 }
 
 .hero-content {
-  flex: 1;
-  padding: 2rem;
-  max-width: 50%;
-  position: relative; /* Ajoutez ceci */
-  z-index: 2; /* Ajoutez ceci pour placer le contenu au-dessus de l'image */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%; /* Assurez-vous que le contenu prend toute la hauteur */
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  display: block;  /* Assure que le nom prend toute la largeur */
-}
-
-.carousel-text {
+    flex: 1;
+    padding: 4rem;
+    max-width: 50%;
     position: relative;
-    height: 2.5rem;
-    overflow: hidden;
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
+    z-index: 2;
 }
 
-.entertainer-text {
+.hero-title-block {
+    margin-bottom: 2rem;
+}
+
+.magic-text {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    position: relative;
+    background: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Ajout de l'effet de brillance */
+.magic-text::before {
+    content: attr(data-text);
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform: translateY(100%);
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(45deg, 
+        transparent 45%, 
+        rgba(255, 255, 255, 0.8) 48%, 
+        rgba(255, 255, 255, 0.8) 52%, 
+        transparent 55%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine-effect 3s infinite;
 }
 
-.entertainer-text.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.entertainer-text.previous {
-    transform: translateY(-100%);
-}
-
-@media (max-width: 768px) {
-    .carousel-text {
-        height: auto;
-        min-height: 2.5rem; /* Ajout d'une hauteur minimale */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+@keyframes shine-effect {
+    0% {
+        background-position: -100% 100%;
     }
-
-    .entertainer-text {
-        position: absolute;
-        height: auto;
-        transform: none;
-        width: 100%;
-        text-align: center;
-    }
-
-    .entertainer-text.active {
-        position: relative;
-        transform: none;
-    }
-
-    .entertainer-text.previous {
-        transform: none;
+    100% {
+        background-position: 200% -100%;
     }
 }
 
-.mobile-break {
-  display: none;  /* Cache le saut de ligne sur desktop */
+.profession {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+.hero-headline {
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 1.5rem;
 }
 
-.hero-content .subtitle {
-  font-size: 1rem;
-  font-style: italic;
-  margin-bottom: 2rem;
+.main-headline {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.sub-headline {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 2.5rem;
+    max-width: 90%;
 }
 
 .cta-button {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: var(--gradient-gold);
-  color: var(--text-dark);
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  text-shadow: none;  /* Enlève tout shadow qui pourrait affecter la lisibilité */
-  border: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* Ajoute de la profondeur */
-  position: relative;  /* Pour l'effet hover */
-  overflow: hidden;    /* Pour l'effet hover */
-}
-
-@media (max-width: 768px) {
-  .cta-button {
-    width: 100%; /* Sur mobile, le bouton prend toute la largeur */
-  }
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(200, 164, 92, 0.2);
 }
 
 .cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  color: var(--text-dark);  /* Garde la couleur du texte même au hover */
-  text-decoration: none;    /* Empêche le soulignement au hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 164, 92, 0.3);
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        max-width: 100%;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .magic-text {
+        font-size: 2.5rem;
+    }
+
+    .main-headline {
+        font-size: 2rem;
+    }
+
+    .hero-headline {
+        border-left: none;
+        border-bottom: 3px solid var(--secondary-color);
+        padding-left: 0;
+        padding-bottom: 1rem;
+        margin: 2rem auto;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        font-size: 1rem;
+    }
 }
 
 .hero-image {
@@ -642,51 +650,6 @@ nav {
   }
 }
 
-.magic-text {
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shine 3s linear infinite;
-}
-
-.magic-text::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, 
-    rgba(255,255,255,0) 45%,
-    rgba(255,255,255,0.8) 50%,
-    rgba(255,255,255,0) 55%
-  );
-  background-size: 200% 200%;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shine-effect 3s infinite;
-}
-
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
-}
-
-@keyframes shine-effect {
-  0% {
-    background-position: 200% center;
-  }
-  100% {
-    background-position: -200% center;
-  }
-}
-
 .clients-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -720,17 +683,16 @@ nav {
 }
 
 .partner-logo {
-    max-width: 150px;
-    height: 80px;
+    max-width: 200px;
+    height: 120px;
     object-fit: contain;
     margin: 0 auto;
     display: block;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .partner-logo:hover {
-    filter: grayscale(0%);
+    transform: scale(1.1);
 }
 
 .swiper-slide {
@@ -818,7 +780,7 @@ nav {
 }
 
 #partners {
-    background-color: #ffffff;
+    background-color: transparent;
     padding: 2rem 0;
     margin: 2rem 0;
     width: 100%;
@@ -831,7 +793,7 @@ nav {
 }
 
 #partners .section-title {
-    color: var(--text-dark);
+    color: var(--secondary-color);
 }
 
 #partners .logo-carousel {
