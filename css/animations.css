@@ -1,0 +1,85 @@
+/* Animations de base */
+.hero-title-block, .hero-headline, .hero-description, .cta-button {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Animation pour les éléments au scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animations spécifiques pour mobile */
+@media (max-width: 768px) {
+    .animate-on-scroll {
+        transform: translateY(20px); /* Animation plus subtile sur mobile */
+    }
+}
+
+/* Animation des cartes de service */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Animation du menu mobile */
+.nav-links {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-links.show {
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation des cartes de talents */
+@keyframes dealCard {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) rotate3d(1, 1, 0, 45deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate3d(0, 0, 0, 0deg);
+    }
+}
+
+@keyframes dealCardMobile {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes simpleFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
