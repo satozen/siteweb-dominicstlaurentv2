@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/animations.js" defer></script>
 </head>
 <body>
     <header>
@@ -17,7 +19,7 @@
                 <a href="#about">À Propos</a>
                 <a href="#services">Services</a>
                 <a href="pages/chansons-personnalisees.html">Chansons</a>
-                <a href="pages/roast-des-maries.html">Roast des Mariés</a>
+                <a href="pages/maries.html">Mariage</a>
                 <a href="pages/corpo-memorable.html">Corpo</a>
                 <a href="#video">En Action</a>
                 <a href="#testimonials">Témoignages</a>
@@ -35,12 +37,12 @@
             </div>
             
             <div class="hero-headline">
-                <h2 class="main-headline">L'excellence tout-en-un</h2>
+                <h2 class="main-headline">Un seul pro. Tous les talents.</h2>
                 <p class="sub-headline">Du sur-mesure qui fait jaser.</p>
             </div>
 
             <p class="hero-description">
-                MC, chanteur, imitateur, DJ : tout est là! Une préparation chirurgicale, des performances qui décoiffent, et cette touche personnalisée qui fait dire "Comment il savait ça?!" Votre événement mérite une animation qui frappe fort.</p>
+                Animateur, chanteur, imitateur, DJ : tout est là! Une préparation chirurgicale, des performances qui décoiffent, et cette touche personnalisée qui fait dire "Comment il savait ça?!" Votre événement mérite une animation qui frappe fort.</p>
 
             <a href="#contact" class="cta-button">Transformez votre événement</a>
         </div>
@@ -81,7 +83,7 @@
                     </div>
                     <h3>Mariage</h3>
                     <p>Une animation clé en main pour un mariage mémorable et pas quétaine? Dominic est votre homme!</p>
-                    <a href="pages/roast-des-maries.html" class="service-cta">En savoir plus</a>
+                    <a href="pages/maries.html" class="service-cta">En savoir plus</a>
                 </div>
                 <div class="service-image">
                     <img src="images/Dominic radio cassette_2.JPG" alt="Dominic en animateur corpo">
@@ -223,16 +225,22 @@
             <h2 class="section-title">Questions fréquemment posées</h2>
             
             <div class="faq-item">
-                <h3 class="faq-question">Dominic peut-il s'adapter à TOUS les événements ?</h3>
+                <div class="faq-question">
+                    Dominic peut-il s'adapter à TOUS les événements ?
+                </div>
                 <div class="faq-answer">
-                    <p>Si votre événement implique des êtres humains (ou des extraterrestres sociables), Dominic est votre homme !</p>
+                    <div class="faq-answer-content">
+                        Si votre événement implique des êtres humains (ou des extraterrestres sociables), Dominic est votre homme !
+                    </div>
                 </div>
             </div>
 
             <div class="faq-item">
                 <h3 class="faq-question">Avez-vous votre propre équipement de son ?</h3>
                 <div class="faq-answer">
-                    <p>Oui ! Je dispose d'un système de son professionnel complet adapté à différentes tailles de salles. Pour les très grands événements, nous pouvons également collaborer avec votre équipe technique.</p>
+                    <div class="faq-answer-content">
+                        <p>Oui ! Je dispose d'un système de son professionnel complet adapté à différentes tailles de salles. Pour les très grands événements, nous pouvons également collaborer avec votre équipe technique.</p>
+                    </div>
                 </div>
             </div>
 
@@ -316,39 +324,6 @@
                         spaceBetween: 30
                     }
                 }
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', function() {
-                    const faqItem = this.parentElement;
-                    const answer = faqItem.querySelector('.faq-answer');
-                    
-                    // Ferme toutes les autres réponses
-                    document.querySelectorAll('.faq-item.active').forEach(item => {
-                        if (item !== faqItem) {
-                            item.classList.remove('active');
-                            const otherAnswer = item.querySelector('.faq-answer');
-                            otherAnswer.style.maxHeight = '0';
-                            otherAnswer.style.padding = '0 1rem';
-                        }
-                    });
-                    
-                    // Bascule l'état actif
-                    faqItem.classList.toggle('active');
-                    
-                    if (faqItem.classList.contains('active')) {
-                        answer.style.maxHeight = answer.scrollHeight + 20 + 'px'; // Ajoute un peu d'espace
-                        answer.style.padding = '1rem';
-                    } else {
-                        answer.style.maxHeight = '0';
-                        answer.style.padding = '0 1rem';
-                    }
-                });
             });
         });
     </script>
