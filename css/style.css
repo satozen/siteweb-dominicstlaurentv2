@@ -353,21 +353,163 @@ nav {
 }
 
 /* Video Section */
+.video-section,
+.video-gallery {
+    padding: 5rem 0;
+    background: var(--bg-secondary);
+}
+
 .video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+/* Galerie vidéo avec thumbnails */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+}
+
+.video-thumbnail {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-thumbnail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.video-thumbnail:hover img {
+    opacity: 0.8;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(52, 152, 219, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.video-thumbnail:hover .play-button {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-button i {
+    color: white;
+    font-size: 24px;
+    margin-left: 4px; /* Petit ajustement pour centrer visuellement l'icône play */
+}
+
+.video-thumbnail h3 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Modal vidéo */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding-bottom: 20px;
+}
+
+.close-modal {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 1001;
+}
+
+.close-modal:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .close-modal {
+        right: 0;
+        top: -40px;
+    }
+
+    .video-thumbnail h3 {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .return-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
 }
 
 /* Testimonials Section */
@@ -1074,4 +1216,322 @@ nav {
     .talent-card {
         padding: 1rem;
     }
+}
+
+/* Styles spécifiques pour J'ai Ben L'Droit */
+.rights-hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+    overflow: hidden;
+}
+
+.rights-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/pattern-overlay.png');
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.rights-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.rights-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.rights-grid {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+}
+
+.rights-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.right-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(13, 71, 161, 0.1);
+}
+
+.right-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(13, 71, 161, 0.3);
+    border-color: rgba(13, 71, 161, 0.3);
+}
+
+.right-card i {
+    font-size: 2.5rem;
+    color: #1976d2;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.right-card:hover i {
+    transform: scale(1.1);
+}
+
+.right-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.right-card p {
+    color: var(--text-muted);
+}
+
+.video-section {
+    padding: 4rem 0;
+    background: var(--bg-primary);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.testimonials {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+}
+
+.cta-section {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, #0d47a1 0%, #1a237e 100%);
+    color: white;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rights-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .rights-cards {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .right-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Style du bouton de retour */
+.return-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 15px 40px;
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(200, 164, 92, 0.2);
+}
+
+.return-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 164, 92, 0.3);
+}
+
+/* Ajustement pour mobile */
+@media (max-width: 768px) {
+    .return-button {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+    }
+}
+
+/* Styles pour la liste des bénéfices */
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.benefits-list li {
+    margin-bottom: 1.2rem;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.benefits-list li::before {
+    content: '•';
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+}
+
+.benefits-list li strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.game-features {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+/* Ajustement pour la section testimonial-highlight */
+.testimonial-highlight .explanation {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .benefits-list li {
+        font-size: 1rem;
+        padding-left: 1.5rem;
+    }
+    
+    .game-features {
+        padding: 1rem;
+    }
+}
+
+/* Ajoutez ces nouveaux styles */
+.pain-points-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.pain-points-list li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.pain-points-list li::before {
+    content: '•';
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+}
+
+.cta-section.dark {
+    background-color: var(--bg-secondary);
+}
+
+.cta-button.dark {
+    background-color: var(--secondary-color);
+    color: var(--bg-primary);
+}
+
+.cta-button.dark:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.corpo-hero {
+    background-image: url('../images/headers/corpo_header4.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.corpo-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.4));
+    z-index: 1;
+}
+
+.corpo-hero .hero-content {
+    position: relative;
+    z-index: 2;
 }

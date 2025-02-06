@@ -5,22 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corpo Mémorable | Dominic St-Laurent</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../js/video-modal.js" defer></script>
 </head>
 <body>
     <header>
-        <!-- Navigation similar to index.html -->
+        <nav class="container">
+            <a href="../index.html" class="logo">DSL</a>
+            <div class="nav-links">
+                <a href="../index.html#about">À Propos</a>
+                <a href="../index.html#services">Services</a>
+                <a href="chansons-personnalisees.html">Chansons</a>
+                <a href="maries.html">Mariage</a>
+                <a href="corpo-memorable.html">Corpo</a>
+                <a href="../index.html#video">En Action</a>
+                <a href="../index.html#testimonials">Témoignages</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
     </header>
 
-    <main class="main-content">
-        <div class="container">
-            <h1>Corpo Mémorable</h1>
-            <p>Des performances musicales sur mesure pour vos événements d'entreprise, rendant chaque occasion inoubliable.</p>
-            <!-- Add more content about corporate events here -->
+    <section class="hero corpo-hero">
+        <div class="hero-content">
+            <h1 class="magic-text">FINI LES PARTYS DE BUREAU QUI FONT BAILLER!</h1>
+            <p class="subtitle">Un événement corporatif qui fait jaser, sans malaise garanti.</p>
         </div>
+    </section>
+
+    <main class="main-content">
+        <section class="wedding-intro">
+            <div class="container">
+                <div class="intro-text">
+                    <h2 class="section-title">Découvrez votre mini Bye Bye personnalisé</h2>
+                    <p class="highlight-text">Vous le savez : organiser un party de Noël corporatif, c'est jongler avec mille détails.</p>
+                    
+                    <ul class="pain-points-list">
+                        <li>DJ qui ne comprend pas votre culture d'entreprise</li>
+                        <li>Animations génériques qui tombent à plat</li>
+                        <li>Ces moments creux où vos employés fixent leur téléphone</li>
+                    </ul>
+
+                    <h3 class="highlight-text">Un seul pro. Tous les talents dont vous avez besoin :</h3>
+                    <ul class="benefits-list">
+                        <li><strong>MC-Animateur</strong> qui comprend votre ADN d'entreprise</li>
+                        <li><strong>DJ</strong> équipé de son propre système de son</li>
+                        <li><strong>Improvisateur</strong> qui transforme vos inside jokes en moments mémorables</li>
+                        <li><strong>Imitateur</strong> qui fait rire avec classe</li>
+                        <li><strong>Chanteur</strong> qui compose votre hymne d'entreprise en direct</li>
+                    </ul>
+
+                    <h3 class="highlight-text">POURQUOI ÇA MARCHE?</h3>
+                    <ul class="benefits-list">
+                        <li><strong>Clé en main :</strong> tout l'équipement inclus</li>
+                        <li><strong>Flexible :</strong> animation adaptable à votre culture</li>
+                        <li><strong>Professionnel :</strong> un seul contact pour tout gérer</li>
+                        <li><strong>Mémorable :</strong> vos employés en parleront encore en janvier!</li>
+                    </ul>
+                    <p class="highlight-text">Offrez à votre équipe plus qu'un party : une expérience qui renforce vos liens!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="video" class="container">
+            <h2 class="section-title">Dominic en Action</h2>
+            <div class="video-grid">
+                <div class="video-thumbnail">
+                    <a href="#" class="video-link" data-video-id="QOpQRBdZ5oY">
+                        <img src="https://img.youtube.com/vi/QOpQRBdZ5oY/hqdefault.jpg" alt="Dominic l'imitateur">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <h3>Dominic L'imitateur</h3>
+                </div>
+                <div class="video-thumbnail">
+                    <a href="#" class="video-link" data-video-id="LClkc0RBVR8">
+                        <img src="https://img.youtube.com/vi/LClkc0RBVR8/hqdefault.jpg" alt="Dominic le chanteur">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <h3>Dominic le Chanteur</h3>
+                </div>
+                <div class="video-thumbnail">
+                    <a href="#" class="video-link" data-video-id="vgcMsGcKn3w">
+                        <img src="https://img.youtube.com/vi/vgcMsGcKn3w/hqdefault.jpg" alt="Dominic l'animateur">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <h3>Dominic l'Animateur</h3>
+                </div>
+            </div>
+
+            <div class="video-modal" id="videoModal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="video-container">
+                        <iframe frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <button class="return-button">Retourner au site</button>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <!-- Footer content -->
+        <div class="container">
+            <p>&copy; 2024 Dominic St-Laurent. Tous droits réservés.</p>
+        </div>
     </footer>
 
     <script src="../js/main.js"></script>

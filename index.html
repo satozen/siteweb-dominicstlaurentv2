@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="css/animations.css">
     <script src="js/animations.js" defer></script>
+    <script src="js/video-modal.js" defer></script>
 </head>
 <body>
     <header>
@@ -154,8 +155,26 @@
 
         <section id="video" class="container">
             <h2 class="section-title">Dominic en Action</h2>
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/vgcMsGcKn3w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="video-grid">
+                <div class="video-thumbnail">
+                    <a href="#" class="video-link" data-video-id="vgcMsGcKn3w">
+                        <img src="https://img.youtube.com/vi/vgcMsGcKn3w/maxresdefault.jpg" alt="Dominic en action">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <h3>Découvrez l'Artiste Caméléon</h3>
+                </div>
+            </div>
+
+            <!-- Modal pour la vidéo -->
+            <div class="video-modal" id="videoModal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="video-container">
+                        <iframe frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </section>
 
