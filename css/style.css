@@ -566,38 +566,26 @@ nav {
 }
 
 .faq-question {
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: white;
     color: var(--text-dark);
-    background: #ffffff;
-    padding: 1.5rem;
     width: 100%;
     border: none;
     text-align: left;
 }
 
-.faq-question::after {
-    content: '+';
-    color: var(--secondary-color);
-    font-size: 1.5rem;
-}
-
-.faq-item.active .faq-question::after {
-    content: '-';
-}
-
 .faq-answer {
+    color: var(--text-color);
     background-color: var(--bg-secondary);
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease-out;
 }
 
-.faq-answer-content {
-    padding: 1.5rem;
+#faq {
+    padding: 4rem 0;
+    background-color: var(--bg-color);
+}
+
+#faq .section-title {
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
 }
 
 /* Contact Form */

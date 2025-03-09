@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Dominic St-Laurent</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Abril+Fatface&family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">DSL</a>
+            <button class="mobile-menu-btn">☰</button>
+            <div class="nav-links">
+                <a href="index.html#about">À Propos</a>
+                <a href="services.html">Services</a>
+                <a href="index.html#songs">Chansons</a>
+                <a href="mariage.html">Mariage</a>
+                <a href="corpo.html">Corpo</a>
+                <a href="index.html#videos">En Action</a>
+                <a href="index.html#testimonials">Témoignages</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <h1 class="magic-text">Découvrez mes talents cachés</h1>
+            <p class="hero-description">Cliquez sur la boîte mystère pour révéler un service unique!</p>
+        </div>
+    </section>
+
+    <!-- Mystery Box Section -->
+    <section class="mystery-box-section">
+        <div class="container">
+            <div class="mystery-box">
+                <div class="box-front">
+                    <img 
+                        src="images/assets/mystery-box.png" 
+                        alt="Boîte mystère" 
+                        class="gong-image"
+                        onerror="console.log('Erreur de chargement image'); this.style.border='5px solid red'"
+                    >
+                    <span class="click-me">Cliquez pour découvrir!</span>
+                </div>
+                <div class="box-content">
+                    <!-- Le contenu sera injecté dynamiquement -->
+                </div>
+            </div>
+
+            <!-- Services découverts -->
+            <div class="discovered-services">
+                <h2>Services découverts</h2>
+                <div class="services-grid">
+                    <!-- Les services seront ajoutés ici dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <!-- ... votre footer existant ... -->
+    </footer>
+
+    <script src="js/animations.js"></script>
+    <script src="js/mystery-box.js"></script>
+</body>
+</html> 

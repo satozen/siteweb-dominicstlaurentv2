@@ -83,3 +83,70 @@
         opacity: 1;
     }
 }
+
+/* Animations FAQ */
+.faq-item {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.faq-question {
+    padding: 1.2rem 1.5rem;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.15s ease;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+}
+
+.faq-item.active .faq-question::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-answer {
+    background-color: white;
+    color: var(--text-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+}
+
+/* Style pour le fond sombre */
+#faq {
+    background-color: #1a1a1a;
+    padding: 4rem 0;
+}
+
+#faq .section-title {
+    color: #D4AF37;
+    margin-bottom: 2rem;
+}
+
+/* Hover effect */
+.faq-question:hover {
+    background-color: #f8f8f8;
+}
