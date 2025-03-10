@@ -11,6 +11,29 @@
     <link rel="stylesheet" href="css/animations.css">
     <script src="js/animations.js" defer></script>
     <script src="js/video-modal.js" defer></script>
+    <style>
+        /* Custom positioning for hero elements */
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 70vh;
+        }
+        .hero-title-block {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            transform: translateY(20%);
+        }
+        /* Adjust CTA button to fit content */
+        .cta-button {
+            width: auto;
+            display: inline-block;
+            padding: 12px 24px;
+            align-self: flex-start;
+            text-align: center;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,7 +46,8 @@
                 <a href="pages/maries.html">Mariage</a>
                 <a href="pages/corpo-memorable.html">Corpo</a>
                 <a href="#video">En Action</a>
-                <a href="#testimonials">Témoignages</a>
+                <a href="#testimonials">Témoignages</a>   
+                <a href="pages/jaibenldroit.html">J'ai ben l'droit</a>
                 <a href="#contact">Contact</a>
             </div>
             <button class="mobile-menu-btn">☰</button>
@@ -32,22 +56,20 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-title-block">
+         <div class="hero-title-block">
                 <h1 class="magic-text">Dominic St-Laurent</h1>
-                <h2 class="profession">Entertainer Deluxe</h2>
             </div>
-            
             <div class="hero-headline">
                 <h2 class="main-headline">Un seul pro. Tous les talents.</h2>
-                <p class="sub-headline">Du sur-mesure qui fait jaser.</p>
             </div>
-
             <p class="hero-description">
                 Animateur, chanteur, imitateur, DJ : tout est là! Une préparation chirurgicale, des performances qui décoiffent, et cette touche personnalisée qui fait dire "Comment il savait ça?!" Votre événement mérite une animation qui frappe fort.</p>
 
             <a href="#contact" class="cta-button">Transformez votre événement</a>
         </div>
-        <div class="hero-image"></div>
+        <div class="hero-image">
+            <img src="images/Dom-Promo.png" alt="Dominic St-Laurent">
+        </div>
     </section>
 
     <main class="main-content">

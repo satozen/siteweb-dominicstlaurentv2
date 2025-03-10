@@ -7,8 +7,425 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="../js/video-modal.js" defer></script>
+    <style>
+        /* Styles spécifiques pour la page J'ai ben l'droit */
+        /* Correction du header trop grand */
+        header {
+            padding: 0.4rem 0 !important;
+            min-height: auto !important;
+        }
+        
+        header nav {
+            padding: 0 !important;
+        }
+        
+        .logo {
+            font-size: 1.2rem !important;
+        }
+        
+        .nav-links a {
+            padding: 0.3rem 0.5rem !important;
+            font-size: 0.9rem !important;
+        }
+        
+        /* Correction des couleurs de texte */
+        body {
+            color: #333 !important;
+        }
+        
+        .container h2, .container h3, .container p, .container li, 
+        .media-card blockquote p, .media-card h3, .testimonial-card blockquote p {
+            color: #333 !important;
+        }
+        
+        /* Styles pour le hero */
+        .rights-hero {
+            position: relative;
+            min-height: 50vh;
+            padding: 3rem 0;
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            margin-top: 45px;
+        }
+        
+        .rights-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../images/jaibenldroit_header.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: 1;
+        }
+        
+        .rights-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white !important;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .rights-hero h1, .rights-hero p {
+            color: white !important;
+        }
+        
+        .rights-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .rights-hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        /* Grille de statistiques */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #e63946;
+        }
+        
+        /* Media mentions */
+        .media-mentions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .media-card {
+            padding: 1.5rem;
+            background: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Style pour les miniatures d'articles */
+        .media-thumbnail {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            border-radius: 50%;
+            background-color: #e63946;
+            color: white;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        /* Style pour les liens des médias */
+        .media-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: #e63946;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .media-link:hover {
+            color: #a01b26;
+            border-bottom: 1px solid #a01b26;
+        }
+        
+        .media-link i {
+            margin-left: 0.3rem;
+            font-size: 0.8em;
+        }
+        
+        /* Audience list */
+        .audience-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            display: block;
+        }
+        
+        .audience-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .audience-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #e63946;
+            font-weight: bold;
+        }
+        
+        /* Highlights grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .highlight-card i {
+            font-size: 2rem;
+            color: #e63946;
+            margin-bottom: 1rem;
+        }
+        
+        /* Citations */
+        blockquote {
+            border-left: 4px solid #e63946;
+            padding-left: 1.5rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+            background-color: #f8f8f8;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Benefits list */
+        .benefits-list {
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        /* Réduction des cartes de droits */
+        .rights-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .right-card {
+            background: #f8f8f8;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .right-card i {
+            font-size: 1.5rem;
+            color: #e63946;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Sections */
+        section {
+            padding: 2.5rem 0;
+        }
+        
+        section:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .rights-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .rights-hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .highlight-card, .right-card {
+                padding: 1rem;
+            }
+        }
+        
+        /* Mise à jour de la section statistiques */
+        .stats-section {
+            background-color: #121212;
+            color: white;
+            padding: 3rem 0;
+            position: relative;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('../images/jaibenldroit_header.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .stats-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats-section h2 {
+            color: white !important;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #e63946;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card p {
+            color: #333 !important;
+            font-weight: 500;
+        }
+        
+        /* Customisation de la section témoignages */
+        .testimonials {
+            background-color: #121212;
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .testimonials h2 {
+            color: white !important;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-card blockquote {
+            border-left: 4px solid #e63946;
+            padding: 1.5rem;
+            font-style: italic;
+            margin: 0;
+            background-color: white;
+            color: #333;
+        }
+        
+        .testimonial-card blockquote p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        /* CTA section */
+        .cta-section {
+            background: linear-gradient(135deg, #003087 0%, #001e50 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white !important;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+        }
+        
+        .cta-section p {
+            color: white !important;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-section .cta-button {
+            background-color: #c8a45c; /* Couleur dorée exacte du site */
+            color: #1a1a1a;
+            padding: 0.8rem 2.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid #c8a45c;
+        }
+        
+        .cta-section .cta-button:hover {
+            background-color: transparent;
+            color: #c8a45c;
+        }
+    </style>
 </head>
-<body>
+<body class="jaibenldroit">
     <header>
         <nav class="container">
             <a href="../index.html" class="logo">DSL</a>
@@ -17,6 +434,7 @@
                 <a href="../index.html#services">Services</a>
                 <a href="chansons-personnalisees.html">Chansons</a>
                 <a href="maries.html">Mariage</a>
+                <a href="jaibenldroit.html">J'ai ben l'droit</a>
                 <a href="corpo-memorable.html">Corpo</a>
                 <a href="../index.html#video">En Action</a>
                 <a href="../index.html#testimonials">Témoignages</a>
@@ -29,52 +447,50 @@
     <section class="hero rights-hero">
         <div class="hero-content">
             <h1>J'ai Ben L'Droit!</h1>
-            <p class="subtitle">Vos droits en santé n'ont jamais été aussi divertissants</p>
-            <p class="hero-description">Un spectacle sur les 12 droits des usagers qui fait (enfin!) comprendre c'est quoi un "usager"</p>
+            <p class="subtitle">VOS DROITS EN SANTÉ N'ONT JAMAIS ÉTÉ AUSSI DIVERTISSANTS</p>
+            <p class="hero-description">Un spectacle sur les 12 droits des usagers qui captive et informe</p>
         </div>
     </section>
 
     <section class="intro-section">
         <div class="container">
-            <h2>Le show qui démystifie vos droits en santé</h2>
-            <p class="lead-text">Et non, un usager ce n'est pas quelqu'un qui achète des trucs usagés sur Marketplace!</p>
-            <p>On le sait : présenter les 12 droits des usagers de façon engageante, c'est tout un défi. Vous avez essayé les crayons, les balles anti-stress, les dépliants... (Et votre balance de budget vous stresse plus que vos balles anti-stress!)</p>
+            <h2>Un spectacle qui transforme votre budget en impact réel</h2>
+            <p>Fini les dépliants qui finissent au recyclage. Offrez à votre public une expérience qui marque les esprits. Présenter les droits en santé de façon engageante n'a jamais été aussi facile!</p>
         </div>
     </section>
 
     <section class="highlights-section">
         <div class="container">
-            <h2>Un one-man-show qui transforme les droits en moments mémorables</h2>
+            <h2>Un one-man-show qui fait la différence</h2>
             <div class="highlights-grid">
                 <div class="highlight-card">
-                    <i class="fas fa-microphone"></i>
-                    <h3>Le droit à l'information</h3>
-                    <p>Expliqué par Mike Ward (imitation)</p>
-                </div>
-                <div class="highlight-card">
-                    <i class="fas fa-music"></i>
-                    <h3>Le droit de porter plainte</h3>
-                    <p>Chanté en blues</p>
+                    <i class="fas fa-laugh"></i>
+                    <h3>Humour intelligent</h3>
+                    <p>Qui fait passer le message</p>
                 </div>
                 <div class="highlight-card">
                     <i class="fas fa-theater-masks"></i>
-                    <h3>Le consentement aux soins</h3>
-                    <p>Vulgarisé par une marionnette</p>
+                    <h3>Imitations</h3>
+                    <p>Qui captent l'attention</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Chansons</h3>
+                    <p>Qui font mémoriser</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="rights-grid">
+    <section class="audience-section">
         <div class="container">
-            <h2>Les 12 droits des usagers, version divertissement</h2>
-            <div class="rights-cards">
-                <div class="right-card">
-                    <i class="fas fa-info-circle"></i>
-                    <h3>Droit à l'information</h3>
-                </div>
-                <!-- Répéter pour les 11 autres droits -->
-            </div>
+            <h2>Un spectacle, tous les publics</h2>
+            <ul class="audience-list">
+                <li><strong>Centres jeunesse</strong> : Adapté aux jeunes</li>
+                <li><strong>Résidences pour aînés</strong> : Accessible</li>
+                <li><strong>Grand public</strong> : Universel</li>
+                <li><strong>Centres de santé</strong> : Professionnel</li>
+            </ul>
         </div>
     </section>
 
@@ -89,7 +505,7 @@
                             <i class="fas fa-play"></i>
                         </div>
                     </a>
-                    <h3>Le spectacle en action</h3>
+                    <h3>Découvrez le concept du show</h3>
                 </div>
                 <div class="video-thumbnail">
                     <a href="#" class="video-link" data-video-id="yjXgFS0zsz8">
@@ -98,7 +514,7 @@
                             <i class="fas fa-play"></i>
                         </div>
                     </a>
-                    <h3>Ce qu'ils en disent</h3>
+                    <h3>Témoignages du public</h3>
                 </div>
             </div>
         </div>
@@ -115,25 +531,119 @@
         </div>
     </section>
 
+    <section class="stats-section">
+        <div class="container">
+            <h2>Les chiffres parlent</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="75">0</div>
+                    <p>représentations</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="3">0</div>
+                    <p>années au Saguenay</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="2">0</div>
+                    <p>langues disponibles</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="100">0</div>
+                    <p>de satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="media-section">
+        <div class="container">
+            <h2>Dans les médias</h2>
+            <div class="media-mentions">
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <h3>Radio-Canada</h3>
+                    <blockquote>
+                        <p>"Passer par l'humour pour connaître ses droits en santé"</p>
+                    </blockquote>
+                    <a href="https://ici.radio-canada.ca" target="_blank" class="media-link">Voir l'article <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Le Progrès</h3>
+                    <blockquote>
+                        <p>"Une touche d'humour pour informer les usagers"</p>
+                    </blockquote>
+                    <a href="https://www.leprogres.net/culture/dominic-st-laurent-informe-les-usagers-des-centres-de-sante-avec-une-touche-dhumour/" target="_blank" class="media-link">Voir l'article <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Townshippers</h3>
+                    <blockquote>
+                        <p>"Learn your rights while laughing out loud!"</p>
+                    </blockquote>
+                    <a href="http://townshippers.qc.ca/kit-2017-09-19-users-rights-buying-drugs-online/" target="_blank" class="media-link">Voir l'article <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rights-grid">
+        <div class="container">
+            <h2>Des droits présentés de façon mémorable</h2>
+            <div class="rights-cards">
+                <div class="right-card">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Droit à l'information</h3>
+                    <p>Expliqué par Mike Ward (imitation)</p>
+                </div>
+                <div class="right-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Droit de consentir</h3>
+                    <p>Vulgarisé par une marionnette</p>
+                </div>
+                <div class="right-card">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3>Droit de porter plainte</h3>
+                    <p>Chanté en blues</p>
+                </div>
+                <div class="right-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Et les 9 autres droits...</h3>
+                    <p>Tous présentés de façon originale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="testimonials">
         <div class="container">
             <h2>Ce qu'ils en disent</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <blockquote>
-                        <p>« Un vrai feu roulant! »</p>
-                        <cite>Sylvain Boulay</cite>
+                        <p>« On pensait voir une conférence, on a eu un show! »</p>
                     </blockquote>
                 </div>
-                <!-- Ajouter les autres témoignages -->
+                <div class="testimonial-card">
+                    <blockquote>
+                        <p>« Enfin une façon mémorable d'apprendre nos droits! »</p>
+                    </blockquote>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
         <div class="container">
-            <h2>Prêt à transformer vos droits en moments mémorables?</h2>
-            <a href="../index.html#contact" class="cta-button">Réservez le spectacle</a>
+            <h2>Transformez votre budget en moments mémorables</h2>
+            <p><em>Places limitées - Calendrier 2024 en cours de remplissage</em></p>
+            <a href="../index.html#contact" class="cta-button">Réservez votre date</a>
         </div>
     </section>
 
@@ -144,5 +654,55 @@
     </footer>
 
     <script src="../js/main.js"></script>
+    <script>
+        // Animation des compteurs
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            // Fonction pour vérifier si un élément est visible dans la fenêtre
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            // Fonction pour animer les compteurs
+            function animateCounters() {
+                let counterSection = document.querySelector('.stats-section');
+                if (isElementInViewport(counterSection) && !counterSection.classList.contains('animated')) {
+                    counterSection.classList.add('animated');
+                    
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 3000; // 3 secondes
+                        const step = target / (duration / 16); // 60fps
+                        let current = 0;
+                        const targetText = target + (target === 75 ? '+' : '');
+                        
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.textContent = Math.ceil(current) + (target === 75 ? '+' : '');
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = targetText;
+                            }
+                        };
+                        
+                        updateCounter();
+                    });
+                }
+            }
+            
+            // Lancer l'animation au scroll
+            window.addEventListener('scroll', animateCounters);
+            // Vérifier aussi au chargement
+            animateCounters();
+        });
+    </script>
 </body>
 </html>
