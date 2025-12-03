@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="container">
-            <a href="../index.html" class="logo">DSL</a>
+            <a href="../index.html" class="logo">DSTL</a>
             <div class="nav-links">
                 <a href="../index.html#about">À Propos</a>
                 <a href="../index.html#services">Services</a>
@@ -35,64 +35,69 @@
     </section>
 
     <main class="main-content">
-        <div class="container">
-            <h2 class="section-title">Du partage au rire : le processus créatif de Dominic</h2>
-            <div class="roast-examples">
-                <!-- Exemple 1 -->
-                <div class="roast-card">
-                    <div class="roast-header">
-                        <i class="fas fa-globe-americas"></i>
-                        <h3>Le couple globe-trotteur</h3>
-                    </div>
-                    <div class="roast-content">
-                        <div class="roast-info">
-                            <h4>Informations partagées par les mariés</h4>
-                            <p>Marie et Jean sont <strong>passionnés de voyages</strong>. Ils ont visité <strong>plus de 30 pays</strong> ensemble et se sont <strong>fiancés au sommet du Machu Picchu</strong>. Jean a <strong>le vertige</strong> et a failli <strong>faire demi-tour</strong> avant d'atteindre le sommet.</p>
-                        </div>
-                        <div class="roast-result">
-                            <h4>Résultat du roast par Dominic</h4>
-                            <p>"Ah, Marie et Jean, nos Indiana Jones du dimanche ! Ils ont visité 30 pays, mais Jean a failli rater sa demande en mariage à cause de son vertige. Heureusement que Marie ne l'a pas poussé du haut du Machu Picchu quand il a commencé à faire demi-tour ! On dirait que le seul précipice que Jean n'a pas peur d'affronter, c'est celui du mariage. Espérons que votre voyage conjugal sera moins vertigineux que vos escapades !"</p>
-                        </div>
-                    </div>
+        <!-- Section Intro Lab -->
+        <section class="roast-lab-intro">
+            <div class="container">
+                <h2 class="section-title">Le Labo à Roast</h2>
+                <p class="lab-tagline">Passez votre curseur sur les infos pour voir comment la magie opère</p>
+            </div>
+        </section>
+
+        <!-- Interface Interactive Roast Lab -->
+        <section class="roast-lab">
+            <div class="container">
+                <!-- Onglets de sélection -->
+                <div class="lab-tabs">
+                    <button class="lab-tab active" data-example="mariage">Mariage</button>
+                    <button class="lab-tab" data-example="corpo">Party de Bureau</button>
+                    <button class="lab-tab" data-example="anniversaire">50e Anniversaire</button>
                 </div>
 
-                <!-- Exemple 2 -->
-                <div class="roast-card">
-                    <div class="roast-header">
-                        <i class="fas fa-yin-yang"></i>
-                        <h3>Les opposés s'attirent</h3>
-                    </div>
-                    <div class="roast-content">
-                        <div class="roast-info">
-                            <h4>Informations partagées par les mariés</h4>
-                            <p>Sophie est une <strong>artiste bohème</strong> qui vit au jour le jour, tandis que Marc est un <strong>comptable méticuleux</strong>. Ils se sont rencontrés quand Sophie est venue <strong>faire ses impôts en retard</strong> et avec <strong>des reçus griffonnés sur des serviettes de bar</strong>.</p>
+                <!-- Zone de contenu dynamique -->
+                <div class="lab-content">
+                    <h3 class="example-title" style="text-align: center; margin-bottom: 2rem; color: var(--secondary-color);">Mariage de Julie & Marc</h3>
+                    
+                    <div class="lab-container">
+                        <!-- Panneau Gauche: INPUT -->
+                        <div class="lab-panel input-panel">
+                            <div class="lab-panel-header">
+                                <i class="fas fa-clipboard-list"></i>
+                                <h3>Ce que vous me donnez</h3>
+                            </div>
+                            <div class="questionnaire-fields">
+                                <!-- Rempli par JS -->
+                            </div>
                         </div>
-                        <div class="roast-result">
-                            <h4>Résultat du roast par Dominic</h4>
-                            <p>"Sophie et Marc, la preuve vivante que l'amour peut naître même dans les situations les plus improbables ! Sophie, l'artiste qui pense que les délais sont juste des suggestions, et Marc, le comptable qui a probablement un tableau Excel pour planifier ses clignements d'yeux. Je parie que leur premier rendez-vous a été de classer les reçus par ordre alphabétique. Au moins, Marc peut être sûr d'une chose : avec Sophie, la vie ne sera jamais ennuyeuse... ni ordonnée !"</p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Exemple 3 -->
-                <div class="roast-card">
-                    <div class="roast-header">
-                        <i class="fas fa-rocket"></i>
-                        <h3>Les geeks amoureux</h3>
+                        <!-- Flèche centrale -->
+                        <div class="lab-arrow">
+                            <i class="fas fa-magic"></i>
+                            <span>TRANSFORMATION</span>
+                        </div>
+
+                        <!-- Panneau Droite: OUTPUT -->
+                        <div class="lab-panel output-panel">
+                            <div class="lab-panel-header">
+                                <i class="fas fa-microphone-alt"></i>
+                                <h3>Ce que ça donne</h3>
+                            </div>
+                            <div class="roast-text">
+                                <!-- Rempli par JS -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="roast-content">
-                        <div class="roast-info">
-                            <h4>Informations partagées par les mariés</h4>
-                            <p>Alex et Sam sont des <strong>fans inconditionnels de science-fiction</strong>. Ils se sont rencontrés à une <strong>convention Star Wars</strong> où ils étaient <strong>déguisés en Stormtroopers</strong>. Leur <strong>premier baiser a eu lieu devant une réplique grandeur nature du Faucon Millenium</strong>.</p>
-                        </div>
-                        <div class="roast-result">
-                            <h4>Résultat du roast par Dominic</h4>
-                            <p>"Ladies and gentlemen, permettez-moi de vous présenter Alex et Sam, les Stormtroopers de l'amour ! Ils se sont rencontrés à une convention Star Wars, prouvant que même avec un casque qui vous empêche de voir quoi que ce soit, on peut quand même trouver l'amour. Leur premier baiser devant le Faucon Millenium ? J'espère qu'ils ont enlevé leurs casques cette fois-ci, sinon ça a dû faire un sacré bruit ! Que la force soit avec eux, ils en auront besoin pour survivre à une vie entière de marathons Star Wars et de débats sur qui a tiré en premier, Han ou Greedo."</p>
-                        </div>
+
+                    <!-- Légende -->
+                    <div class="lab-legend">
+                        <div class="legend-item"><span class="legend-dot surnom"></span>Surnoms</div>
+                        <div class="legend-item"><span class="legend-dot anecdote"></span>Anecdotes</div>
+                        <div class="legend-item"><span class="legend-dot trait"></span>Traits</div>
+                        <div class="legend-item"><span class="legend-dot passion"></span>Passions</div>
+                        <div class="legend-item"><span class="legend-dot inside"></span>Inside Jokes</div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <section class="cta-section">
             <div class="container">
@@ -108,5 +113,8 @@
             <p>&copy; 2023 Dominic St-Laurent. Tous droits réservés. Ennui interdit.</p>
         </div>
     </footer>
+    
+    <!-- AJOUT IMPORTANT : Le script du Lab -->
+    <script src="../js/roast-lab.js"></script>
 </body>
 </html>

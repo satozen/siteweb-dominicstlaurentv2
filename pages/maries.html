@@ -1,26 +1,36 @@
 <!DOCTYPE html>
+<!--
+  Page Animation Mariage - Dominic St-Laurent
+  Animation de mariages personnalisés avec Le Grand Jeu des Mariés,
+  roasts sur mesure, chansons custom et jeux interactifs.
+  Inclut le "Roast Lab" pour démontrer la personnalisation.
+-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animation de Mariage | Dominic St-Laurent</title>
+    <title>Animation de Mariage Personnalisée | Dominic St-Laurent</title>
+    <meta name="description" content="Un mariage mémorable avec animation personnalisée. Roasts sur mesure, chansons custom, Le Grand Jeu des Mariés. Le MC qui fait ses devoirs!">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="../js/video-modal.js" defer></script>
+    <script src="../js/roast-lab.js" defer></script>
     <script src="../js/main.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="../index.html" class="logo">DSL</a>
+            <a href="../index.html" class="logo">DSTL</a>
             <div class="nav-links">
                 <a href="../index.html#about">À Propos</a>
                 <a href="../index.html#services">Services</a>
                 <a href="chansons-personnalisees.html">Chansons</a>
-                <a href="maries.html">Mariage</a>
+                <a href="maries.html" class="active">Mariage</a>
+                <a href="residences.html">Résidences</a>
                 <a href="corpo-memorable.html">Corpo</a>
                 <a href="../index.html#video">En Action</a>
                 <a href="../index.html#testimonials">Témoignages</a>
+                <a href="jaibenldroit.html">J'ai ben l'droit</a>
                 <a href="../index.html#contact">Contact</a>
             </div>
             <button class="mobile-menu-btn">☰</button>
@@ -29,96 +39,370 @@
 
     <section class="hero wedding-hero">
         <div class="hero-content">
-            <h1 class="magic-text">Un mariage hors du commun</h1>
-            <p class="subtitle">Une soirée mémorable, sans stress, sans compromis.</p>
+            <h1 class="magic-text">UN MARIAGE HORS DU COMMUN</h1>
+            <p class="subtitle">Vos inside jokes sur scène. Du sur-mesure qui fait pleurer de rire.</p>
         </div>
     </section>
 
     <main class="main-content">
+        
+        <!-- SECTION: Le Problème / La Solution -->
         <section class="wedding-intro">
             <div class="container">
                 <div class="intro-text">
-                    <p class="highlight-text">Vous le savez déjà : organiser un mariage, c'est jongler avec mille détails.</p>
+                    <p class="highlight-text">Vous planifiez le plus beau jour de votre vie?</p>
+                    
                     <div class="pain-points">
-                        <p>DJ qui ne comprend pas votre vibe. Animateur qui force les jeux quétaines. Transitions maladroites. Et ces moments creux où vos invités regardent leur montre...</p>
+                        <p>On connaît le scénario classique: DJ qui joue du Bruno Mars en boucle, animation quétaine avec le jeu de la jarretière, oncle Roger qui prend le micro trop longtemps, et ces looooongs moments creux où vos invités checkent leur montre...</p>
                     </div>
+
                     <div class="solution-text">
-                        <p>Pourquoi risquer de gâcher votre célébration avec trois fournisseurs différents qui ne se parlent pas? Pourquoi stresser avec des animations génériques qui ne vous ressemblent pas? Et si un imprévu survient (on sait tous que ça arrive), qui va rattraper le bal?</p>
+                        <p><strong>Et si votre mariage devenait LÉGENDAIRE?</strong> Le genre de soirée où vos invités rient tellement qu'ils ont mal aux joues. Où chaque joke parle de VOUS — vos anecdotes, vos inside jokes, vos fails légendaires. Où le lundi matin, tout le monde vous texte "BEST. WEDDING. EVER."</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="swiss-knife">
-            <div class="container">
-                <h2 class="section-title">Découvrez le couteau suisse de l'animation</h2>
-                <p class="section-subtitle">Un seul pro. Tous les talents :</p>
-                
-                <div class="talents-grid">
-                    <div class="talent-card">
-                        <i class="fas fa-microphone"></i>
-                        <h3>MC Expert</h3>
-                        <p>Qui lit votre foule comme un livre ouvert</p>
-                    </div>
-                    <div class="talent-card">
-                        <i class="fas fa-music"></i>
-                        <h3>DJ Chevronné</h3>
-                        <p>Qui garde le plancher plein</p>
-                    </div>
-                    <div class="talent-card">
-                        <i class="fas fa-star"></i>
-                        <h3>Chanteur Crooner</h3>
-                        <p>Qui transforme votre 5 à 7 en club select</p>
-                    </div>
-                    <div class="talent-card">
-                        <i class="fas fa-theater-masks"></i>
-                        <h3>Imitateur</h3>
-                        <p>Louis-José Houde, Mike Ward, André Sauvé - choisissez votre flavor!</p>
-                    </div>
-                    <div class="talent-card">
-                        <i class="fas fa-magic"></i>
-                        <h3>Improvisateur</h3>
-                        <p>Qui transforme les imprévus en moments forts</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonial-highlight">
-            <div class="container">
-                <blockquote>
-                    <p>"Attends... c'est pas un ami des mariés?!"</p>
-                </blockquote>
-                <p class="explanation">Le commentaire qu'on entend le plus souvent. Normal : chaque animation est tellement personnalisée, chaque détail tellement réfléchi, que vos invités vont penser que Dominic vous connaît depuis toujours.</p>
-            </div>
-        </section>
-
+        <!-- SECTION: Le Grand Jeu des Mariés -->
         <section class="signature-game">
             <div class="container">
                 <h2 class="section-title">LE GRAND JEU DES MARIÉS</h2>
-                <div class="game-description">
-                    <p>Son animation signature, c'est le parfait équilibre entre élégance et divertissement. Des défis sur mesure, des surprises intelligentes, et ces petits moments magiques qui font dire "C'est exactement eux ça!"</p>
-                    <p>Imaginez... Une soirée fluide où vous pouvez vraiment profiter de chaque instant. Des transitions impeccables. Des surprises personnalisées qui font jaser (pour les bonnes raisons!). Et cette assurance que tout est sous contrôle.</p>
+                <p class="section-intro">L'animation signature qui fait fureur à chaque mariage!</p>
+                
+                <div class="game-content">
+                    <div class="game-image">
+                        <img src="../images/assets/Mock Ups -Le grand jeu.png" alt="Le Grand Jeu des Mariés - Animation signature de Dominic St-Laurent">
+                    </div>
+                    <div class="game-description">
+                        <p>Imaginez un quiz show personnalisé sur VOTRE couple. Des questions qui font rire, des défis surprises, des moments touchants. Vos invités découvrent des faits inédits pendant que vous vous obstinez sur qui a dit "je t'aime" en premier!</p>
+                        
+                        <ul class="benefits-list">
+                            <li><strong>100% personnalisé</strong> — basé sur VOS vraies anecdotes</li>
+                            <li><strong>Interactif</strong> — vos invités participent et votent</li>
+                            <li><strong>Émouvant ET drôle</strong> — le parfait équilibre</li>
+                            <li><strong>Moments viraux</strong> — des photos et vidéos à revoir pour toujours</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- SECTION: Le Processus en 3 étapes -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">Comment ça marche?</h2>
+                <p class="section-intro">Le secret? Une préparation obsessive. Je fais mes devoirs pour que chaque référence vienne de VOTRE histoire.</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <span class="step-number">1</span>
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>La Fouille</h3>
+                        <p>Questionnaires détaillés, anecdotes de couple, entrevues avec vos témoins. Je creuse vos moments épiques, vos fails légendaires, vos inside jokes.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <span class="step-number">2</span>
+                        <i class="fas fa-magic"></i>
+                        <h3>La Création</h3>
+                        <p>Je transforme vos infos en matériel sur mesure: roasts personnalisés, toasts humoristiques, chansons avec vos noms, jeux interactifs.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <span class="step-number">3</span>
+                        <i class="fas fa-fire-alt"></i>
+                        <h3>Le Show</h3>
+                        <p>Le soir venu, vos invités capotent parce que c'est VOTRE vie sur scène. Pas du générique. Du taillé sur mesure qui frappe fort!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Le Roast Lab - Démo Interactive -->
+        <section class="roast-lab">
+            <div class="container">
+                <div class="roast-lab-intro">
+                    <h2 class="section-title">Le Roast Lab 🧪</h2>
+                    <p class="lab-tagline">Voyez comment vos infos deviennent du matériel personnalisé. <br>Survolez pour voir les connexions!</p>
+                </div>
+
+                <!-- Tabs pour changer d'exemple -->
+                <div class="lab-tabs">
+                    <button class="lab-tab active" data-example="mariage">
+                        <i class="fas fa-heart"></i> Mariage
+                    </button>
+                    <button class="lab-tab" data-example="corpo">
+                        <i class="fas fa-building"></i> Party Corpo
+                    </button>
+                    <button class="lab-tab" data-example="anniversaire">
+                        <i class="fas fa-birthday-cake"></i> 50 ans
+                    </button>
+                </div>
+
+                <div class="lab-content">
+                    <h3 class="example-title" style="text-align: center; color: var(--secondary-color); margin-bottom: 2rem; font-size: 1.4rem;">Mariage de Julie & Marc</h3>
+                    
+                    <div class="lab-container">
+                        <!-- Panel Gauche: Questionnaire -->
+                        <div class="lab-panel">
+                            <div class="lab-panel-header">
+                                <i class="fas fa-clipboard-list"></i>
+                                <h3>Ce que vous me donnez</h3>
+                            </div>
+                            <div class="questionnaire-fields">
+                                <div class="field-group">
+                                    <span class="field-label">Surnom du marié</span>
+                                    <div class="field-value highlight-surnom" data-type="surnom">
+                                        "Le GPS Humain" — Marc se perd même dans son propre quartier
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label">Anecdote mémorable</span>
+                                    <div class="field-value highlight-anecdote" data-type="anecdote">
+                                        Leur premier date: Marc a réservé au mauvais resto. Ils ont mangé des hot-dogs dans un parc.
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label">Trait de personnalité</span>
+                                    <div class="field-value highlight-trait" data-type="trait">
+                                        Julie est TOUJOURS en avance. Marc? On le cherche encore.
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label">Passion commune</span>
+                                    <div class="field-value highlight-passion" data-type="passion">
+                                        Fans finis de Occupation Double. Ils analysent les épisodes comme des thèses de doctorat.
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label">Inside joke du groupe</span>
+                                    <div class="field-value highlight-inside" data-type="inside">
+                                        "Check tes DMs!" — Marc a déjà envoyé un message à la mauvaise Julie sur Facebook.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arrow centrale -->
+                        <div class="lab-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>La magie</span>
+                        </div>
+
+                        <!-- Panel Droite: Le Roast -->
+                        <div class="lab-panel">
+                            <div class="lab-panel-header">
+                                <i class="fas fa-microphone-alt"></i>
+                                <h3>Ce que je livre sur scène</h3>
+                            </div>
+                            <div class="roast-text">
+                                Mesdames et messieurs, on est réunis ce soir pour célébrer <span class="tag-surnom">le GPS Humain</span> et la femme assez brave pour le suivre... même s'il se perd dans son propre quartier!
+                                <br><br>
+                                Parlons de leur premier rendez-vous. Marc, le romantique, avait tout planifié: chandelles, belle nappe... sauf qu'il s'est trompé de restaurant! Résultat? <span class="tag-anecdote">Des hot-dogs dans un parc</span>. Et Julie l'a quand même rappelé. Ça, c'est de l'amour inconditionnel... ou du désespoir, on sait pas trop!
+                                <br><br>
+                                Ce qui est beau avec ces deux-là, c'est l'équilibre. <span class="tag-trait">Julie arrive toujours 15 minutes d'avance. Marc? On le cherche encore.</span> Ensemble, ils arrivent presque à l'heure!
+                                <br><br>
+                                Et parlant de couple goals, ces deux-là <span class="tag-passion">analysent Occupation Double comme des thèses de doctorat</span>. "Non mais t'as vu le micro-expression de Kevin à 23:47?" C'est cute pareil.
+                                <br><br>
+                                Ah, et avant que j'oublie... <span class="tag-inside">Marc, CHECK TES DMs!</span> On veut pas que tu textes la mauvaise Julie encore! 
+                                <br><br>
+                                Santé aux mariés! 🥂
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Légende des couleurs -->
+                    <div class="lab-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot surnom"></span>
+                            <span>Surnoms</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot anecdote"></span>
+                            <span>Anecdotes</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot trait"></span>
+                            <span>Traits</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot passion"></span>
+                            <span>Passions</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot inside"></span>
+                            <span>Inside jokes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Les Formats Disponibles -->
+        <section class="process-section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 class="section-title">Ce qui est inclus</h2>
+                <p class="section-intro">Chaque mariage est unique. Voici les éléments qu'on peut intégrer à votre soirée!</p>
+                
+                <div class="formats-grid">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Le Grand Jeu des Mariés</h4>
+                            <p>L'animation signature! Quiz personnalisé, défis surprises, moments touchants. Vos invités participent et découvrent des anecdotes inédites.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Roasts des Mariés</h4>
+                            <p>Des jokes personnalisées qui "roastent" le couple avec amour. On rit AVEC vous, jamais contre vous!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Toasts Humoristiques</h4>
+                            <p>Moments de lever son verre avec une punchline. Plus mémorable que les discours génériques!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Chansons Personnalisées</h4>
+                            <p>Tounes originales avec vos noms, vos anecdotes, votre histoire. Un moment viral que vous reverrez pour toujours!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-beer"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Tounes à Boire</h4>
+                            <p>Chansons interactives où tout le monde participe. L'énergie monte en flèche, guaranteed!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-compact-disc"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Animation DJ</h4>
+                            <p>Je gère aussi la musique avec mon propre système de son. Playlist personnalisée, transitions fluides. Clé en main!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Ce qui me différencie -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">Pourquoi moi?</h2>
+                <p class="section-intro">L'humour personnalisé, c'est mon sport. Voici ce qui me différencie des animateurs génériques.</p>
+                
+                <div class="differentiators">
+                    <div class="diff-item">
+                        <i class="fas fa-bullseye"></i>
+                        <p><strong>Zéro générique</strong> — Pas de jeu de la jarretière ni de chaise musicale. Chaque moment est taillé sur mesure pour VOUS.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-search"></i>
+                        <p><strong>Recherche obsessive</strong> — Je creuse vos inside jokes, vos anecdotes, vos moments épiques. La qualité vient de là.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-hand-rock"></i>
+                        <p><strong>Interactif</strong> — Vos invités ne regardent pas, ils PARTICIPENT. C'est leur show autant que le vôtre.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-guitar"></i>
+                        <p><strong>Multi-talents</strong> — MC, chanteur, DJ. Un seul pro pour tout gérer, pas 3 fournisseurs qui se parlent pas.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-heart"></i>
+                        <p><strong>Émotion + Humour</strong> — Le parfait équilibre. Des moments qui font pleurer de rire ET de joie.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <p><strong>Zéro stress</strong> — Je gère les imprévus, les transitions, le timing. Vous profitez de VOTRE journée.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Témoignage -->
+        <section class="testimonial-highlight">
+            <div class="container">
+                <blockquote>
+                    "On rit encore des jokes 6 mois plus tard. Nos invités nous en parlent ENCORE. Dominic a capturé notre essence comme couple d'une façon qu'on n'aurait jamais pu imaginer."
+                </blockquote>
+                <p class="explanation">— Sophie & Mathieu, mariés en 2024</p>
+            </div>
+        </section>
+
+        <!-- SECTION: CTA -->
         <section class="cta-section">
             <div class="container">
-                <h2>Vous méritez une célébration sans stress, sans compromis.</h2>
-                <p>Vous méritez un pro qui comprend que ce jour n'est pas comme les autres.</p>
+                <h2>Prêt pour un mariage légendaire?</h2>
+                <p>Vous méritez une célébration sans stress, sans compromis, sans animation quétaine. Parlons de VOTRE grand jour!</p>
                 <a href="../index.html#contact" class="cta-button">Réservez votre date</a>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 Dominic St-Laurent. Tous droits réservés.</p>
+            <div class="footer-compact">
+                <div class="footer-contact">
+                    <a href="mailto:info@dominicstlaurent.ca" class="footer-email">info@dominicstlaurent.ca</a>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@dominicstlaurent?si=e8heqAlxwrQ_Ibnw" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <nav class="footer-nav-inline">
+                    <a href="../index.html#about">À Propos</a>
+                    <a href="../index.html#services">Services</a>
+                    <a href="maries.html">Mariage</a>
+                    <a href="residences.html">Résidences</a>
+                    <a href="corpo-memorable.html">Corpo</a>
+                    <a href="gallery.html">Galerie</a>
+                    <a href="../index.html#contact">Contact</a>
+                </nav>
+                <p class="footer-copyright">&copy; 2025 Dominic St-Laurent. Tous droits réservés.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/animation.js"></script>
+    <div class="floating-cta">
+        <a href="../index.html#contact" class="cta-button">Booker Dominic!</a>
+    </div>
+
+    <script src="../js/animations.js"></script>
 </body>
 </html>

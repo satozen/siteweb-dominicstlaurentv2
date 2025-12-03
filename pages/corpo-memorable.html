@@ -1,26 +1,36 @@
 <!DOCTYPE html>
+<!--
+  Page Corpo Mémorable - Dominic St-Laurent
+  Animation d'événements corporatifs personnalisés: partys de Noël, retraites,
+  célébrations d'équipe. Inclut le "Roast Lab" interactif qui démontre
+  comment les infos client deviennent du matériel humoristique sur mesure.
+-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corpo Mémorable | Dominic St-Laurent</title>
+    <title>Corpo Mémorable | Partys & Événements d'Entreprise | Dominic St-Laurent</title>
+    <meta name="description" content="Transformez votre party de bureau en événement légendaire. Animation personnalisée, roasts sur mesure, chansons custom. Le MC qui fait ses devoirs.">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="../js/video-modal.js" defer></script>
+    <script src="../js/roast-lab.js" defer></script>
     <script src="../js/main.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="../index.html" class="logo">DSL</a>
+            <a href="../index.html" class="logo">DSTL</a>
             <div class="nav-links">
                 <a href="../index.html#about">À Propos</a>
                 <a href="../index.html#services">Services</a>
                 <a href="chansons-personnalisees.html">Chansons</a>
                 <a href="maries.html">Mariage</a>
-                <a href="corpo-memorable.html">Corpo</a>
+                <a href="residences.html">Résidences</a>
+                <a href="corpo-memorable.html" class="active">Corpo</a>
                 <a href="../index.html#video">En Action</a>
                 <a href="../index.html#testimonials">Témoignages</a>
+                <a href="jaibenldroit.html">J'ai ben l'droit</a>
                 <a href="../index.html#contact">Contact</a>
             </div>
             <button class="mobile-menu-btn">☰</button>
@@ -29,47 +39,363 @@
 
     <section class="hero corpo-hero">
         <div class="hero-content">
-            <h1 class="magic-text">FINI LES PARTYS DE BUREAU QUI FONT BAILLER!</h1>
-            <p class="subtitle">Un événement corporatif qui fait jaser, sans malaise garanti.</p>
+            <h1 class="magic-text">FINI LES PARTYS PLATES!</h1>
+            <p class="subtitle">Des shows privés qui parlent de VOUS. Vos inside jokes, sur scène.</p>
         </div>
     </section>
 
     <main class="main-content">
-        <section class="wedding-intro">
+        
+        <!-- SECTION: Le Problème / La Solution -->
+        <section class="corpo-intro">
             <div class="container">
                 <div class="intro-text">
-                    <h2 class="section-title">Découvrez votre mini Bye Bye personnalisé</h2>
-                    <p class="highlight-text">Vous le savez : organiser un party de Noël corporatif, c'est jongler avec mille détails.</p>
+                    <p class="highlight-text">Vous organisez le party de Noël, une retraite, un 5 à 7 d'équipe?</p>
                     
-                    <ul class="pain-points-list">
-                        <li>DJ qui ne comprend pas votre culture d'entreprise</li>
-                        <li>Animations génériques qui tombent à plat</li>
-                        <li>Ces moments creux où vos employés fixent leur téléphone</li>
-                    </ul>
+                    <div class="pain-points">
+                        <p>On connaît le scénario: DJ générique qui joue du Pitbull pendant que tout le monde fixe son téléphone. Discours plate du boss. Silence gênant pendant le buffet. Et lundi matin, personne s'en souvient.</p>
+                    </div>
 
-                    <h3 class="highlight-text">Un seul pro. Tous les talents dont vous avez besoin :</h3>
-                    <ul class="benefits-list">
-                        <li><strong>MC-Animateur</strong> qui comprend votre ADN d'entreprise</li>
-                        <li><strong>DJ</strong> équipé de son propre système de son</li>
-                        <li><strong>Improvisateur</strong> qui transforme vos inside jokes en moments mémorables</li>
-                        <li><strong>Imitateur</strong> qui fait rire avec classe</li>
-                        <li><strong>Chanteur</strong> qui compose votre hymne d'entreprise en direct</li>
-                    </ul>
-
-                    <h3 class="highlight-text">POURQUOI ÇA MARCHE?</h3>
-                    <ul class="benefits-list">
-                        <li><strong>Clé en main :</strong> tout l'équipement inclus</li>
-                        <li><strong>Flexible :</strong> animation adaptable à votre culture</li>
-                        <li><strong>Professionnel :</strong> un seul contact pour tout gérer</li>
-                        <li><strong>Mémorable :</strong> vos employés en parleront encore en janvier!</li>
-                    </ul>
-                    <p class="highlight-text">Offrez à votre équipe plus qu'un party : une expérience qui renforce vos liens!</p>
+                    <div class="solution-text">
+                        <p><strong>Et si votre prochain événement devenait légendaire?</strong> Le genre de party où le gars de la comptabilité danse sur la table. Où tout le monde rit parce que les jokes parlent d'EUX. Où le lundi matin, tout le monde se tag sur les photos en écrivant "BEST. PARTY. EVER."</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- SECTION: Le Processus en 3 étapes -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">Comment ça marche?</h2>
+                <p class="section-intro">Le secret? Une préparation obsessive. Je fais mes devoirs pour que chaque référence vienne de VOTRE monde.</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <span class="step-number">1</span>
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>La Fouille</h3>
+                        <p>Questionnaires détaillés, anecdotes d'équipe, surnoms, fails légendaires, running gags du bureau. Je creuse TOUT.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <span class="step-number">2</span>
+                        <i class="fas fa-magic"></i>
+                        <h3>La Création</h3>
+                        <p>Je transforme vos infos en matériel sur mesure: roasts personnalisés, chansons avec vos noms, tounes à boire custom.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <span class="step-number">3</span>
+                        <i class="fas fa-fire-alt"></i>
+                        <h3>Le Show</h3>
+                        <p>Le soir venu, votre gang capote parce que c'est LEUR vie sur scène. Pas du générique. Du sur-mesure qui frappe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Le Roast Lab - Démo Interactive -->
+        <section class="roast-lab">
+            <div class="container">
+                <div class="roast-lab-intro">
+                    <h2 class="section-title">Le Roast Lab 🧪</h2>
+                    <p class="lab-tagline">Voyez comment vos infos deviennent du matériel personnalisé. <br>Survolez pour voir les connexions!</p>
+                </div>
+
+                <!-- Tabs pour changer d'exemple -->
+                <div class="lab-tabs">
+                    <button class="lab-tab active" data-example="corpo">
+                        <i class="fas fa-building"></i> Party Corpo
+                    </button>
+                    <button class="lab-tab" data-example="mariage">
+                        <i class="fas fa-heart"></i> Mariage
+                    </button>
+                    <button class="lab-tab" data-example="anniversaire">
+                        <i class="fas fa-birthday-cake"></i> 50 ans
+                    </button>
+                </div>
+
+                <div class="lab-content">
+                    <h3 class="example-title" style="text-align: center; color: var(--secondary-color); margin-bottom: 2rem; font-size: 1.4rem;">Party de Noël - Construction Béton Plus</h3>
+                    
+                    <div class="lab-container">
+                        <!-- Panel Gauche: Questionnaire -->
+                        <div class="lab-panel">
+                            <div class="lab-panel-header">
+                                <i class="fas fa-clipboard-list"></i>
+                                <h3>Ce que vous me donnez</h3>
+                            </div>
+                            <div class="questionnaire-fields">
+                                <div class="field-group">
+                                    <span class="field-label">Surnom de l'employé vedette</span>
+                                    <div class="field-value highlight-surnom" data-type="surnom">
+                                        "Le Dormeur" — Gilles s'endort PARTOUT. Meetings, lunch, même debout.
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label">Anecdote légendaire</span>
+                                    <div class="field-value highlight-anecdote" data-type="anecdote">
+                                        L'été passé, quelqu'un a commandé 500 cônes orange au lieu de 50. Ils sont encore dans le stationnement.
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label">Running gag du bureau</span>
+                                    <div class="field-value highlight-trait" data-type="trait">
+                                        La machine à café est possédée. Elle fait juste du jus de chaussette.
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label">Fait cocasse sur le boss</span>
+                                    <div class="field-value highlight-passion" data-type="passion">
+                                        Michel le patron chante du Céline Dion dans son char. Tout le monde l'a vu au drive-thru Tim Hortons.
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label">Inside joke de l'équipe</span>
+                                    <div class="field-value highlight-inside" data-type="inside">
+                                        "C'est pas dans ma job description" — phrase préférée de toute l'équipe.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arrow centrale -->
+                        <div class="lab-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>La magie</span>
+                        </div>
+
+                        <!-- Panel Droite: Le Roast -->
+                        <div class="lab-panel">
+                            <div class="lab-panel-header">
+                                <i class="fas fa-microphone-alt"></i>
+                                <h3>Ce que je livre sur scène</h3>
+                            </div>
+                            <div class="roast-text">
+                                Bonsoir Construction Béton Plus! Content d'être ici ce soir. J'espère que le buffet est meilleur que <span class="tag-trait">votre machine à café</span>. Oui oui, je suis au courant. Jus de chaussette, c'est ça?
+                                <br><br>
+                                Parlons de <span class="tag-surnom">Gilles "Le Dormeur"</span>! Mon homme s'endort partout. Réunions, lunch, debout appuyé sur une pelle. L'autre jour y'a dormi tellement longtemps qu'ils ont coulé le béton autour de lui!
+                                <br><br>
+                                Et qui a commandé <span class="tag-anecdote">500 cônes orange au lieu de 50</span>? Levez la main, on vous juge pas... enfin, un peu quand même. Ça fait 6 mois, ils sont encore dans le parking!
+                                <br><br>
+                                Ah, et Michel, notre cher patron... On m'a dit que <span class="tag-passion">tu chantes du Céline dans ton char</span>. "ALL BY MYSEEEEELF" au drive-thru du Tim Hortons, ça a été vu par TOUTE la shop!
+                                <br><br>
+                                Mais vous êtes une belle gang. Même si votre phrase préférée c'est <span class="tag-inside">"C'est pas dans ma job description"</span>... On sait que vous vous aimez pareil!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Légende des couleurs -->
+                    <div class="lab-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot surnom"></span>
+                            <span>Surnoms</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot anecdote"></span>
+                            <span>Anecdotes</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot trait"></span>
+                            <span>Running gags</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot passion"></span>
+                            <span>Faits cocasses</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot inside"></span>
+                            <span>Inside jokes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Les Formats Disponibles -->
+        <section class="process-section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 class="section-title">Les Formats</h2>
+                <p class="section-intro">Chaque show est un mix personnalisé de ces éléments. Vous choisissez ce qui fit votre vibe!</p>
+                
+                <div class="formats-grid">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Roasts Personnalisés</h4>
+                            <p>Des jokes ciblées sur des individus spécifiques. On rit AVEC le monde, pas contre eux. L'amour est toujours au cœur!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Toasts Humoristiques</h4>
+                            <p>Moments de lever son verre avec une punchline. Parfait pour souligner un employé, une retraite, un accomplissement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Jingles & Chansons</h4>
+                            <p>Tounes originales avec les noms et anecdotes de vos vrais gens. Des petits hits que le monde retient toute la soirée!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-beer"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Tounes à Boire</h4>
+                            <p>Chansons interactives où le public participe. "BAM BAM!" et tout le monde cale! L'énergie monte en flèche.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Fun Facts</h4>
+                            <p>Présentation de faits surprenants/drôles sur les invités. "Saviez-vous que Michel a déjà..." — l'effet de surprise garanti!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Imitations</h4>
+                            <p>Vos collègues, votre boss, des célébrités... Je capture les tics et expressions qui font rire toute la gang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Ce qui me différencie -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">Pourquoi moi?</h2>
+                <p class="section-intro">L'humour personnalisé, c'est mon sport. Voici ce qui me différencie des animateurs génériques.</p>
+                
+                <div class="differentiators">
+                    <div class="diff-item">
+                        <i class="fas fa-bullseye"></i>
+                        <p><strong>Zéro générique</strong> — Rien de passe-partout. Chaque joke est taillée sur mesure pour VOS gens.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-search"></i>
+                        <p><strong>Recherche obsessive</strong> — Je creuse vos inside jokes, vos anecdotes, vos moments épiques. La qualité vient de là.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-hand-rock"></i>
+                        <p><strong>Interactif</strong> — Le public ne regarde pas, il PARTICIPE. C'est leur show autant que le mien.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-guitar"></i>
+                        <p><strong>Multi-talents</strong> — MC, chanteur, DJ, imitateur. Un seul pro pour tout gérer, clé en main.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-heart"></i>
+                        <p><strong>Complicité</strong> — Je deviens "un des vôtres" le temps d'une soirée. Pas un étranger qui lit un script.</p>
+                    </div>
+                    
+                    <div class="diff-item">
+                        <i class="fas fa-comment-dots"></i>
+                        <p><strong>On rit ensemble</strong> — Humour complice, jamais méchant. À la fin, tout le monde se sent inclus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Types d'événements -->
+        <section class="process-section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 class="section-title">Pour quel événement?</h2>
+                
+                <div class="formats-grid">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Party de Noël</h4>
+                            <p>Le classique! Transformez votre party annuel en événement légendaire dont on parle encore en janvier.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Retraite & Départs</h4>
+                            <p>Soulignez 30 ans de carrière avec émotion ET humour. Des roasts touchants qui font rire et pleurer.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Galas & Remises de Prix</h4>
+                            <p>Un MC pro pour vos cérémonies. Transitions fluides, humour dosé, timing parfait.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Team Building</h4>
+                            <p>Renforcez vos liens d'équipe avec des activités interactives et du rire partagé.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-cocktail"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>5 à 7 & Lancements</h4>
+                            <p>Ambiance chic avec chant crooner, ou énergie folle avec animation interactive. Vous choisissez!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="format-content">
+                            <h4>Célébrations Spéciales</h4>
+                            <p>Anniversaires de compagnie, fusions, succès d'équipe... Chaque milestone mérite son show!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Vidéos -->
         <section id="video" class="container">
             <h2 class="section-title">Dominic en Action</h2>
+            <p class="section-intro">Un aperçu de ce qui vous attend. Spoiler: ça va être malade!</p>
+            
             <div class="video-grid">
                 <div class="video-thumbnail">
                     <a href="#" class="video-link" data-video-id="QOpQRBdZ5oY">
@@ -110,12 +436,52 @@
                 </div>
             </div>
         </section>
+
+        <!-- SECTION: CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Prêt à créer un événement légendaire?</h2>
+                <p>Vos employés méritent mieux qu'un party générique. Parlons de votre prochain événement!</p>
+                <a href="../index.html#contact" class="cta-button">Obtenir une soumission</a>
+            </div>
+        </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 Dominic St-Laurent. Tous droits réservés.</p>
+            <div class="footer-compact">
+                <div class="footer-contact">
+                    <a href="mailto:info@dominicstlaurent.ca" class="footer-email">info@dominicstlaurent.ca</a>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@dominicstlaurent?si=e8heqAlxwrQ_Ibnw" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <nav class="footer-nav-inline">
+                    <a href="../index.html#about">À Propos</a>
+                    <a href="../index.html#services">Services</a>
+                    <a href="maries.html">Mariage</a>
+                    <a href="residences.html">Résidences</a>
+                    <a href="corpo-memorable.html">Corpo</a>
+                    <a href="gallery.html">Galerie</a>
+                    <a href="../index.html#contact">Contact</a>
+                </nav>
+                <p class="footer-copyright">&copy; 2025 Dominic St-Laurent. Tous droits réservés.</p>
+            </div>
         </div>
     </footer>
+
+    <div class="floating-cta">
+        <a href="../index.html#contact" class="cta-button">Booker Dominic!</a>
+    </div>
+
+    <script src="../js/animations.js"></script>
 </body>
 </html>

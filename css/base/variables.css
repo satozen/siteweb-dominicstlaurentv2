@@ -1,0 +1,35 @@
+/**
+ * Base CSS Variables and Reset
+ * Contient les variables globales et le reset CSS
+ */
+
+:root {
+  --primary-color: #0a0a0a;
+  --secondary-color: #c8a45c;
+  --accent-color: #ffffff;
+  --text-color: #ffffff;
+  --text-muted: #9a9a9a;
+  --text-dark: #0a0a0a;
+  --bg-color: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+} 
