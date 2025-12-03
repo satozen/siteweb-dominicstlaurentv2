@@ -3641,8 +3641,6 @@ body:has(.wedding-hero) .format-card p {
 body:has(.wedding-hero) .format-card .format-icon i {
     color: #c4a882;
 }
-    transform: translateX(10px);
-}
 
 .format-icon {
     width: 50px;
