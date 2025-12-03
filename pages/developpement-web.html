@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<!--
+  Page Portfolio Projets Numériques - Dominic St-Laurent
+  Présente les projets créés par Dominic: applications interactives,
+  outils éducatifs, plateformes et produits numériques complets.
+  De l'idée à la réalisation.
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets Numériques | Portfolio | Dominic St-Laurent</title>
+    <meta name="description" content="Portfolio de projets numériques par Dominic St-Laurent. Applications interactives, outils éducatifs et produits complets - de l'idée à la réalisation.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../js/main.js" defer></script>
+    <style>
+        /* Styles spécifiques à la page portfolio */
+        .dev-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .dev-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Code rain effect */
+        .code-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            opacity: 0.03;
+            pointer-events: none;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #10b981;
+        }
+
+        .dev-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .dev-hero .hero-subtitle-line span {
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .dev-hero .magic-text {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .dev-hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Tech stack badges */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .tech-badge i {
+            margin-right: 0.5rem;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-section {
+            padding: 5rem 0;
+            background: var(--bg-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: linear-gradient(145deg, var(--bg-secondary), rgba(15, 23, 42, 0.8));
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(212, 175, 55, 0.1);
+        }
+
+        .project-preview {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e, #0f172a);
+        }
+
+        .project-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(10, 10, 10, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .project-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.8s ease;
+        }
+
+        .project-card:hover .project-preview img {
+            transform: scale(1.1);
+        }
+
+        /* Browser mockup frame */
+        .browser-frame {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            gap: 6px;
+            z-index: 2;
+        }
+
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .browser-dot.red { background: #ff5f56; }
+        .browser-dot.yellow { background: #ffbd2e; }
+        .browser-dot.green { background: #27c93f; }
+
+        /* Live indicator */
+        .live-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: #10b981;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .live-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse-live 2s infinite;
+        }
+
+        @keyframes pulse-live {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-type {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .project-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Project tech tags */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech span {
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            padding: 0.3rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Project links */
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-link.primary {
+            background: linear-gradient(135deg, var(--secondary-color), #b5942f);
+            color: var(--text-dark);
+        }
+
+        .project-link.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .project-link.secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+        }
+
+        .project-link.secondary:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Stats section */
+        .dev-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Skills section */
+        .skills-section {
+            padding: 4rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Dev */
+        .dev-cta {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .dev-cta h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .dev-cta p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dev-hero .magic-text {
+                font-size: 2.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dev-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-stack {
+                gap: 0.5rem;
+            }
+
+            .tech-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">DSTL</a>
+            <div class="nav-links">
+                <a href="../index.html#about">À Propos</a>
+                <a href="../index.html#services">Services</a>
+                <a href="maries.html">Mariage</a>
+                <a href="residences.html">Résidences</a>
+                <a href="corpo-memorable.html">Corpo</a>
+                <a href="gallery.html">Galerie</a>
+                <a href="projets.html" class="active">Projets</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero dev-hero">
+        <div class="code-rain"></div>
+        <div class="hero-content">
+            <div class="hero-subtitle-line" style="justify-content: center;">
+                <span><i class="fas fa-lightbulb"></i> Créateur de Projets</span>
+            </div>
+            <h1 class="magic-text">Des Idées.<br>Des Projets. Des Produits.</h1>
+            <p class="subtitle">
+                En plus d'animer vos événements, je crée des projets numériques complets — 
+                de l'idée initiale jusqu'au produit fini. Applications, outils éducatifs, 
+                expériences interactives.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge"><i class="fas fa-rocket"></i>Produits</span>
+                <span class="tech-badge"><i class="fas fa-gamepad"></i>Apps Interactives</span>
+                <span class="tech-badge"><i class="fas fa-graduation-cap"></i>Outils Éducatifs</span>
+                <span class="tech-badge"><i class="fas fa-robot"></i>IA Intégrée</span>
+                <span class="tech-badge"><i class="fas fa-paint-brush"></i>Design UX</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section class="portfolio-section">
+            <div class="container">
+                <h2 class="section-title">Mes Créations</h2>
+                <p class="section-intro">Des projets complets que j'ai imaginés, conçus et réalisés de A à Z.</p>
+
+                <div class="portfolio-grid">
+                    
+                    <!-- Projet 1: Drôles de Droits -->
+                    <article class="project-card">
+                        <div class="project-preview">
+                            <div class="browser-frame">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <span class="live-badge">En ligne</span>
+                            <div style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 2rem;">
+                                <i class="fas fa-balance-scale" style="font-size: 4rem; color: #fbbf24; margin-bottom: 1rem;"></i>
+                                <span style="color: #fbbf24; font-size: 1.5rem; font-weight: 700;">DRÔLES DE DROITS</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">Application Éducative</span>
+                            <h3 class="project-title">Drôles de Droits</h3>
+                            <p class="project-description">
+                                Jeu interactif pour sensibiliser les jeunes en centre jeunesse à leurs 12 droits d'usagers. 
+                                Scénarios engageants, quiz, assistant IA et ressources pédagogiques.
+                            </p>
+                            <div class="project-tech">
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>Tailwind</span>
+                                <span>IA</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://droles-de-droits.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> Voir le site
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2: Rendez-vous Mantra -->
+                    <article class="project-card">
+                        <div class="project-preview">
+                            <div class="browser-frame">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <span class="live-badge">En ligne</span>
+                            <div style="background: linear-gradient(135deg, #4a1942 0%, #1a0a1a 100%); height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 2rem;">
+                                <i class="fas fa-spa" style="font-size: 4rem; color: #e879f9; margin-bottom: 1rem;"></i>
+                                <span style="color: #e879f9; font-size: 1.5rem; font-weight: 700;">MANTRA</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">Plateforme de Réservation</span>
+                            <h3 class="project-title">Rendez-vous Mantra</h3>
+                            <p class="project-description">
+                                Application de prise de rendez-vous en ligne pour un studio de bien-être. 
+                                Interface épurée, gestion de calendrier et expérience client optimisée.
+                            </p>
+                            <div class="project-tech">
+                                <span>React</span>
+                                <span>Vite</span>
+                                <span>CSS Moderne</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://rendezvousmantra.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> Voir le site
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projet 3: Mon Livre d'Aventure -->
+                    <article class="project-card">
+                        <div class="project-preview">
+                            <div class="browser-frame">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <span class="live-badge">En ligne</span>
+                            <div style="background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%); height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 2rem;">
+                                <i class="fas fa-book-open" style="font-size: 4rem; color: #60a5fa; margin-bottom: 1rem;"></i>
+                                <span style="color: #60a5fa; font-size: 1.5rem; font-weight: 700;">MON LIVRE D'AVENTURE</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">Application Interactive</span>
+                            <h3 class="project-title">Mon Livre d'Aventure</h3>
+                            <p class="project-description">
+                                Plateforme de création de livres personnalisés pour enfants. 
+                                Histoires interactives où l'enfant devient le héros de son aventure.
+                            </p>
+                            <div class="project-tech">
+                                <span>Web App</span>
+                                <span>JavaScript</span>
+                                <span>UX Design</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.monlivredaventure.com" target="_blank" rel="noopener noreferrer" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> Voir le site
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Stats -->
+                <div class="dev-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Projets lancés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Conçus de A à Z</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">🎯</span>
+                        <span class="stat-label">Axés utilisateur</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">🚀</span>
+                        <span class="stat-label">En production</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Approche -->
+        <section class="skills-section">
+            <div class="container">
+                <h2 class="section-title">Mon Approche</h2>
+                <p class="section-intro">Chaque projet part d'un besoin réel et devient un produit qui fonctionne.</p>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h4>L'Idée d'Abord</h4>
+                        <p>Tout commence par un problème à résoudre ou une expérience à créer. La technologie suit, pas l'inverse.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Pensé pour les Gens</h4>
+                        <p>Interfaces intuitives, parcours fluides. Si c'est compliqué à utiliser, c'est raté.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Du Concept au Produit</h4>
+                        <p>Je ne fais pas juste du code — je crée des projets complets, prêts à être utilisés.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-robot"></i>
+                        <h4>IA Quand Ça Fait du Sens</h4>
+                        <p>J'intègre l'intelligence artificielle là où elle apporte vraiment de la valeur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="dev-cta">
+            <div class="container">
+                <h2>Une idée de projet?</h2>
+                <p>Vous avez une idée qui vous trotte dans la tête? Un outil qui devrait exister? Parlons-en!</p>
+                <a href="../index.html#contact" class="cta-button">Discutons de votre idée</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-compact">
+                <div class="footer-contact">
+                    <a href="mailto:info@dominicstlaurent.ca" class="footer-email">info@dominicstlaurent.ca</a>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@dominicstlaurent?si=e8heqAlxwrQ_Ibnw" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <nav class="footer-nav-inline">
+                    <a href="../index.html#about">À Propos</a>
+                    <a href="../index.html#services">Services</a>
+                    <a href="maries.html">Mariage</a>
+                    <a href="residences.html">Résidences</a>
+                    <a href="corpo-memorable.html">Corpo</a>
+                    <a href="gallery.html">Galerie</a>
+                    <a href="projets.html">Projets</a>
+                    <a href="../index.html#contact">Contact</a>
+                </nav>
+                <p class="footer-copyright">&copy; 2025 Dominic St-Laurent. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/animations.js"></script>
+</body>
+</html>
+
