@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<!--
+  Page de Proposition Corpo - Dominic St-Laurent
+  Page de soumission pour événements corporatifs avec tableau comparatif
+  des forfaits Express, Signature et Sénateur. Inclut les détails de chaque
+  composante de l'animation et les tarifs. Design premium noir/doré.
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposition d'Animation Corporative | Dominic St-Laurent</title>
+    <meta name="description" content="Proposition d'animation pour votre événement corporatif. Forfaits Express, Signature et Sénateur. Animation personnalisée, roasts sur mesure, musique live.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../js/main.js" defer></script>
+    <style>
+        /* ========================================
+           STYLES SPÉCIFIQUES PAGE PROPOSITION
+           ======================================== */
+        
+        .proposal-hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            padding: 120px 0 60px;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .proposal-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(74, 48, 80, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .proposal-hero .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .proposal-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-color), var(--gold-400));
+            color: var(--text-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .proposal-hero h1 {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        
+        .proposal-hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        
+        .proposal-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .meta-item i {
+            color: var(--secondary-color);
+        }
+        
+        /* Tableau comparatif des forfaits */
+        .pricing-section {
+            padding: 5rem 0;
+            background: var(--bg-color);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, var(--bg-secondary), rgba(15, 23, 42, 0.7));
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--secondary-color);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--secondary-color), var(--gold-400));
+            color: var(--text-dark);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+        
+        .pricing-header {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-name {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .pricing-card.featured .pricing-name {
+            color: var(--secondary-color);
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        
+        .pricing-features {
+            flex: 1;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+        
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-features li i {
+            color: #4ECDC4;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .pricing-features li.not-included {
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+        
+        .pricing-features li.not-included i {
+            color: #6b7280;
+        }
+        
+        .pricing-features li .feature-note {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            margin-top: 0.25rem;
+        }
+        
+        .pricing-cta {
+            text-align: center;
+        }
+        
+        .pricing-cta .cta-button {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .pricing-card.featured .cta-button {
+            background: linear-gradient(135deg, var(--secondary-color), var(--gold-400));
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+        
+        /* Section frais additionnels */
+        .additional-info {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+        
+        .additional-info p {
+            color: var(--text-muted);
+            margin: 0.5rem 0;
+        }
+        
+        .additional-info strong {
+            color: var(--secondary-color);
+        }
+        
+        /* Section détails des éléments */
+        .details-section {
+            padding: 5rem 0;
+            background: var(--bg-secondary);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .detail-card {
+            background: rgba(10, 10, 10, 0.6);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .detail-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .detail-icon i {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+        }
+        
+        .detail-header h3 {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin: 0;
+        }
+        
+        .detail-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .detail-card p strong {
+            color: var(--secondary-color);
+        }
+        
+        .detail-examples {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .detail-examples p {
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        
+        /* Detail card avec image */
+        .detail-card-featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(10, 10, 10, 0.9));
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .detail-with-image {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .detail-text {
+            flex: 1;
+        }
+        
+        .detail-text p {
+            margin-bottom: 1rem;
+        }
+        
+        .detail-image {
+            flex: 0 0 280px;
+            position: relative;
+        }
+        
+        .detail-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .detail-image img:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+            border-color: var(--secondary-color);
+        }
+        
+        @media (max-width: 1024px) {
+            .detail-card-featured {
+                grid-column: span 1;
+            }
+            
+            .detail-with-image {
+                flex-direction: column;
+            }
+            
+            .detail-image {
+                flex: none;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+        
+        /* Section Pourquoi choisir */
+        .why-section {
+            padding: 5rem 0;
+            background: var(--bg-color);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .why-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, var(--bg-secondary), rgba(15, 23, 42, 0.5));
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .why-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .why-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .why-card h4 {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+        }
+        
+        .why-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Section CTA finale */
+        .final-cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--burgundy-900) 0%, var(--bg-secondary) 50%, var(--burgundy-900) 100%);
+            text-align: center;
+            position: relative;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .final-cta .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .proposal-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .proposal-hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .proposal-meta {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .pricing-price {
+                font-size: 2.5rem;
+            }
+            
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">DSTL</a>
+            <div class="nav-links">
+                <a href="../index.html#about">À Propos</a>
+                <a href="../index.html#services">Services</a>
+                <a href="maries.html">Mariage</a>
+                <a href="residences.html">Résidences</a>
+                <a href="corpo-memorable.html">Corpo</a>
+                <a href="gallery.html">Galerie</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="proposal-hero">
+        <div class="hero-content">
+            <span class="proposal-badge">Proposition d'animation</span>
+            <h1>Événement Corporatif</h1>
+            <p class="subtitle">Une soirée à l'image de votre équipe : dynamique, mémorable et pas mal festive. Inclut le matériel sonore et l'éclairage de base pour une salle jusqu'à 150 personnes.</p>
+            
+            <div class="proposal-meta">
+                <div class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span>Jusqu'à 150 personnes</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-music"></i>
+                    <span>Sono & éclairage inclus</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-star"></i>
+                    <span>Animation clé en main</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        
+        <!-- Section Tableau comparatif -->
+        <section class="pricing-section">
+            <div class="container">
+                <h2 class="section-title">Choisissez votre forfait</h2>
+                <p class="section-intro">Trois formules pour répondre à tous les besoins et budgets. Taxes en sus.</p>
+                
+                <div class="pricing-grid">
+                    
+                    <!-- Forfait Express -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">Express</h3>
+                            <div class="pricing-price">2 000 $<span></span></div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Animation complète & DJ musique d'ambiance
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Sono et éclairage de base (jusqu'à 150 pers.)
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Musique live (45 min)
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Grand jeu de la compagnie
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Roasts personnalisés
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Bâtis ta toune
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Numéros spéciaux
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Jingle personnalisé
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Photobooth
+                            </li>
+                        </ul>
+                        <div class="pricing-cta">
+                            <a href="../index.html#contact" class="cta-button outline">Choisir Express</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Forfait Signature (Featured) -->
+                    <div class="pricing-card featured">
+                        <span class="popular-badge">⭐ Le plus populaire</span>
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">Signature</h3>
+                            <div class="pricing-price">2 850 $<span></span></div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Animation complète & DJ musique d'ambiance
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Sono et éclairage de base (jusqu'à 150 pers.)
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Musique live (45 min – voix + trame)
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Grand jeu de la compagnie
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Roasts personnalisés (avec imitations)
+                                <span class="feature-note">Jusqu'à 3 roasts</span>
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Bâtis ta toune
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Numéros spéciaux
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Jingle personnalisé
+                                <span class="feature-note">Performé live</span>
+                            </li>
+                            <li class="not-included">
+                                <i class="fas fa-times"></i>
+                                Photobooth
+                            </li>
+                        </ul>
+                        <div class="pricing-cta">
+                            <a href="../index.html#contact" class="cta-button">Choisir Signature</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Forfait Sénateur -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="pricing-name">Sénateur</h3>
+                            <div class="pricing-price">3 900 $<span></span></div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Animation complète & DJ musique d'ambiance
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Sono et éclairage de base (jusqu'à 150 pers.)
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Musique live (90 min – voix + trame)
+                                <span class="feature-note">45 min + 45 min bonus</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Grand jeu de la compagnie
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Roasts personnalisés (avec imitations)
+                                <span class="feature-note">Jusqu'à 3 roasts</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <strong>Bâtis ta toune</strong>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <strong>Numéro de ventriloquie</strong>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <strong>Jonglerie lumineuse (LED)</strong>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <strong>Tableau surprise</strong>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                Jingle personnalisé
+                                <span class="feature-note">Performé live + remis</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <strong>Photobooth pour vos invités</strong>
+                            </li>
+                        </ul>
+                        <div class="pricing-cta">
+                            <a href="../index.html#contact" class="cta-button outline">Choisir Sénateur</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="additional-info">
+                    <p><strong>Frais de déplacement :</strong> 225 $</p>
+                    <p>La majorité de mes clients choisissent le <strong>Forfait Signature</strong>, car il combine personnalisation, humour et moments spectaculaires — sans compromis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Détails des éléments -->
+        <section class="details-section">
+            <div class="container">
+                <h2 class="section-title">Détails des éléments</h2>
+                <p class="section-intro">Découvrez ce qui rend chaque composante unique et mémorable.</p>
+                
+                <div class="details-grid">
+                    
+                    <!-- Le Grand Jeu de la Compagnie -->
+                    <div class="detail-card detail-card-featured">
+                        <div class="detail-header">
+                            <div class="detail-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3>Le Grand Jeu de la Compagnie</h3>
+                        </div>
+                        <div class="detail-with-image">
+                            <div class="detail-text">
+                                <p>C'est comme Le Banquier, mais sans le rire fatigant de Julie Snyder. Dès qu'il y a de l'argent en jeu — même si c'est de la fausse monnaie — <strong>les employés s'investissent et participent avec passion</strong>. Les jeux sont créés sur mesure pour refléter VOTRE réalité.</p>
+                                <div class="detail-examples">
+                                    <p>Ça pourrait ressembler à : Un <strong>quiz sur les anecdotes marquantes</strong> de votre année. Une <strong>course contre la montre</strong> pour les compétitifs. Votre <strong>directeur qui surprend tout le monde</strong> avec ses talents cachés.</p>
+                                </div>
+                            </div>
+                            <div class="detail-image">
+                                <img src="../images/assets/Mock Up_grand Jeu Defis et consequences.jpeg" alt="Le Grand Jeu - Défis et Conséquences">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bâtis ta Toune -->
+                    <div class="detail-card">
+                        <div class="detail-header">
+                            <div class="detail-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h3>Bâtis ta Toune</h3>
+                        </div>
+                        <p>Le but de vos employés? <strong>Me mettre au défi.</strong> Je récolte 15 mots au courant de la soirée — les plus originaux ou les plus "inside" possibles. Ensuite, je crée une <strong>chanson improvisée qui rime, en direct</strong>, devant tout le monde.</p>
+                        <div class="detail-examples">
+                            <p>Exemples de mots : "la machine à café capricieuse", "le meeting du lundi matin", "le dossier urgent de 16h". C'est l'un des <strong>moments les plus marquants</strong> : rapide, surprenant et dont tout le monde parle le lendemain.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Numéro de Ventriloquie -->
+                    <div class="detail-card">
+                        <div class="detail-header">
+                            <div class="detail-icon">
+                                <i class="fas fa-hand-sparkles"></i>
+                            </div>
+                            <h3>Numéro de Ventriloquie</h3>
+                        </div>
+                        <p>J'invite quelqu'un du public à me rejoindre. Cette personne devient <strong>ma marionnette humaine</strong>. Je lui prête ma voix pour lui faire dire des niaiseries. C'est absurde, un peu gênant pour elle, mais <strong>absolument hilarant</strong> pour tous les autres.</p>
+                        <div class="detail-examples">
+                            <p>Parfait pour <strong>taquiner un gestionnaire apprécié</strong> de façon ludique. On rit ensemble, jamais contre!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Roasts Personnalisés -->
+                    <div class="detail-card">
+                        <div class="detail-header">
+                            <div class="detail-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3>Roasts Personnalisés</h3>
+                        </div>
+                        <p><strong>Zéro générique.</strong> Chaque blague est taillée sur mesure pour VOS gens. Je fais une recherche approfondie : vos inside jokes, vos anecdotes de bureau, vos moments épiques de l'année. <strong>Imitations incluses</strong> si l'un de vos collègues a une voix ou une expression signature.</p>
+                        <div class="detail-examples">
+                            <p>On rit ensemble — un humour complice qui <strong>inclut tout le monde sans jamais être méchant</strong>.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Jonglerie Lumineuse -->
+                    <div class="detail-card">
+                        <div class="detail-header">
+                            <div class="detail-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Jonglerie Lumineuse (LED)</h3>
+                        </div>
+                        <p>Un <strong>moment "wow" visuel</strong>. Des balles lumineuses dans le noir, synchronisées avec la musique. C'est la touche moderne parfaite pour marquer une transition ou créer un <strong>moment "Instagram"</strong> durant la soirée.</p>
+                    </div>
+                    
+                    <!-- Photobooth -->
+                    <div class="detail-card">
+                        <div class="detail-header">
+                            <div class="detail-icon">
+                                <i class="fas fa-camera-retro"></i>
+                            </div>
+                            <h3>Photobooth</h3>
+                        </div>
+                        <p>Vos invités repartent avec des <strong>souvenirs tangibles</strong>. Accessoires thématiques, impressions sur place et un <strong>lien numérique</strong> pour récupérer toutes les photos après l'événement.</p>
+                        <div class="detail-examples">
+                            <p><strong>Inclus dans le Forfait Sénateur</strong> uniquement.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Pourquoi choisir -->
+        <section class="why-section">
+            <div class="container">
+                <h2 class="section-title">Pourquoi choisir cette animation?</h2>
+                
+                <div class="why-grid">
+                    <div class="why-card">
+                        <i class="fas fa-guitar"></i>
+                        <h4>Multi-talents</h4>
+                        <p>MC, chanteur, DJ, imitateur. Un seul professionnel pour tout gérer, une solution clé en main.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Interactif</h4>
+                        <p>Le public ne regarde pas seulement, il PARTICIPE. C'est leur spectacle autant que le mien.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>Complicité</h4>
+                        <p>Je deviens "un des vôtres" le temps d'une soirée, loin du script rigide d'un étranger.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <i class="fas fa-cogs"></i>
+                        <h4>Sur mesure</h4>
+                        <p>Peu importe votre secteur d'activité, je m'adapte à votre culture d'entreprise et à votre réalité quotidienne.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="final-cta">
+            <div class="container">
+                <h2>Prêt à transformer votre événement?</h2>
+                <p>Contactez-moi pour discuter de votre projet et réserver votre date.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#contact" class="cta-button">Confirmer ma réservation</a>
+                    <a href="corpo-memorable.html" class="cta-button outline">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-compact">
+                <div class="footer-contact">
+                    <a href="mailto:info@dominicstlaurent.ca" class="footer-email">info@dominicstlaurent.ca</a>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@dominicstlaurent?si=e8heqAlxwrQ_Ibnw" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <nav class="footer-nav-inline">
+                    <a href="../index.html#about">À Propos</a>
+                    <a href="../index.html#services">Services</a>
+                    <a href="maries.html">Mariage</a>
+                    <a href="residences.html">Résidences</a>
+                    <a href="corpo-memorable.html">Corpo</a>
+                    <a href="gallery.html">Galerie</a>
+                    <a href="../index.html#contact">Contact</a>
+                </nav>
+                <p class="footer-copyright">&copy; 2025 Dominic St-Laurent. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/animations.js"></script>
+</body>
+</html>
+

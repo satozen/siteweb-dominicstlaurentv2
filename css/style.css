@@ -127,6 +127,7 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -236,6 +237,7 @@ nav {
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: block;
+        z-index: 1001;
     }
 
     .nav-links {
@@ -244,10 +246,20 @@ nav {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--primary-color);
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         flex-direction: column;
-        padding: 1rem;
+        padding: 1.5rem 1rem;
         text-align: center;
+        gap: 0.5rem;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-links a {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
     }
 
     .nav-links.show {
@@ -2865,13 +2877,16 @@ body:has(.wedding-hero) .step-number {
 
 @media (max-width: 768px) {
     .floating-cta {
-        bottom: 10px;
-        right: 10px;
+        bottom: 15px;
+        right: 50%;
+        transform: translateX(50%);
+        left: auto;
     }
     
     .floating-cta .cta-button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
     }
 }
 
@@ -3676,6 +3691,148 @@ body:has(.wedding-hero) .format-card .format-icon i {
 /* ========================================
    DIFFERENTIATORS - Ce qui me différencie
    ======================================== */
+
+/* ========================================
+   BIO SECTION - Page d'accueil
+   ======================================== */
+
+.bio-section {
+    padding: 5rem 0;
+}
+
+.bio-content {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    margin-top: 3rem;
+}
+
+.bio-image {
+    flex: 0 0 350px;
+    position: relative;
+}
+
+.bio-image {
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.bio-image img {
+    width: 133.33%;
+    height: 133.33%;
+    object-fit: cover;
+    object-position: 20.83% 20.83%;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border: 3px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.4s ease;
+}
+
+.bio-image:hover img {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+    border-color: var(--secondary-color);
+}
+
+.bio-badge {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--secondary-color), var(--gold-400));
+    color: var(--text-dark);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+.bio-badge i {
+    font-size: 1rem;
+}
+
+.bio-text {
+    flex: 1;
+}
+
+.bio-text p {
+    color: var(--text-color);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+.bio-intro {
+    font-size: 1.15rem !important;
+    color: var(--text-color);
+}
+
+.bio-text strong {
+    color: var(--secondary-color);
+}
+
+.bio-text em {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.bio-highlight {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+    border-left: 4px solid var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.bio-highlight i {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.bio-highlight p {
+    margin: 0 !important;
+    font-size: 1rem !important;
+}
+
+.bio-tagline {
+    font-size: 1.2rem !important;
+    font-weight: 500;
+    color: var(--accent-color) !important;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 968px) {
+    .bio-content {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .bio-image {
+        flex: none;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .bio-text p {
+        font-size: 1rem;
+    }
+    
+    .bio-intro {
+        font-size: 1.05rem !important;
+    }
+}
 
 .differentiators {
     display: grid;

@@ -36,19 +36,56 @@
         /* Additional responsive fixes */
         @media (max-width: 768px) {
             .hero-title-block .magic-text {
-                white-space: nowrap;
-                font-size: 2.5rem;
+                white-space: normal;
+                word-wrap: break-word;
+                font-size: 2.2rem;
+                line-height: 1.2;
             }
             
             .hero-image img {
                 width: 100%;
                 max-width: 100%;
             }
+            
+            /* Fix CTA button on mobile */
+            .hero-content .cta-button {
+                white-space: normal;
+                padding: 12px 20px;
+                font-size: 0.75rem;
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            /* Fix hero headline on mobile */
+            .hero-headline .main-headline {
+                font-size: 1.6rem;
+            }
         }
         
         @media (max-width: 480px) {
             .hero-title-block .magic-text {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                line-height: 1.15;
+            }
+            
+            .hero-content .cta-button {
+                font-size: 0.7rem;
+                padding: 10px 16px;
+            }
+            
+            .hero-headline .main-headline {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .hero-title-block .magic-text {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content .cta-button {
+                font-size: 0.65rem;
+                padding: 8px 14px;
             }
         }
         
@@ -74,7 +111,7 @@
         <nav class="container">
             <a href="index.html" class="logo">DSTL</a>
             <div class="nav-links">
-                <a href="#about">À Propos</a>
+                <a href="#bio">Bio</a>
                 <a href="#services">Services</a>
                 <a href="pages/maries.html">Mariage</a>
                 <a href="pages/residences.html">Résidences</a>
@@ -260,6 +297,34 @@
                     <div class="video-container">
                         <iframe frameborder="0" allowfullscreen></iframe>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Biographie -->
+        <section id="bio" class="container bio-section">
+            <h2 class="section-title">L'Artiste</h2>
+            <div class="bio-content">
+                <div class="bio-image">
+                    <img src="images/gallery/Peter Pan Première_ 46_pirates_cecco.jpg" alt="Dominic St-Laurent">
+                    <div class="bio-badge">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Actuellement dans Peter Pan</span>
+                    </div>
+                </div>
+                <div class="bio-text">
+                    <p class="bio-intro">Interprète multitask — chanteur, acteur, danseur — <strong>Dominic St-Laurent</strong> s'impose sur scène dans des comédies musicales québécoises (<em>Grease, Blue Suede Show, Radio-Cassette, Tootsie, Peter Pan</em>) où sa contribution dépasse l'interprétation : il a co-signé les textes des spectacles musicaux des <strong>Productions Grand V</strong>.</p>
+                    
+                    <p>Du côté télé : après des rôles remarqués dans <em>Sans rancune</em> et <em>Marc-en-Peluche</em>, sa performance dans <em>Audrey est revenue</em> lui vaut une <strong>nomination aux Gémeaux</strong>. On l'aperçoit aussi dans <em>Temps de chien</em> et <em>Indéfendable</em>. À la télé, il incarne le charismatique <strong>Abra Kavanagh</strong> dans <em>Qui a poussé Mélodie?</em></p>
+                    
+                    <p>Maître de cérémonie prisé des événements corporatifs, il a conquis le public avec son spectacle humoristique <strong>J'ai ben l'droit!</strong>, qu'il a présenté partout jusqu'au Yukon. <em>(Faisait frette, vous dira-t-il.)</em></p>
+                    
+                    <div class="bio-highlight">
+                        <i class="fas fa-star"></i>
+                        <p><strong>Actualité 2026 :</strong> Dominic vient de terminer les représentations de <em>Peter Pan</em> à l'<strong>Espace St-Denis</strong> où il a interprété le pirate Cecco et a eu l'honneur d'être le remplaçant officiel de <strong>Benoît Brière</strong> dans le rôle du Capitaine Crochet. Cet été, retrouvez-le à la <strong>Salle Albert Rousseau</strong> à partir du mois d'août!</p>
+                    </div>
+                    
+                    <p class="bio-tagline">Sur scène, on le compare au <strong>lapin Energizer</strong> à qui on aurait donné un micro. 🎤</p>
                 </div>
             </div>
         </section>
