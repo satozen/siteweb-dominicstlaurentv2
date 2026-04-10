@@ -103,8 +103,10 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
+            transition: all 0.8s ease;
             min-height: 300px;
+            filter: grayscale(30%);
+            transform: scale(1);
         }
 
         .gallery-item:hover {
@@ -115,18 +117,22 @@
 
         .gallery-item:hover img {
             transform: scale(1.1);
+            filter: grayscale(0%);
         }
 
-        /* Overlay on hover */
+        /* Overlay on hover - style Services offerts */
         .gallery-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(5, 5, 5, 0.95) 0%,
+                rgba(5, 5, 5, 0.7) 40%,
+                rgba(5, 5, 5, 0.2) 70%,
+                transparent 100%
+            );
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.5s ease;
             display: flex;
             align-items: flex-end;
             padding: 1.5rem;
@@ -134,22 +140,85 @@
 
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
+            background: linear-gradient(
+                to top,
+                rgba(5, 5, 5, 0.98) 0%,
+                rgba(5, 5, 5, 0.8) 50%,
+                rgba(5, 5, 5, 0.4) 80%,
+                rgba(5, 5, 5, 0.2) 100%
+            );
         }
 
         .gallery-overlay-content {
             color: white;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
+            transform: translateY(0);
+            transition: all 0.5s ease;
         }
 
-        .gallery-item:hover .gallery-overlay-content {
+        /* Tag / Catégorie */
+        .gallery-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--secondary-color);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-tag {
+            opacity: 1;
             transform: translateY(0);
         }
 
         .gallery-overlay h3 {
-            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.6rem;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay h3 {
             color: var(--secondary-color);
-            margin-bottom: 0.5rem;
+        }
+
+        /* Ligne décorative */
+        .gallery-line {
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(to right, #6B4570, var(--secondary-color));
+            margin-bottom: 0.8rem;
+            transition: width 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-line {
+            width: 60px;
+        }
+
+        /* Description */
+        .gallery-overlay p {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #94a3b8;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.5s ease 0.15s;
+            max-height: 0;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .gallery-item:hover .gallery-overlay p {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 80px;
         }
 
         /* Lightbox */
@@ -381,35 +450,35 @@
     <script>
         // Gallery images array
         const images = [
-            { src: '../images/gallery/DSTL_Afro_siteweb.jpg', title: 'Dominic en action' },
-            { src: '../images/gallery/DSTL_Astronaute_siteweb.png', title: 'Performance astronaute' },
-            { src: '../images/gallery/DSTL_Audrey_siteweb.png', title: 'Spectacle' },
-            { src: '../images/gallery/DSTL_Ballons_siteweb.jpeg', title: 'Ambiance festive' },
-            { src: '../images/gallery/DSTL_Beige_siteweb.jpg', title: 'Performance' },
-            { src: '../images/gallery/DSTL_Blonde_siteweb.jpg', title: 'En action' },
-            { src: '../images/gallery/DSTL_Cassette1_siteweb.jpg', title: 'Rétro vibes' },
-            { src: '../images/gallery/DSTL_Cassette2_siteweb.jpg', title: 'Style vintage' },
-            { src: '../images/gallery/DSTL_Chapeau_siteweb.jpg', title: 'Élégance' },
-            { src: '../images/gallery/DSTL_Cirque_siteweb.png', title: 'Spectacle cirque' },
-            { src: '../images/gallery/DSTL_Crooner_siteweb.PNG', title: 'Crooner chic' },
-            { src: '../images/gallery/DSTL_Disco_siteweb.jpg', title: 'Disco fever' },
-            { src: '../images/gallery/DSTL_Disco70_siteweb.png', title: 'Années 70' },
-            { src: '../images/gallery/DSTL_Film_siteweb.jpg', title: 'Cinéma' },
-            { src: '../images/gallery/DSTL_Gala_siteweb.JPG', title: 'Soirée gala' },
-            { src: '../images/gallery/DSTL_Geste_siteweb.jpg', title: 'Animation' },
-            { src: '../images/gallery/DSTL_Grease_siteweb.png', title: 'Grease style' },
-            { src: '../images/gallery/DSTL_Groupe_siteweb.jpg', title: 'Performance de groupe' },
-            { src: '../images/gallery/DSTL_Header1_siteweb.png', title: 'En scène' },
-            { src: '../images/gallery/DSTL_Header2_siteweb.png', title: 'Show time' },
-            { src: '../images/gallery/DSTL_Noir_siteweb.jpg', title: 'Élégance noire' },
-            { src: '../images/gallery/DSTL_Rose_siteweb.png', title: 'Ambiance rose' },
-            { src: '../images/gallery/DSTL_Rouge_siteweb.jpg', title: 'Rouge passion' },
-            { src: '../images/gallery/DSTL_Sol_siteweb.jpg', title: 'Performance solo' },
-            { src: '../images/gallery/DSTL_Sourire_siteweb.jpg', title: 'Joie de vivre' },
-            { src: '../images/gallery/DSTL_Steampunk_siteweb.png', title: 'Steampunk' },
-            { src: '../images/gallery/DSTL_Theatre_siteweb.jpg', title: 'Théâtre' },
-            { src: '../images/gallery/DSTL_Trio_siteweb.jpg', title: 'Trio musical' },
-            { src: '../images/gallery/DSTL_Violet_siteweb.JPG', title: 'Violet vibrant' }
+            { src: '../images/gallery/DSTL_Afro_siteweb.jpg', title: 'Dominic en action', tag: 'Costume', desc: 'La polyvalence incarnée — un artiste, mille visages.' },
+            { src: '../images/gallery/DSTL_Astronaute_siteweb.webp', title: 'L\'Astronaute', tag: 'Personnage', desc: 'Animation costumée pour événements familiaux et corporatifs.' },
+            { src: '../images/gallery/DSTL_Audrey_siteweb.webp', title: 'Audrey est revenue', tag: 'Télévision', desc: 'Rôle nommé aux Gémeaux dans cette série télévisée.' },
+            { src: '../images/gallery/DSTL_Ballons_siteweb.jpeg', title: 'Ambiance festive', tag: 'Résidence', desc: 'Animation chaleureuse pour les résidences de personnes aînées.' },
+            { src: '../images/gallery/DSTL_Beige_siteweb.jpg', title: 'Sur scène', tag: 'Performance', desc: 'Énergie et charisme sur chaque scène.' },
+            { src: '../images/gallery/DSTL_Blonde_siteweb.jpg', title: 'Transformation', tag: 'Costume', desc: 'L\'art du déguisement au service du divertissement.' },
+            { src: '../images/gallery/DSTL_Cassette1_siteweb.jpg', title: 'Radio-Cassette', tag: 'Théâtre', desc: 'Comédie musicale des Productions Grand V.' },
+            { src: '../images/gallery/DSTL_Cassette2_siteweb.jpg', title: 'Radio-Cassette', tag: 'Théâtre', desc: 'Co-auteur des textes de ce spectacle musical.' },
+            { src: '../images/gallery/DSTL_Chapeau_siteweb.jpg', title: 'Élégance', tag: 'Crooner', desc: 'Ambiance feutrée et répertoire de standards intemporels.' },
+            { src: '../images/gallery/DSTL_Cirque_siteweb.webp', title: 'Spectacle cirque', tag: 'Performance', desc: 'Des numéros qui repoussent les limites.' },
+            { src: '../images/gallery/DSTL_Crooner_siteweb.PNG', title: 'Le Crooner', tag: 'Musique', desc: 'Chanteur jazz pour vos 5 à 7 et soirées chic.' },
+            { src: '../images/gallery/DSTL_Disco_siteweb.jpg', title: 'Disco Fever', tag: 'Costume', desc: 'Thématique disco pour des soirées inoubliables.' },
+            { src: '../images/gallery/DSTL_Disco70_siteweb.webp', title: 'Années 70', tag: 'Costume', desc: 'Voyage dans le temps garanti.' },
+            { src: '../images/gallery/DSTL_Film_siteweb.jpg', title: 'Film Noir', tag: 'Costume', desc: 'Ambiance cinématographique et mystère.' },
+            { src: '../images/gallery/DSTL_Gala_siteweb.JPG', title: 'Soirée Gala', tag: 'Corporatif', desc: 'MC professionnel pour galas et remises de prix.' },
+            { src: '../images/gallery/DSTL_Geste_siteweb.jpg', title: 'Animation', tag: 'Performance', desc: 'L\'énergie communicative en pleine action.' },
+            { src: '../images/gallery/DSTL_Grease_siteweb.webp', title: 'Grease', tag: 'Théâtre', desc: 'Comédie musicale culte sur les scènes québécoises.' },
+            { src: '../images/gallery/DSTL_Groupe_siteweb.jpg', title: 'En équipe', tag: 'Performance', desc: 'Collaborations et performances de groupe.' },
+            { src: '../images/gallery/DSTL_Header1_siteweb.webp', title: 'En scène', tag: 'Performance', desc: 'Le couteau suisse de la scène en action.' },
+            { src: '../images/gallery/DSTL_Header2_siteweb.webp', title: 'Show Time', tag: 'Performance', desc: 'Chaque spectacle est une expérience unique.' },
+            { src: '../images/gallery/DSTL_Noir_siteweb.jpg', title: 'Maître de Cérémonie', tag: 'Corporatif', desc: 'Élégance et professionnalisme pour vos événements.' },
+            { src: '../images/gallery/DSTL_Rose_siteweb.webp', title: 'Ambiance rose', tag: 'Costume', desc: 'Créativité sans limites dans chaque personnage.' },
+            { src: '../images/gallery/DSTL_Rouge_siteweb.jpg', title: 'Rouge passion', tag: 'Performance', desc: 'Intensité et passion sur scène.' },
+            { src: '../images/gallery/DSTL_Sol_siteweb.jpg', title: 'Au sol', tag: 'Performance', desc: 'L\'engagement physique total dans chaque numéro.' },
+            { src: '../images/gallery/DSTL_Sourire_siteweb.jpg', title: 'Joie de vivre', tag: 'Portrait', desc: 'Le sourire contagieux qui fait la différence.' },
+            { src: '../images/gallery/DSTL_Steampunk_siteweb.webp', title: 'Steampunk', tag: 'Costume', desc: 'Personnage unique pour événements thématiques.' },
+            { src: '../images/gallery/DSTL_Theatre_siteweb.jpg', title: 'Au théâtre', tag: 'Théâtre', desc: 'Des dizaines de productions à son actif.' },
+            { src: '../images/gallery/DSTL_Trio_siteweb.jpg', title: 'Le Trio', tag: 'Musique', desc: 'Performances musicales en formation.' },
+            { src: '../images/gallery/DSTL_Violet_siteweb.JPG', title: 'Violet vibrant', tag: 'Costume', desc: 'Couleur et éclat dans chaque apparition.' }
         ];
 
         // Load gallery
@@ -422,7 +491,10 @@
                 <img src="${img.src}" alt="${img.title}" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="gallery-overlay-content">
+                        <span class="gallery-tag">${img.tag}</span>
                         <h3>${img.title}</h3>
+                        <div class="gallery-line"></div>
+                        <p>${img.desc}</p>
                     </div>
                 </div>
             `;
