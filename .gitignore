@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Original images (WebP versions are used instead)
+images/**/*.jpg
+images/**/*.jpeg
+images/**/*.JPG
+images/**/*.JPEG
+images/**/*.png
+images/**/*.PNG
+
+# Keep WebP files tracked
+!images/**/*.webp
+
+# Video files (too large for git)
+images/**/*.mp4
+
+# Claude Code local settings
+.claude/

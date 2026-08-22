@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = ''; // Réactive le scroll
     }
     
-    // Ajouter l'événement au bouton de retour
-    returnBtn.addEventListener('click', closeModal);
-    closeBtn.addEventListener('click', closeModal);
+    // Ajouter l'événement aux boutons de fermeture
+    if (returnBtn) returnBtn.addEventListener('click', closeModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', function(e) {
         if (e.target === modal) closeModal();
     });
