@@ -50,6 +50,28 @@
             margin: 0 auto;
         }
 
+        /* Section headings */
+        .gallery-section-head {
+            margin: 0 0 2rem;
+        }
+
+        .gallery-section-head:not(:first-child) {
+            margin-top: 4rem;
+        }
+
+        .gallery-section-head h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--secondary-color);
+            margin: 0 0 0.5rem;
+        }
+
+        .gallery-section-head p {
+            color: var(--text-muted);
+            margin: 0;
+            max-width: 640px;
+        }
+
         /* Bento Box Gallery Grid */
         .gallery-container {
             padding: 4rem 2rem;
@@ -387,9 +409,17 @@
     </section>
 
     <div class="gallery-container">
-        <div class="gallery-grid" id="galleryGrid">
-            <!-- Images will be loaded here by JavaScript -->
+        <div class="gallery-section-head">
+            <h2>Chartwell &mdash; Beach Club</h2>
+            <p>Journée thématique tropicale avec les résidents : animation, danse sur le sable et plongeon dans la piscine.</p>
         </div>
+        <div class="gallery-grid" id="eventGrid"></div>
+
+        <div class="gallery-section-head">
+            <h2>Portfolio</h2>
+            <p>Personnages, scènes et productions.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
     </div>
 
     <!-- Lightbox -->
@@ -448,8 +478,20 @@
     </footer>
 
     <script>
+        // Chartwell - Beach Club (evenement)
+        const eventImages = [
+            { src: '../images/gallery/DSTL_Chartwell_01_siteweb.webp', title: 'Au cœur de la foule', tag: 'Chartwell', desc: 'Le micro dans la foule : personne ne reste assis bien longtemps.' },
+            { src: '../images/gallery/DSTL_Chartwell_02_siteweb.webp', title: 'Ça danse au Beach Club', tag: 'Chartwell', desc: 'Colliers de fleurs, soleil et un plancher de danse improvisé.' },
+            { src: '../images/gallery/DSTL_Chartwell_03_siteweb.webp', title: 'Ambiance tropicale', tag: 'Chartwell', desc: 'Journée thématique au bord de l\'eau pour les résidents Chartwell.' },
+            { src: '../images/gallery/DSTL_Chartwell_04_siteweb.webp', title: 'Tout le monde debout', tag: 'Chartwell', desc: 'L\'énergie communicative qui fait lever une terrasse au complet.' },
+            { src: '../images/gallery/DSTL_Chartwell_05_siteweb.webp', title: 'Un slow improvisé', tag: 'Chartwell', desc: 'Chaque résident repart avec son moment à lui.' },
+            { src: '../images/gallery/DSTL_Chartwell_06_siteweb.webp', title: 'La photo de groupe', tag: 'Chartwell', desc: 'Fin de spectacle sur le sable, tout le monde y est.' },
+            { src: '../images/gallery/DSTL_Chartwell_07_siteweb.webp', title: 'Le plongeon', tag: 'Chartwell', desc: 'Promesse tenue : le spectacle finit dans la piscine.' },
+            { src: '../images/gallery/DSTL_Chartwell_08_siteweb.webp', title: 'Trempé, mais toujours en show', tag: 'Chartwell', desc: 'Sorti de l\'eau, le micro encore à la main.' }
+        ];
+
         // Gallery images array
-        const images = [
+        const portfolioImages = [
             { src: '../images/gallery/DSTL_Afro_siteweb.webp', title: 'Dominic en action', tag: 'Costume', desc: 'La polyvalence incarnée — un artiste, mille visages.' },
             { src: '../images/gallery/DSTL_Astronaute_siteweb.webp', title: 'L\'Astronaute', tag: 'Personnage', desc: 'Animation costumée pour événements familiaux et corporatifs.' },
             { src: '../images/gallery/DSTL_Audrey_siteweb.webp', title: 'Audrey est revenue', tag: 'Télévision', desc: 'Rôle nommé aux Gémeaux dans cette série télévisée.' },
@@ -481,25 +523,32 @@
             { src: '../images/gallery/DSTL_Violet_siteweb.webp', title: 'Violet vibrant', tag: 'Costume', desc: 'Couleur et éclat dans chaque apparition.' }
         ];
 
+        // Ordre du lightbox = ordre d'affichage
+        const images = eventImages.concat(portfolioImages);
+
         // Load gallery
-        const galleryGrid = document.getElementById('galleryGrid');
-        images.forEach((img, index) => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.dataset.index = index;
-            item.innerHTML = `
-                <img src="${img.src}" alt="${img.title}" loading="lazy" loading="lazy">
-                <div class="gallery-overlay">
-                    <div class="gallery-overlay-content">
-                        <span class="gallery-tag">${img.tag}</span>
-                        <h3>${img.title}</h3>
-                        <div class="gallery-line"></div>
-                        <p>${img.desc}</p>
+        function renderGrid(list, gridId, offset) {
+            const grid = document.getElementById(gridId);
+            list.forEach((img, i) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.dataset.index = offset + i;
+                item.innerHTML = `
+                    <img src="${img.src}" alt="${img.title}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-content">
+                            <span class="gallery-tag">${img.tag}</span>
+                            <h3>${img.title}</h3>
+                            <div class="gallery-line"></div>
+                            <p>${img.desc}</p>
+                        </div>
                     </div>
-                </div>
-            `;
-            galleryGrid.appendChild(item);
-        });
+                `;
+                grid.appendChild(item);
+            });
+        }
+        renderGrid(eventImages, 'eventGrid', 0);
+        renderGrid(portfolioImages, 'galleryGrid', eventImages.length);
 
         // Lightbox functionality
         const lightbox = document.getElementById('lightbox');
