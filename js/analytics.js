@@ -1,7 +1,7 @@
 // Google Analytics 4 + Meta Pixel, chargés seulement après consentement (Loi 25).
 // Sans ID ci-dessous : aucun bandeau, aucun script chargé.
 (function () {
-    var GA_ID = '';     // ex. 'G-XXXXXXXXXX'
+    var GA_ID = 'G-2ZQEP38C8C';     // ex. 'G-XXXXXXXXXX'
     var PIXEL_ID = '';  // ex. '123456789012345'
     if (!GA_ID && !PIXEL_ID) return;
 
