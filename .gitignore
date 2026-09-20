@@ -14,6 +14,8 @@ images/**/*.PNG
 
 # Video files (too large for git)
 images/**/*.mp4
+# Exception : vidéo vedette, ré-encodée (~16 Mo, faststart)
+!images/ventriloquie.mp4
 
 # Claude Code local settings
 .claude/
