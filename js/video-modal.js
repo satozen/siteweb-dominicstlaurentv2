@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('videoModal');
+    if (!modal) return;
     const modalIframe = modal.querySelector('iframe');
     const closeBtn = modal.querySelector('.close-modal');
     const returnBtn = modal.querySelector('.return-button');

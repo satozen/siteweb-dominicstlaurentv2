@@ -7,6 +7,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
 
+/* width/height HTML = ratio réservé (anti-CLS); spécificité zéro, n'écrase aucune règle */
+:where(img) { height: auto; }
+
 :root {
   /* Palette Premium Dorée */
   --primary-color: #0a0a0a;
