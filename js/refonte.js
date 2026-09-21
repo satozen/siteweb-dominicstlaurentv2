@@ -135,7 +135,8 @@
         // (Les images se chevauchent et leurs zones transparentes aussi : viser par rectangle serait imprécis.)
         function pick(e) {
             var r = stage.getBoundingClientRect(), fh = figs[home].offsetHeight;
-            var px = figs[home].offsetLeft + figs[home].offsetWidth / 2 + r.left, py = r.bottom + fh * 0.5; // transform-origin: 50% 150%
+            var px = figs[home].offsetLeft + figs[home].offsetWidth / 2 + r.left;
+            var py = r.top + figs[home].offsetTop + fh; // le rivet : transform-origin 50% 100%
             var deg = Math.atan2(e.clientX - px, py - e.clientY) * 180 / Math.PI;
             var k = Math.round(deg / spread);
             return Math.min(Math.max(k + home, 0), figs.length - 1);
@@ -159,13 +160,20 @@
 
         // L'éventail s'ouvre une fois les images prêtes
         var pending = figs.filter(function (f) { return !f.complete; }).length;
-        function open() { setTimeout(function () { stage.classList.add('is-open'); start(); }, reduce ? 0 : 500); }
+        function open() {
+            var hero = stage.closest('.cam-hero');
+            if (hero) hero.classList.add('is-in'); // le manche apparaît
+            setTimeout(function () {
+                stage.classList.add('is-open'); // les lames se déplient une à une
+                setTimeout(function () { stage.classList.add('is-ready'); start(); }, reduce ? 0 : 1900);
+            }, reduce ? 0 : 700);
+        }
         if (!pending) open();
         else figs.forEach(function (f) {
             if (f.complete) return;
             f.addEventListener('load', done); f.addEventListener('error', done);
             function done() { if (--pending === 0) open(); }
         });
-        setTimeout(function () { stage.classList.add('is-open'); }, 4000); // filet de sécurité
+        setTimeout(function () { if (!stage.classList.contains('is-open')) open(); }, 4000); // filet de sécurité
     }
 })();

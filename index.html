@@ -178,13 +178,30 @@
             </div>
         </div>
         <div class="cam-stage">
-            <img class="cam-fig" style="--k:-3;--d:3" data-role="Capitaine Crochet" width="1200" height="1536" src="images/hero/pirate.webp" alt="Dominic en Capitaine Crochet, crochet levé" draggable="false">
-            <img class="cam-fig" style="--k:-2;--d:2" data-role="Monsieur Loyal" width="1200" height="1536" src="images/hero/cirque.webp" alt="Dominic en maître de piste, redingote rouge et haut-de-forme" draggable="false">
-            <img class="cam-fig" style="--k:-1;--d:1" data-role="Crooner" width="1200" height="1536" src="images/hero/crooner.webp" alt="Dominic en crooner, foulard blanc et micro rétro" draggable="false">
-            <img class="cam-fig is-active" style="--k:0;--d:0" data-role="Animateur" width="1200" height="1536" src="images/hero/dominic.webp" alt="Dominic St-Laurent, veston bourgogne, micro en main" fetchpriority="high" draggable="false">
-            <img class="cam-fig" style="--k:1;--d:1" data-role="DJ" width="1200" height="1536" src="images/hero/dj.webp" alt="Dominic en DJ avec écouteurs" draggable="false">
-            <img class="cam-fig" style="--k:2;--d:2" data-role="Roi du disco" width="1200" height="1536" src="images/hero/disco.webp" alt="Dominic en chemise dorée disco" draggable="false">
-            <img class="cam-fig" style="--k:3;--d:3" data-role="Personnage loufoque" width="1200" height="1536" src="images/hero/loufoque.webp" alt="Dominic en personnage loufoque, combinaison argentée rétro" draggable="false">
+            <img class="cam-fig" style="--k:-3;--d:3;--o:0;--side:-1" data-role="Capitaine Crochet" width="1200" height="1536" src="images/hero/pirate.webp" alt="Dominic en Capitaine Crochet, crochet levé" draggable="false">
+            <img class="cam-fig" style="--k:-2;--d:2;--o:1;--side:-1" data-role="Monsieur Loyal" width="1200" height="1536" src="images/hero/cirque.webp" alt="Dominic en maître de piste maquillé, redingote rouge et haut-de-forme" draggable="false">
+            <img class="cam-fig" style="--k:-1;--d:1;--o:2;--side:-1" data-role="Crooner" width="1200" height="1536" src="images/hero/crooner.webp" alt="Dominic en crooner, foulard blanc et micro rétro" draggable="false">
+            <img class="cam-fig is-active" style="--k:0;--d:0;--o:3;--side:-1" data-role="Animateur" width="1200" height="1536" src="images/hero/dominic.webp" alt="Dominic St-Laurent, veston bourgogne, micro en main" fetchpriority="high" draggable="false">
+            <img class="cam-fig" style="--k:1;--d:1;--o:4;--side:1" data-role="DJ" width="1200" height="1536" src="images/hero/dj.webp" alt="Dominic en DJ, écouteurs et lunettes fumées" draggable="false">
+            <img class="cam-fig" style="--k:2;--d:2;--o:5;--side:1" data-role="Roi du disco" width="1200" height="1536" src="images/hero/disco.webp" alt="Dominic en chemise dorée disco" draggable="false">
+            <img class="cam-fig" style="--k:3;--d:3;--o:6;--side:1" data-role="Personnage loufoque" width="1200" height="1536" src="images/hero/loufoque.webp" alt="Dominic en personnage loufoque, combinaison argentée rétro" draggable="false">
+            <!-- Le manche : « le couteau suisse de la scène ». Les personnages en sont les lames. -->
+            <svg class="cam-knife" viewBox="0 0 460 100" aria-hidden="true" focusable="false">
+                <defs>
+                    <linearGradient id="kRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2233f"/><stop offset=".55" stop-color="#b5122b"/><stop offset="1" stop-color="#7d0a1c"/></linearGradient>
+                    <linearGradient id="kSteel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f1f1"/><stop offset="1" stop-color="#8c8f94"/></linearGradient>
+                    <radialGradient id="kBrass" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#a97f1f"/></radialGradient>
+                </defs>
+                <circle cx="18" cy="50" r="13" fill="none" stroke="url(#kSteel)" stroke-width="4"/>
+                <rect x="26" y="6" width="420" height="88" rx="44" fill="url(#kSteel)"/>
+                <rect x="30" y="12" width="412" height="80" rx="40" fill="url(#kRed)"/>
+                <path d="M70 22 H402 a30 30 0 0 1 22 10 H48 a30 30 0 0 1 22 -10z" fill="#fff" opacity=".22"/>
+                <circle cx="72" cy="52" r="7" fill="url(#kBrass)"/><circle cx="400" cy="52" r="7" fill="url(#kBrass)"/>
+                <circle cx="236" cy="52" r="11" fill="url(#kBrass)" stroke="#5c430c" stroke-width="1.5"/>
+                <path d="M120 33 h56 v22 c0 12 -14 20 -28 25 c-14 -5 -28 -13 -28 -25z" fill="#f6f0e2" opacity=".95"/>
+                <text x="148" y="60" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="700" font-size="17" letter-spacing="1" fill="#9b0f25">DSTL</text>
+                <text x="322" y="58" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="600" font-size="11" letter-spacing="3" fill="#fff" opacity=".8">DE LA SCÈNE</text>
+            </svg>
         </div>
     </section>
 
