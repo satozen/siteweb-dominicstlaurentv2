@@ -27,7 +27,8 @@
         /* ── Apparitions : .rv + décalage en cascade entre frères ── */
         var sel = '.section-intro, .showcase-card, .stat-item, .video-card, .video-item, .press-feature, .press-card,' +
             ' .bio-content > *, .bio-production, .featured-video-wrapper, .contact-container > *, .logo-carousel,' +
-            ' .cam-kicker, .cam-role, .cam-desc, .cam-cta, .cam-picker';
+            ' .cam-kicker, .cam-role, .cam-desc, .cam-cta, .cam-picker,' +
+            ' .res-story-text, .res-mosaic figure, .benefit-card, .res-approach > *, .partners-grid';
         var items = Array.from(document.querySelectorAll(sel)).filter(function (el) {
             return !el.classList.contains('animate-on-scroll');
         });
