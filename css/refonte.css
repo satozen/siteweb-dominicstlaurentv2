@@ -473,6 +473,99 @@ html:not(.js-rv) .cam-band {
     .cam-picker { margin-top: 1.8rem; }
 }
 
+/* ═════════════ EN-TÊTE MARIAGE ═════════════ */
+.wedding-hero.wed-hero {
+    position: relative;
+    min-height: clamp(500px, 78vh, 760px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: end;
+    overflow: hidden;
+    isolation: isolate;
+    background: #120d08;
+}
+.wed-hero::before { display: none; } /* ancien fond animé */
+.wed-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 50%;
+}
+.wed-hero::after { /* voile chaud : titre lisible à gauche, chandelles vivantes à droite */
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(to right, rgba(18, 13, 8, 0.92) 0, rgba(18, 13, 8, 0.6) 42%, rgba(18, 13, 8, 0.15) 75%),
+        linear-gradient(to top, rgba(18, 13, 8, 0.85) 0, transparent 35%);
+}
+.wed-copy {
+    align-self: center;
+    padding: 7rem 0 3rem clamp(1.4rem, 6vw, 6rem);
+    text-align: left;
+}
+.wed-kicker {
+    font-size: 0.78rem;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: #e7cf9a;
+    margin: 0 0 1.1rem;
+}
+.wed-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 5.4vw, 4.8rem);
+    line-height: 1.04;
+    color: #fbf6ea;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.01em;
+}
+.wed-hero h1 em {
+    display: block;
+    font-style: italic;
+    color: #e7cf9a;
+}
+.wed-ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: 9rem;
+    margin: 1.5rem 0 1.4rem;
+    color: #e7cf9a;
+}
+.wed-ornament::before,
+.wed-ornament::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: 0.7; }
+.wed-ornament span { width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid currentColor; }
+.wed-lead {
+    max-width: 32rem;
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
+    line-height: 1.75;
+    color: rgba(251, 246, 234, 0.84);
+    margin: 0 0 1.9rem;
+}
+.wed-hero .cam-link { color: #fbf6ea; }
+.wed-dominic {
+    align-self: end;
+    justify-self: center;
+    height: min(70vh, 640px);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom;
+    filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.55));
+}
+@media (max-width: 1024px) {
+    .wedding-hero.wed-hero { grid-template-columns: 1fr; min-height: 0; }
+    .wed-dominic { order: -1; height: min(38vh, 340px); margin-top: 78px; }
+    .wed-copy { padding: 1rem 1.4rem 2.6rem; }
+    .wed-hero::after { background: linear-gradient(to top, rgba(18, 13, 8, 0.95) 30%, rgba(18, 13, 8, 0.45)); }
+}
+
 /* ═════════════ TÉMOIGNAGES (js/temoignages.js) — thème clair ou sombre ═════════════ */
 .tm-section .section-title { margin-bottom: 1.6rem; }
 .tm-grid {
