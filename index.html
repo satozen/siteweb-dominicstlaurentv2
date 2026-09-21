@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="images/DSTL_Hero.webp">
+    <link rel="preload" as="image" href="images/hero/dominic.webp" fetchpriority="high">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@14/swiper-bundle.min.css" />
@@ -132,6 +132,8 @@
             color: var(--primary-color) !important;
         }
     </style>
+    <link rel="stylesheet" href="css/refonte.css">
+    <script src="js/refonte.js" defer></script>
 </head>
 <body>
     <header>
@@ -152,26 +154,37 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-subtitle-line">
-                <span>Le Couteau Suisse de la Scène</span>
+    <section class="cam-hero">
+        <div class="cam-copy">
+            <p class="cam-kicker">Le couteau suisse de la scène</p>
+            <h1 class="cam-name"><span>Dominic</span><span>St&#8209;Laurent</span></h1>
+            <p class="cam-role">Ce soir : <span class="cam-role-word" aria-live="polite"><span>Animateur</span></span></p>
+            <p class="cam-desc">Animateur, chanteur, imitateur, DJ : tout est là! Une préparation chirurgicale, des performances qui décoiffent, et cette touche personnalisée qui fait dire «&nbsp;Comment il savait ça?!&nbsp;»</p>
+            <div class="cam-cta">
+                <a href="#contact" class="cta-button">Booker Dominic</a>
+                <a href="#video" class="cam-link">Voir Dominic en action<i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="hero-title-block">
-                <h1 class="magic-text">Dominic St-Laurent</h1>
-            </div>
-            <div class="hero-headline">
-                <h2 class="main-headline">Un seul pro.<br class="mobile-break"> Tous les talents.</h2>
-            </div>
-            <p class="hero-description">
-                Animateur, chanteur, imitateur, DJ : tout est là! Une préparation chirurgicale, des performances qui décoiffent, et cette touche personnalisée qui fait dire "Comment il savait ça?!" Votre événement mérite une animation qui frappe fort.</p>
-            <div class="hero-cta-group">
-                <a href="#contact" class="cta-button">Transformez votre événement</a>
-                <a href="#video" class="cta-button outline">Voir Dominic en action</a>
+            <div class="cam-picker">
+                <span class="cam-hint">Survolez ou touchez un personnage</span>
+                <ol class="cam-dots">
+                    <li><button type="button" aria-pressed="false" aria-label="Voir : Capitaine Crochet"></button></li>
+                    <li><button type="button" aria-pressed="false" aria-label="Voir : Monsieur Loyal"></button></li>
+                    <li><button type="button" aria-pressed="false" aria-label="Voir : Crooner"></button></li>
+                    <li><button type="button" aria-pressed="true" aria-label="Voir : Animateur"></button></li>
+                    <li><button type="button" aria-pressed="false" aria-label="Voir : DJ"></button></li>
+                    <li><button type="button" aria-pressed="false" aria-label="Voir : Roi du disco"></button></li>
+                    <li><button type="button" aria-pressed="false" aria-label="Voir : Personnage loufoque"></button></li>
+                </ol>
             </div>
         </div>
-        <div class="hero-image">
-            <img width="1024" height="1024" src="images/DSTL_Hero.webp" alt="Dominic St-Laurent - L'Artiste Caméléon">
+        <div class="cam-stage">
+            <img class="cam-fig" style="--k:-3;--d:3" data-role="Capitaine Crochet" width="1200" height="1536" src="images/hero/pirate.webp" alt="Dominic en Capitaine Crochet, crochet levé" draggable="false">
+            <img class="cam-fig" style="--k:-2;--d:2" data-role="Monsieur Loyal" width="1200" height="1536" src="images/hero/cirque.webp" alt="Dominic en maître de piste, redingote rouge et haut-de-forme" draggable="false">
+            <img class="cam-fig" style="--k:-1;--d:1" data-role="Crooner" width="1200" height="1536" src="images/hero/crooner.webp" alt="Dominic en crooner, foulard blanc et micro rétro" draggable="false">
+            <img class="cam-fig is-active" style="--k:0;--d:0" data-role="Animateur" width="1200" height="1536" src="images/hero/dominic.webp" alt="Dominic St-Laurent, veston bourgogne, micro en main" fetchpriority="high" draggable="false">
+            <img class="cam-fig" style="--k:1;--d:1" data-role="DJ" width="1200" height="1536" src="images/hero/dj.webp" alt="Dominic en DJ avec écouteurs" draggable="false">
+            <img class="cam-fig" style="--k:2;--d:2" data-role="Roi du disco" width="1200" height="1536" src="images/hero/disco.webp" alt="Dominic en chemise dorée disco" draggable="false">
+            <img class="cam-fig" style="--k:3;--d:3" data-role="Personnage loufoque" width="1200" height="1536" src="images/hero/loufoque.webp" alt="Dominic en personnage loufoque, combinaison argentée rétro" draggable="false">
         </div>
     </section>
 

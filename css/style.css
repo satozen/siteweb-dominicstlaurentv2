@@ -3286,7 +3286,7 @@ body:has(.site-footer) .floating-cta {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* minmax(0) : les colonnes peuvent rétrécir, sinon la page déborde sur mobile */
     gap: 2rem;
     max-width: 900px;
     margin: 0 auto;
@@ -3323,11 +3323,17 @@ body:has(.site-footer) .floating-cta {
 }
 
 @media (max-width: 480px) {
+    .stats-grid {
+        gap: 0.5rem;
+    }
+    .stat-item {
+        padding: 1.5rem 0.25rem;
+    }
     .stat-number {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
     }
     .stat-label {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -4317,6 +4323,7 @@ body:has(.wedding-hero) .format-card .format-icon i {
 }
 
 .bio-text {
+    min-width: 0; /* enfant flex : sans ça, la rangée de vignettes élargit toute la page sur mobile */
     flex: 1;
 }
 
@@ -4381,6 +4388,10 @@ body:has(.wedding-hero) .format-card .format-icon i {
         flex-direction: column;
         gap: 2rem;
         margin-top: 1.5rem;
+    }
+
+    .bio-text {
+        width: 100%; /* en colonne, la rangée défilante imposait sa largeur (448px) à toute la page */
     }
 
     .bio-image {
