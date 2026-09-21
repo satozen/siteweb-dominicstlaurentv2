@@ -100,7 +100,10 @@
         var figs = Array.from(stage.querySelectorAll('.cam-fig'));
         var word = document.querySelector('.cam-role-word');
         var dots = Array.from(document.querySelectorAll('.cam-dots button'));
-        var home = Math.floor(figs.length / 2), current = home, timer = null;
+        var home = Math.max(figs.findIndex(function (f) { return f.classList.contains('is-active'); }), 0), current = home, timer = null;
+        // Version de la base à comparer : ?base=bandeau ou ?base=couteau
+        var base = new URLSearchParams(location.search).get('base'), hero = stage.closest('.cam-hero');
+        if (hero && (base === 'bandeau' || base === 'couteau')) hero.dataset.base = base;
         if (word && word.firstElementChild) word.style.width = word.firstElementChild.offsetWidth + 2 + 'px';
         var spread = parseFloat(getComputedStyle(stage).getPropertyValue('--spread')) || 9;
 
@@ -161,8 +164,7 @@
         // L'éventail s'ouvre une fois les images prêtes
         var pending = figs.filter(function (f) { return !f.complete; }).length;
         function open() {
-            var hero = stage.closest('.cam-hero');
-            if (hero) hero.classList.add('is-in'); // le manche apparaît
+            if (hero) hero.classList.add('is-in'); // la base apparaît
             setTimeout(function () {
                 stage.classList.add('is-open'); // les lames se déplient une à une
                 setTimeout(function () { stage.classList.add('is-ready'); start(); }, reduce ? 0 : 1900);

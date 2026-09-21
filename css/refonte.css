@@ -128,8 +128,8 @@ header.nav-hidden {
 /* ═════════════ HERO CAMÉLÉON : l'éventail de personnages ═════════════ */
 .cam-hero {
     --fig-h: min(74svh, 46vw);      /* hauteur d'un personnage */
-    --cx: 68%;                      /* centre de l'éventail dans le hero */
-    --spread: 12.5deg;              /* angle entre deux lames voisines */
+    --cx: 65%;                      /* centre de l'éventail dans le hero */
+    --spread: 11deg;                /* angle entre deux lames voisines */
     --knife-h: calc(var(--fig-h) * 0.165); /* hauteur du manche */
     --knife-b: 3.5svh;              /* distance entre le manche et le bas du hero */
     position: relative;
@@ -194,25 +194,75 @@ header.nav-hidden {
     z-index: 20;
 }
 
-/* Le manche du couteau suisse */
-.cam-knife {
+/* Cache noir sous la base : les lames inclinées ne dépassent pas en dessous */
+.cam-stage::after {
+    content: '';
     position: absolute;
-    z-index: 30; /* devant les lames : il cache leur point de rencontre */
+    z-index: 25;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--knife-b) + var(--knife-h) / 2);
+    background: #0a0a0a;
+}
+
+/* Base de l'éventail — deux versions (data-base sur .cam-hero) */
+.cam-knife,
+.cam-band {
+    position: absolute;
+    z-index: 30; /* devant les lames : cache leur point de rencontre */
     left: var(--cx);
     bottom: var(--knife-b);
-    width: calc(var(--knife-h) * 4.6);
-    height: var(--knife-h);
-    transform: translateX(-50%) scale(0.92);
+    margin: 0;
+    transform: translateX(-50%) scale(0.94);
     opacity: 0;
     transition: transform 0.9s var(--ease-out), opacity 0.6s ease;
     pointer-events: none;
-    filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.65));
 }
 .js-rv .cam-hero.is-in .cam-knife,
-html:not(.js-rv) .cam-knife {
+.js-rv .cam-hero.is-in .cam-band,
+html:not(.js-rv) .cam-knife,
+html:not(.js-rv) .cam-band {
     transform: translateX(-50%);
     opacity: 1;
 }
+/* version « couteau » : manche de luxe (image) */
+.cam-knife {
+    width: calc(var(--fig-h) * 1.05);
+    max-width: 94vw;
+    height: auto;
+    aspect-ratio: 1400 / 336;
+    bottom: calc(var(--knife-b) - var(--knife-h) * 0.3); /* le rivet des lames tombe au milieu du manche */
+    filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.75));
+}
+/* version « bandeau » : bande noire, filets dorés, inscription */
+.cam-band {
+    width: calc(var(--fig-h) * 1.75);
+    max-width: 100vw;
+    height: var(--knife-h);
+    display: grid;
+    place-items: center;
+    background: #050505;
+    border-top: 1px solid rgba(212, 175, 55, 0.65);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.65);
+    box-shadow: 0 -18px 30px rgba(5, 5, 5, 0.85);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+}
+.cam-band span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, calc(var(--knife-h) * 0.34), 2rem);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.cam-hero[data-base="couteau"] { --knife-b: 7svh; } /* le manche est plus haut que le bandeau : on le remonte */
+.cam-hero[data-base="bandeau"] .cam-knife,
+.cam-hero[data-base="couteau"] .cam-band { display: none; }
 
 /* Voile sombre à gauche : le texte reste lisible quand un personnage passe derrière */
 .cam-hero::before {
@@ -414,7 +464,7 @@ html:not(.js-rv) .cam-knife {
         transition: none;
     }
     .cam-fig, .cam-stage.is-ready .cam-fig { transition: filter 0.2s ease; transition-delay: 0s; }
-    .cam-knife { transition: none; }
+    .cam-knife, .cam-band { transition: none; }
     .credibility-strip.is-marquee .credibility-items { animation: none; }
     .magic-text, .animate-float { animation: none !important; }
 }
