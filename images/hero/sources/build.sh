@@ -7,7 +7,7 @@
 # fondu vers la transparence DANS le fichier (un masque CSS couperait le halo au rectangle).
 # Les 40 px de chaque bord latéral sont aussi fondus : une main qui touche le cadre ne finit pas en coupe droite.
 cd "$(dirname "$0")"
-SPECS="pirate:pirate_r1 cirque:cirque_m2 crooner:crooner_v2 dominic:dominic_v2 dj:dj_g1 disco:disco_s2_clean loufoque:diva_1"
+SPECS="pirate:pirate_r1 cirque:cirque_m2 crooner:crooner_v2 dominic:dominic_v2 dj:dj_g1 disco:disco_u2 loufoque:diva_1"
 for spec in $SPECS; do
   IFS=: read -r out src keep <<< "$spec"; keep=${keep:-100}
   [ -n "$1" ] && [ "$1" != "$out" ] && continue
