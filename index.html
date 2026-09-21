@@ -134,6 +134,7 @@
     </style>
     <link rel="stylesheet" href="css/refonte.css">
     <script src="js/refonte.js" defer></script>
+    <script src="js/temoignages.js" defer></script>
 </head>
 <body>
     <header>
@@ -613,6 +614,12 @@
                     <option value="Animateur Corpo">Animateur Corpo</option>
                     <option value="Mariage">Mariage</option>
                     <option value="Résidences pour aînés">Résidences pour aînés</option>
+        <!-- Témoignages réels : voir js/temoignages.js -->
+        <section class="tm-section container">
+            <h2 class="section-title">Ce qu'ils en disent</h2>
+            <div data-temoignages="accueil" data-max="4"></div>
+        </section>
+
                     <option value="Autre">Autre</option>
                 </select>
                 <textarea id="message" name="message" placeholder="Parlez-moi de votre événement extraordinaire à venir!" required></textarea>

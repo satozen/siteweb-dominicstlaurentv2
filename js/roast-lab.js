@@ -1,9 +1,8 @@
 /**
  * Roast Lab Interactive Demo
  * Gère l'interactivité de la section "Roast Lab" sur les pages corpo et mariages
- * - Switch entre différents exemples de roasts
- * - Animations de highlight au survol pour montrer les connexions
- * - Le hover sur une info source highlight le tag correspondant dans le roast
+ * - Onglets pour changer d'exemple
+ * - Rendu en paires « Vous me dites → Sur scène, ça donne »
  */
 
 (function() {
@@ -136,141 +135,48 @@ Mais on t'aime pareil! Bonne fête Bob! 🎂`
         }
     };
 
+    // Version simplifiée : des paires « Vous me dites → Sur scène, ça donne ».
+    // Chaque info du questionnaire est jumelée au paragraphe du roast qui porte le même tag
+    // (tag-surnom, tag-anecdote…) : le lien se lit d'un coup d'œil, sans survol ni légende.
+    var PAIRES_AFFICHEES = 3;
+
     function initRoastLab() {
-        // Éléments du DOM
-        const tabs = document.querySelectorAll('.lab-tab');
-        const labContent = document.querySelector('.lab-content');
-        const questionnaireContainer = document.querySelector('.questionnaire-fields');
-        const roastContainer = document.querySelector('.roast-text');
-        const exampleTitle = document.querySelector('.example-title');
+        var tabs = document.querySelectorAll('.lab-tab');
+        var labContent = document.querySelector('.lab-content');
+        if (!tabs.length || !labContent) return;
 
-        // Vérifier que les éléments existent
-        if (!tabs.length) {
-            console.log('Roast Lab: No tabs found');
-            return;
-        }
-        
-        if (!labContent) {
-            console.log('Roast Lab: No lab-content found');
-            return;
-        }
-
-        console.log('Roast Lab initialized with', tabs.length, 'tabs');
-
-        // Fonction pour mettre à jour le contenu
-        function updateContent(exampleKey) {
-            const example = roastExamples[exampleKey];
-            if (!example) {
-                console.log('Roast Lab: Example not found:', exampleKey);
-                return;
-            }
-
-            console.log('Roast Lab: Switching to', exampleKey);
-
-            // Animation de transition
-            labContent.classList.add('switching');
-
-            setTimeout(function() {
-                // Mise à jour du titre
-                if (exampleTitle) {
-                    exampleTitle.textContent = example.title;
-                }
-
-                // Mise à jour du questionnaire
-                if (questionnaireContainer) {
-                    var html = '';
-                    example.questionnaire.forEach(function(field) {
-                        html += '<div class="field-group">';
-                        html += '<span class="field-label">' + field.label + '</span>';
-                        html += '<div class="field-value highlight-' + field.type + '" data-type="' + field.type + '">';
-                        html += field.value;
-                        html += '</div>';
-                        html += '</div>';
-                    });
-                    questionnaireContainer.innerHTML = html;
-                }
-
-                // Mise à jour du roast
-                if (roastContainer) {
-                    roastContainer.innerHTML = example.roast;
-                }
-
-                // Réactiver les interactions
-                setupHighlightInteractions();
-
-                // Fin de l'animation
-                labContent.classList.remove('switching');
-            }, 300);
-        }
-
-        // Gestion des interactions de highlight
-        function setupHighlightInteractions() {
-            var fieldValues = document.querySelectorAll('.field-value');
-            var roastTags = document.querySelectorAll('.roast-text span[class^="tag-"]');
-
-            // Hover sur les champs du questionnaire
-            fieldValues.forEach(function(field) {
-                var type = field.getAttribute('data-type');
-                if (!type) return;
-                
-                field.addEventListener('mouseenter', function() {
-                    // Highlight le tag correspondant dans le roast
-                    document.querySelectorAll('.tag-' + type).forEach(function(tag) {
-                        tag.style.transform = 'scale(1.1)';
-                        tag.style.boxShadow = '0 0 20px currentColor';
-                    });
-                });
-
-                field.addEventListener('mouseleave', function() {
-                    document.querySelectorAll('.tag-' + type).forEach(function(tag) {
-                        tag.style.transform = '';
-                        tag.style.boxShadow = '';
-                    });
-                });
+        function render(key) {
+            var ex = roastExamples[key];
+            if (!ex) return;
+            var paragraphs = ex.roast.split(/<br>\s*<br>/);
+            var rows = [];
+            ex.questionnaire.forEach(function (field) {
+                var line = paragraphs.filter(function (para) { return para.indexOf('tag-' + field.type) !== -1; })[0];
+                if (line) rows.push({ field: field, line: line.trim() });
             });
-
-            // Hover sur les tags du roast
-            roastTags.forEach(function(tag) {
-                var className = tag.className;
-                var match = className.match(/tag-(\w+)/);
-                if (!match) return;
-                
-                var type = match[1];
-
-                tag.addEventListener('mouseenter', function() {
-                    // Highlight le champ correspondant
-                    document.querySelectorAll('.highlight-' + type).forEach(function(field) {
-                        field.style.transform = 'translateX(15px) scale(1.02)';
-                        field.style.boxShadow = '0 0 25px rgba(212, 175, 55, 0.4)';
-                    });
-                });
-
-                tag.addEventListener('mouseleave', function() {
-                    document.querySelectorAll('.highlight-' + type).forEach(function(field) {
-                        field.style.transform = '';
-                        field.style.boxShadow = '';
-                    });
-                });
+            var html = '<h3 class="example-title">' + ex.title + '</h3><div class="lab-pairs">';
+            rows.slice(0, PAIRES_AFFICHEES).forEach(function (r) {
+                html += '<div class="lab-pair">' +
+                    '<div class="lab-in"><span class="lab-cap">Vous me dites</span>' +
+                    '<strong>' + r.field.label + '</strong><p>' + r.field.value + '</p></div>' +
+                    '<div class="lab-to" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>' +
+                    '<div class="lab-out"><span class="lab-cap">Sur scène, ça donne</span><p>' + r.line + '</p></div>' +
+                    '</div>';
             });
+            html += '</div><p class="lab-note">Et ça, c\'est avec trois réponses. Imaginez avec votre questionnaire au complet.</p>';
+            labContent.innerHTML = html;
         }
 
-        // Event listeners pour les tabs
-        tabs.forEach(function(tab) {
-            tab.addEventListener('click', function() {
-                // Update active state
-                tabs.forEach(function(t) {
-                    t.classList.remove('active');
-                });
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                tabs.forEach(function (t) { t.classList.remove('active'); });
                 tab.classList.add('active');
-
-                // Update content
-                var exampleKey = tab.getAttribute('data-example');
-                updateContent(exampleKey);
+                render(tab.getAttribute('data-example'));
             });
         });
 
-        // Initialisation des interactions pour le contenu par défaut
-        setupHighlightInteractions();
+        var active = document.querySelector('.lab-tab.active') || tabs[0];
+        render(active.getAttribute('data-example'));
     }
 
     // Initialiser quand le DOM est prêt

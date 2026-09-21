@@ -22,3 +22,6 @@ images/**/*.mp4
 
 # Archives locales du hero (captures, notes) — non publiées
 images/hero/sources/archives/
+
+# Notes internes (sources de témoignages, courriels) — jamais publiées
+notes-internes/

@@ -473,6 +473,121 @@ html:not(.js-rv) .cam-band {
     .cam-picker { margin-top: 1.8rem; }
 }
 
+/* ═════════════ TÉMOIGNAGES (js/temoignages.js) — thème clair ou sombre ═════════════ */
+.tm-section .section-title { margin-bottom: 1.6rem; }
+.tm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+    gap: 1.1rem;
+    text-align: left;
+}
+.tm-card {
+    margin: 0;
+    padding: 1.4rem 1.4rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+    border-left: 2px solid var(--secondary-color);
+    background: color-mix(in srgb, currentColor 4%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.tm-card blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: inherit;
+}
+.tm-card figcaption { margin-top: auto; font-size: 0.85rem; line-height: 1.45; color: inherit; }
+.tm-card figcaption strong { display: block; color: inherit; }
+.tm-card figcaption span { opacity: 0.65; }
+
+/* ═════════════ ROAST LAB simplifié : des paires lisibles ═════════════ */
+/* Fonctionne sur thème sombre (Corpo, Roast) et clair (Mariage) : le texte hérite de la page */
+.roast-lab { --lab-accent: var(--secondary-color); --lab-line: rgba(255, 255, 255, 0.12); --lab-fill: rgba(255, 255, 255, 0.04); }
+body:has(.wedding-hero) .roast-lab,
+body:has(.wed-hero) .roast-lab { --lab-accent: #8a6516; --lab-line: rgba(60, 40, 10, 0.16); --lab-fill: rgba(255, 255, 255, 0.55); }
+.roast-lab .roast-lab-intro { padding: 0; margin-bottom: 1.4rem; }
+.roast-lab .lab-tabs { margin-bottom: 1.6rem; }
+.roast-lab .example-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--lab-accent);
+    margin: 0 0 1.4rem;
+}
+.lab-pairs {
+    display: grid;
+    gap: 0.9rem;
+    max-width: 62rem;
+    margin: 0 auto;
+}
+.lab-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) 2.2rem minmax(0, 1.15fr);
+    align-items: stretch;
+    text-align: left;
+}
+.lab-in,
+.lab-out {
+    padding: 1.1rem 1.3rem;
+    border-radius: 8px;
+    border: 1px solid var(--lab-line);
+    background: var(--lab-fill);
+    color: inherit;
+}
+.lab-out {
+    border-color: color-mix(in srgb, var(--lab-accent) 45%, transparent);
+    background: color-mix(in srgb, var(--lab-accent) 8%, transparent);
+}
+.lab-cap {
+    display: block;
+    font-size: 0.66rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: inherit;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+}
+.lab-out .lab-cap { color: var(--lab-accent); opacity: 1; }
+.lab-in strong { display: block; font-weight: 600; color: inherit; margin-bottom: 0.25rem; }
+.roast-lab .lab-pair p { margin: 0; line-height: 1.6; color: inherit; font-size: 0.97rem; }
+.roast-lab .lab-out p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.04rem; }
+/* un seul accent : le passage qui vient de votre réponse */
+.lab-out span[class^="tag-"] {
+    background: none;
+    color: var(--lab-accent);
+    font-weight: 700;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+}
+.lab-to {
+    display: grid;
+    place-items: center;
+    color: var(--lab-accent);
+    font-size: 0.9rem;
+}
+.lab-note {
+    text-align: center;
+    margin: 1.4rem 0 0;
+    color: inherit;
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+@media (max-width: 720px) {
+    .lab-pair { grid-template-columns: 1fr; }
+    .lab-to { padding: 0.35rem 0; }
+    .lab-to i { transform: rotate(90deg); }
+}
+
 /* ═════════════ PAGE RÉSIDENCES ═════════════ */
 .res-hero {
     position: relative;

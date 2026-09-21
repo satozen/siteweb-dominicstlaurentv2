@@ -33,6 +33,7 @@
     <script src="../js/main.js" defer></script>
     <link rel="stylesheet" href="../css/refonte.css">
     <script src="../js/refonte.js" defer></script>
+    <script src="../js/temoignages.js" defer></script>
 </head>
 <body>
     <header>
@@ -116,7 +117,7 @@
             <div class="container">
                 <div class="roast-lab-intro">
                     <h2 class="section-title">Le Roast Lab 🧪</h2>
-                    <p class="lab-tagline">Voyez comment vos infos deviennent du matériel personnalisé. <br>Survolez pour voir les connexions!</p>
+                    <p class="lab-tagline">Voyez comment vos infos deviennent du matériel personnalisé. <br>Trois exemples, trois réponses chacun.</p>
                 </div>
 
                 <!-- Tabs pour changer d'exemple -->
@@ -132,100 +133,7 @@
                     </button>
                 </div>
 
-                <div class="lab-content">
-                    <h3 class="example-title" style="text-align: center; color: var(--secondary-color); margin-bottom: 2rem; font-size: 1.4rem;">Party de Noël - Construction Béton Plus</h3>
-                    
-                    <div class="lab-container">
-                        <!-- Panel Gauche: Questionnaire -->
-                        <div class="lab-panel">
-                            <div class="lab-panel-header">
-                                <i class="fas fa-clipboard-list"></i>
-                                <h3>Ce que vous me donnez</h3>
-                            </div>
-                            <div class="questionnaire-fields">
-                                <div class="field-group">
-                                    <span class="field-label">Surnom de l'employé vedette</span>
-                                    <div class="field-value highlight-surnom" data-type="surnom">
-                                        "Le Dormeur" — Gilles s'endort PARTOUT. Meetings, lunch, même debout.
-                                    </div>
-                                </div>
-                                <div class="field-group">
-                                    <span class="field-label">Anecdote légendaire</span>
-                                    <div class="field-value highlight-anecdote" data-type="anecdote">
-                                        L'été passé, quelqu'un a commandé 500 cônes orange au lieu de 50. Ils sont encore dans le stationnement.
-                                    </div>
-                                </div>
-                                <div class="field-group">
-                                    <span class="field-label">Running gag du bureau</span>
-                                    <div class="field-value highlight-trait" data-type="trait">
-                                        La machine à café est possédée. Elle fait juste du jus de chaussette.
-                                    </div>
-                                </div>
-                                <div class="field-group">
-                                    <span class="field-label">Fait cocasse sur le boss</span>
-                                    <div class="field-value highlight-passion" data-type="passion">
-                                        Michel le patron chante du Céline Dion dans son char. Tout le monde l'a vu au drive-thru Tim Hortons.
-                                    </div>
-                                </div>
-                                <div class="field-group">
-                                    <span class="field-label">Inside joke de l'équipe</span>
-                                    <div class="field-value highlight-inside" data-type="inside">
-                                        "C'est pas dans ma job description" — phrase préférée de toute l'équipe.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Arrow centrale -->
-                        <div class="lab-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                            <span>La magie</span>
-                        </div>
-
-                        <!-- Panel Droite: Le Roast -->
-                        <div class="lab-panel">
-                            <div class="lab-panel-header">
-                                <i class="fas fa-microphone-alt"></i>
-                                <h3>Ce que je livre sur scène</h3>
-                            </div>
-                            <div class="roast-text">
-                                Bonsoir Construction Béton Plus! Content d'être ici ce soir. J'espère que le buffet est meilleur que <span class="tag-trait">votre machine à café</span>. Oui oui, je suis au courant. Jus de chaussette, c'est ça?
-                                <br><br>
-                                Parlons de <span class="tag-surnom">Gilles "Le Dormeur"</span>! Mon homme s'endort partout. Réunions, lunch, debout appuyé sur une pelle. L'autre jour y'a dormi tellement longtemps qu'ils ont coulé le béton autour de lui!
-                                <br><br>
-                                Et qui a commandé <span class="tag-anecdote">500 cônes orange au lieu de 50</span>? Levez la main, on vous juge pas... enfin, un peu quand même. Ça fait 6 mois, ils sont encore dans le parking!
-                                <br><br>
-                                Ah, et Michel, notre cher patron... On m'a dit que <span class="tag-passion">tu chantes du Céline dans ton char</span>. "ALL BY MYSEEEEELF" au drive-thru du Tim Hortons, ça a été vu par TOUTE la shop!
-                                <br><br>
-                                Mais vous êtes une belle gang. Même si votre phrase préférée c'est <span class="tag-inside">"C'est pas dans ma job description"</span>... On sait que vous vous aimez pareil!
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Légende des couleurs -->
-                    <div class="lab-legend">
-                        <div class="legend-item">
-                            <span class="legend-dot surnom"></span>
-                            <span>Surnoms</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-dot anecdote"></span>
-                            <span>Anecdotes</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-dot trait"></span>
-                            <span>Running gags</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-dot passion"></span>
-                            <span>Faits cocasses</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-dot inside"></span>
-                            <span>Inside jokes</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="lab-content" aria-live="polite"></div>
             </div>
         </section>
 
@@ -455,6 +363,14 @@
         </section>
 
         <!-- SECTION: CTA -->
+        <!-- Témoignages réels : voir js/temoignages.js -->
+        <section class="tm-section">
+            <div class="container">
+                <h2 class="section-title">Ce qu'en disent les organisateurs</h2>
+                <div data-temoignages="corpo" data-max="2"></div>
+            </div>
+        </section>
+
         <section class="cta-section">
             <div class="container">
                 <h2>Prêt à créer un événement légendaire?</h2>
