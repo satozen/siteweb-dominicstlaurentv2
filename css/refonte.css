@@ -444,6 +444,9 @@ html:not(.js-rv) .cam-band {
         padding-top: 84px; /* sous la barre de navigation */
     }
     .cam-hero::before { display: none; }
+    /* petit écran : l'inscription du bandeau ne doit pas frôler les bords */
+    .cam-band { gap: 0.7rem; }
+    .cam-band span { font-size: clamp(0.6rem, 2.9vw, 0.95rem); letter-spacing: 0.26em; padding-left: 0.26em; }
     .cam-stage {
         order: -1; /* l'éventail d'abord, le texte ensuite */
         min-height: 0;
