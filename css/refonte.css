@@ -145,7 +145,7 @@ header.nav-hidden {
 
 /* La scène : halo de projecteur + personnages découpés.
    Concept « couteau suisse de la scène » : chaque personnage est une lame qui pivote
-   autour du rivet central du manche (.cam-knife) et se déplie avec un léger rebond. */
+   autour du même point, au-dessus du bandeau (.cam-band), et se déplie avec un léger rebond. */
 .cam-stage {
     grid-column: 1 / -1; /* pleine largeur : les personnages des bords ne sont pas coupés par la colonne */
     grid-row: 1;
@@ -206,8 +206,7 @@ header.nav-hidden {
     background: #0a0a0a;
 }
 
-/* Base de l'éventail — deux versions (data-base sur .cam-hero) */
-.cam-knife,
+/* Base de l'éventail : le bandeau */
 .cam-band {
     position: absolute;
     z-index: 30; /* devant les lames : cache leur point de rencontre */
@@ -219,23 +218,12 @@ header.nav-hidden {
     transition: transform 0.9s var(--ease-out), opacity 0.6s ease;
     pointer-events: none;
 }
-.js-rv .cam-hero.is-in .cam-knife,
 .js-rv .cam-hero.is-in .cam-band,
-html:not(.js-rv) .cam-knife,
 html:not(.js-rv) .cam-band {
     transform: translateX(-50%);
     opacity: 1;
 }
-/* version « couteau » : manche de luxe (image) */
-.cam-knife {
-    width: calc(var(--fig-h) * 1.05);
-    max-width: 94vw;
-    height: auto;
-    aspect-ratio: 1400 / 336;
-    bottom: calc(var(--knife-b) - var(--knife-h) * 0.3); /* le rivet des lames tombe au milieu du manche */
-    filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.75));
-}
-/* version « bandeau » : étiquette fine — capitales espacées entre deux filets dorés, sans boîte */
+/* Étiquette fine — capitales espacées entre deux filets dorés, sans boîte */
 .cam-band {
     width: calc(var(--fig-h) * 1.5);
     max-width: 92vw;
@@ -264,10 +252,6 @@ html:not(.js-rv) .cam-band {
     color: var(--secondary-color);
     padding-left: 0.42em; /* compense l'espacement après la dernière lettre */
 }
-.cam-hero[data-base="couteau"] { --knife-b: 7svh; } /* le manche est plus haut que le bandeau : on le remonte */
-.cam-hero[data-base="bandeau"] .cam-knife,
-.cam-hero[data-base="couteau"] .cam-band { display: none; }
-
 /* Voile sombre à gauche : le texte reste lisible quand un personnage passe derrière */
 .cam-hero::before {
     content: '';
@@ -481,7 +465,7 @@ html:not(.js-rv) .cam-band {
         transition: none;
     }
     .cam-fig, .cam-stage.is-ready .cam-fig { transition: filter 0.2s ease; transition-delay: 0s; }
-    .cam-knife, .cam-band { transition: none; }
+    .cam-band { transition: none; }
     .credibility-strip.is-marquee .credibility-items { animation: none; }
     .magic-text, .animate-float { animation: none !important; }
 }

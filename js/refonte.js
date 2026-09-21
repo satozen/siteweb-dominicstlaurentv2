@@ -101,9 +101,7 @@
         var word = document.querySelector('.cam-role-word');
         var dots = Array.from(document.querySelectorAll('.cam-dots button'));
         var home = Math.max(figs.findIndex(function (f) { return f.classList.contains('is-active'); }), 0), current = home, timer = null;
-        // Version de la base à comparer : ?base=bandeau ou ?base=couteau
-        var base = new URLSearchParams(location.search).get('base'), hero = stage.closest('.cam-hero');
-        if (hero && (base === 'bandeau' || base === 'couteau')) hero.dataset.base = base;
+        var hero = stage.closest('.cam-hero');
         var spread = parseFloat(getComputedStyle(stage).getPropertyValue('--spread')) || 9;
 
         function show(i) {

@@ -19,3 +19,6 @@ images/**/*.mp4
 
 # Claude Code local settings
 .claude/
+
+# Archives locales du hero (captures, notes) — non publiées
+images/hero/sources/archives/
