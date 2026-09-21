@@ -128,8 +128,8 @@ header.nav-hidden {
 /* ═════════════ HERO CAMÉLÉON : l'éventail de personnages ═════════════ */
 .cam-hero {
     --fig-h: min(74svh, 46vw);      /* hauteur d'un personnage */
-    --cx: 65%;                      /* centre de l'éventail dans le hero */
-    --spread: 11deg;                /* angle entre deux lames voisines */
+    --cx: 67%;                      /* centre de l'éventail dans le hero */
+    --spread: 12deg;                /* angle entre deux lames voisines */
     --knife-h: calc(var(--fig-h) * 0.165); /* hauteur du manche */
     --knife-b: 3.5svh;              /* distance entre le manche et le bas du hero */
     position: relative;

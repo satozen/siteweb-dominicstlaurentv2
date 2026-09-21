@@ -6,7 +6,7 @@
 # Chaque image : rognée sur son alpha, posée au bas d'un canevas 1200x1536, et le bas
 # fondu vers la transparence DANS le fichier (un masque CSS couperait le halo au rectangle).
 cd "$(dirname "$0")"
-SPECS="pirate:pirate_r1 cirque:cirque_m2 crooner:crooner_v2 dominic:dominic_v2 rockabilly:grease_s1 dj:dj_g1 disco:disco_v3 loufoque:astronaute_v2:72"
+SPECS="pirate:pirate_r1 cirque:cirque_m2 crooner:crooner_v2 dominic:dominic_v2 dj:dj_g1 disco:disco_v3 loufoque:diva_1"
 for spec in $SPECS; do
   IFS=: read -r out src keep <<< "$spec"; keep=${keep:-100}
   [ -n "$1" ] && [ "$1" != "$out" ] && continue
