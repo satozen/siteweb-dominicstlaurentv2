@@ -104,7 +104,6 @@
         // Version de la base à comparer : ?base=bandeau ou ?base=couteau
         var base = new URLSearchParams(location.search).get('base'), hero = stage.closest('.cam-hero');
         if (hero && (base === 'bandeau' || base === 'couteau')) hero.dataset.base = base;
-        if (word && word.firstElementChild) word.style.width = word.firstElementChild.offsetWidth + 2 + 'px';
         var spread = parseFloat(getComputedStyle(stage).getPropertyValue('--spread')) || 9;
 
         function show(i) {
@@ -127,7 +126,6 @@
             var neu = document.createElement('span');
             neu.textContent = text;
             word.appendChild(neu);
-            word.style.width = neu.offsetWidth + 2 + 'px';
             if (reduce) return;
             neu.className = 'pre';
             neu.getBoundingClientRect(); // fixe le point de départ avant la transition

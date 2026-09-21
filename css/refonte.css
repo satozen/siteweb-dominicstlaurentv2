@@ -127,13 +127,14 @@ header.nav-hidden {
 
 /* ═════════════ HERO CAMÉLÉON : l'éventail de personnages ═════════════ */
 .cam-hero {
-    --fig-h: min(74svh, 46vw);      /* hauteur d'un personnage */
+    --fig-h: min(70svh, 46vw);      /* hauteur d'un personnage */
     --cx: 67%;                      /* centre de l'éventail dans le hero */
     --spread: 12deg;                /* angle entre deux lames voisines */
     --knife-h: calc(var(--fig-h) * 0.165); /* hauteur du manche */
     --knife-b: 3.5svh;              /* distance entre le manche et le bas du hero */
     position: relative;
-    min-height: 100svh;
+    height: 100svh;      /* verrouillé à l'écran : la base (couteau/bandeau) reste toujours visible */
+    min-height: 620px;
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     align-items: center;
@@ -150,7 +151,7 @@ header.nav-hidden {
     grid-row: 1;
     position: relative;
     align-self: stretch;
-    min-height: 100svh;
+    min-height: 0;
     touch-action: pan-y;
     background:
         radial-gradient(ellipse 34% 58% at var(--cx) 52%, rgba(212, 175, 55, 0.20), transparent 70%),
@@ -283,7 +284,7 @@ html:not(.js-rv) .cam-band {
     grid-row: 1;
     position: relative;
     z-index: 2;
-    padding: 7rem 0 4rem clamp(1.5rem, 6vw, 6rem);
+    padding: 5.5rem 0 1.5rem clamp(1.5rem, 6vw, 6rem);
     pointer-events: none;
 }
 .cam-copy a, .cam-copy button { pointer-events: auto; }
@@ -312,24 +313,22 @@ html:not(.js-rv) .cam-band {
     white-space: nowrap;
 }
 .cam-role-word {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
+    /* grille à une cellule : l'ancien et le nouveau mot s'y superposent, et la boîte prend
+       d'elle-même la largeur du plus long — aucune mesure JS, donc jamais de mot tronqué */
+    display: inline-grid;
+    overflow-x: visible;
+    overflow-y: clip;
     vertical-align: bottom;
     margin-left: 0.4em;
     font-family: 'Playfair Display', serif;
     font-style: italic;
     color: var(--secondary-color);
-    width: 9ch; /* ajustée par JS à la largeur du mot */
-    height: 1.35em;
-    transition: width 0.5s var(--ease-out);
     line-height: 1.35;
 }
 .cam-role-word > span {
-    position: absolute;
-    left: 0;
-    top: 0;
+    grid-area: 1 / 1;
     white-space: nowrap;
+    padding-right: 0.15em; /* l'italique déborde un peu à droite */
     transition: transform 0.5s var(--ease-out), opacity 0.3s ease;
 }
 .cam-role-word > span.out {
@@ -380,7 +379,7 @@ html:not(.js-rv) .cam-band {
     flex-wrap: wrap;
     align-items: center;
     gap: 0.6rem 1rem;
-    margin-top: 3rem;
+    margin-top: clamp(1.2rem, 4svh, 3rem);
 }
 .cam-hint {
     font-size: 0.7rem;
@@ -420,15 +419,27 @@ html:not(.js-rv) .cam-band {
     outline-offset: 2px;
 }
 
-/* Mobile : l'éventail AU-DESSUS du texte, jamais dessous */
-@media (max-width: 860px) {
+/* Écran large mais peu haut (portable avec barres du navigateur) : on resserre le texte
+   pour qu'il reste sous la barre de navigation */
+@media (min-width: 1025px) and (max-height: 820px) {
+    .cam-copy { padding-top: 6.5rem; padding-bottom: 1rem; }
+    .cam-kicker { margin-bottom: 0.8rem; }
+    .cam-name { font-size: clamp(2.6rem, 5.2vw, 5.4rem); }
+    .cam-role { margin: 0.9rem 0; }
+    .cam-desc { margin-bottom: 1.3rem; line-height: 1.6; }
+    .cam-picker { margin-top: 1.2rem; }
+}
+
+/* Mobile, tablette, fenêtre étroite : l'éventail AU-DESSUS du texte, jamais dessous */
+@media (max-width: 1024px) {
     .cam-hero {
-        --fig-h: min(50svh, 92vw);
+        --fig-h: min(52svh, 92vw);
         --spread: 9deg;
         --knife-b: 1.5svh;
         --cx: 50%;
         display: flex;
         flex-direction: column;
+        height: auto;
         min-height: 0;
         padding-top: 84px; /* sous la barre de navigation */
     }
