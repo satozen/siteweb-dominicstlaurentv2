@@ -2593,10 +2593,7 @@ body:has(.wedding-hero) .step-number {
     margin-bottom: 1rem;
 }
 
-/* Styles pour les sections alternées */
-.jaibenldroit section:nth-of-type(even) {
-    background-color: #f9f9f9;
-}
+/* (règle « sections paires gris pâle » retirée : titres blancs illisibles; la page gère son alternance sombre) */
 
 /* Responsive pour mobile */
 @media (max-width: 768px) {
