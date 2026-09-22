@@ -1,5 +1,5 @@
 // Banque de témoignages — de VRAIS commentaires reçus par Dominic (courriels de clients et de diffuseurs).
-// Règles : le texte entre guillemets est mot pour mot ([…] = passage coupé), positifs seulement,
+// **mot** = mis en gras. Règles : le texte entre guillemets est mot pour mot ([…] = passage coupé), positifs seulement,
 // prénom + initiale, aucun détail de santé sur des tiers. Compilation complète avec sources :
 // notes-internes/temoignages-source.md (hors dépôt).
 //
@@ -8,33 +8,28 @@
     var TEMOIGNAGES = [
         {
             tags: ['residences', 'accueil'],
-            texte: 'Il a dynamité la place. Rythme, culbutes, jonglage, humour. Je n\'ai que des éloges des résidents et des familles.',
-            auteur: 'Claude S.', role: 'Mgr-Coderre', date: '2022'
+            texte: 'Il a **dynamité la place**. Rythme, culbutes, jonglage, humour. Je n\'ai **que des éloges** des résidents et des familles.',
+            auteur: 'Claude S.', role: 'animateur en résidence', date: '2022'
         },
         {
             tags: ['residences', 'accueil'],
-            texte: 'Non seulement vous avez su nous épater par vos talents de chanteur et d\'animateur mais aussi pour votre sensibilité à l\'égard des personnes âgées. […] vous avez joué un rôle de véritable magicien pour plusieurs personnes présentes.',
-            auteur: 'Stéphane et Monique', role: 'invités au 10e anniversaire de la Ressource Notre-Dame de la Paix'
+            texte: 'Non seulement vous avez su nous épater par vos talents de chanteur et d\'animateur mais aussi pour votre **sensibilité** à l\'égard des personnes âgées. […] vous avez joué un rôle de **véritable magicien** pour plusieurs personnes présentes.',
+            auteur: 'Stéphane et Monique', role: 'invités au 10e anniversaire d\'une résidence'
         },
         {
             tags: ['residences'],
-            texte: 'Les résidants émerveillés de leur soirée […] Une prestation incroyable […] Même une de nos résidantes les plus difficiles en termes de spectacle a aimé!',
-            auteur: 'Mélanie D.', role: 'technicienne en loisir, Le Symbiose', date: '2023'
+            texte: 'Les résidants **émerveillés** de leur soirée […] Une **prestation incroyable** […] Même une de nos résidantes les plus difficiles en termes de spectacle **a aimé!**',
+            auteur: 'Mélanie D.', role: 'technicienne en loisir', date: '2023'
         },
         {
             tags: ['residences'],
-            texte: 'Une révélation! […] Les résidents en ont parlé toute la journée et le lendemain. Un show de Noël extraordinaire […] Il y avait des transitions sur tout, beaucoup d\'humour et de belle énergie.',
-            auteur: 'Commentaire reçu après un spectacle de Noël', role: 'transmis par Productions Kirtap', date: '2016'
+            texte: 'Une **révélation!** […] Les résidents en ont parlé **toute la journée et le lendemain**. Un show de Noël **extraordinaire** […] Il y avait des transitions sur tout, beaucoup d\'humour et de belle énergie.',
+            auteur: 'Commentaire reçu après un spectacle de Noël', role: '', date: '2016'
         },
         {
             tags: ['residences'],
-            texte: 'Je voulais juste prendre le temps de souligner le professionnalisme de Dominic lors de notre soirée dansante […] Nous n\'avons eu que de bons commentaires. C\'est grandement apprécié.',
-            auteur: 'Catherine J.', role: 'animatrice en loisirs, Les Bâtisseurs de Cowansville', date: '2026'
-        },
-        {
-            tags: ['residences'],
-            texte: 'Les costumes et accessoires ajoutent du sel à ton spectacle.',
-            auteur: 'Patrick G.', role: 'Productions Kirtap'
+            texte: 'Je voulais juste prendre le temps de souligner le **professionnalisme** de Dominic lors de notre soirée dansante […] Nous n\'avons eu **que de bons commentaires**. C\'est grandement apprécié.',
+            auteur: 'Catherine J.', role: 'animatrice en loisir', date: '2026'
         },
         {
             tags: ['jbl', 'accueil'],
@@ -68,8 +63,8 @@
         var items = TEMOIGNAGES.filter(function (t) { return t.tags.indexOf(tag) !== -1; }).slice(0, max);
         box.classList.add('tm-grid');
         box.innerHTML = items.map(function (t) {
-            return '<figure class="tm-card"><blockquote>«&nbsp;' + esc(t.texte) + '&nbsp;»</blockquote>' +
-                '<figcaption><strong>' + esc(t.auteur) + '</strong><span>' + esc(t.role) + (t.date ? ' · ' + esc(t.date) : '') + '</span></figcaption></figure>';
+            return '<figure class="tm-card"><blockquote>«&nbsp;' + esc(t.texte).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') + '&nbsp;»</blockquote>' +
+                '<figcaption><strong>' + esc(t.auteur) + '</strong><span>' + [t.role, t.date].filter(Boolean).map(esc).join(' · ') + '</span></figcaption></figure>';
         }).join('');
     }
 
