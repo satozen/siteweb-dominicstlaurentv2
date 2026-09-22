@@ -166,6 +166,7 @@ header.nav-hidden {
 }
 
 .cam-pin { display: contents; }
+.cam-stats { display: none; } /* mobile seulement (voir plus bas) */
 
 /* La scène : halo de projecteur + personnages découpés.
    Concept « couteau suisse de la scène » : chaque personnage est une lame qui pivote
@@ -507,9 +508,25 @@ html:not(.js-rv) .cam-band {
     .cam-desc { font-size: 0.95rem; margin-bottom: 1.3rem; max-width: none; }
     .cam-desc-more { display: none; } /* texte allégé sur mobile */
     .cam-picker { display: none; }    /* c'est le défilement qui révèle */
+    /* les chiffres apparaissent une fois l'éventail rangé, et la section « stats » de la page est masquée (doublon) */
+    .cam-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem;
+        list-style: none;
+        margin: 2rem 0 0;
+        padding: 1.4rem 0 0;
+        border-top: 1px solid rgba(212, 175, 55, 0.25);
+        opacity: var(--dock);
+        transform: translateY(calc((1 - var(--dock)) * 18px));
+    }
+    .cam-stats li { display: grid; gap: 0.2rem; text-align: left; }
+    .cam-stats .stat-number { font-size: 1.9rem; line-height: 1; margin: 0; }
+    .cam-stats span { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); }
+    body:has(.cam-hero) .stats-section { display: none; }
 }
 /* ═════════════ EN-TÊTE MARIAGE ═════════════ */
-.wedding-hero.wed-hero {
+.wed-hero {
     position: relative;
     min-height: clamp(500px, 78vh, 760px);
     display: grid;
@@ -595,10 +612,24 @@ html:not(.js-rv) .cam-band {
     filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.55));
 }
 @media (max-width: 1024px) {
-    .wedding-hero.wed-hero { grid-template-columns: 1fr; min-height: 0; }
+    .wed-hero { grid-template-columns: 1fr; min-height: 0; }
     .wed-dominic { order: -1; height: min(38vh, 340px); margin-top: 78px; }
     .wed-copy { padding: 1rem 1.4rem 2.6rem; }
     .wed-hero::after { background: linear-gradient(to top, rgba(18, 13, 8, 0.95) 30%, rgba(18, 13, 8, 0.45)); }
+}
+
+/* Variante Corpo de l'en-tête « décor + Dominic » */
+.wed-hero.corpo-hero-v2 { background: #0a0a0a; }
+.wed-hero.corpo-hero-v2::after {
+    background:
+        linear-gradient(to right, rgba(10, 10, 10, 0.94) 0, rgba(10, 10, 10, 0.62) 42%, rgba(10, 10, 10, 0.12) 75%),
+        linear-gradient(to top, rgba(10, 10, 10, 0.9) 0, transparent 35%);
+}
+.corpo-hero-v2 .wed-kicker, .corpo-hero-v2 h1 em, .corpo-hero-v2 .wed-ornament { color: var(--secondary-color); }
+.corpo-hero-v2 h1 { font-weight: 700; letter-spacing: -0.02em; }
+.corpo-hero-v2 .wed-bg { object-position: 62% 50%; }
+@media (max-width: 1024px) {
+    .wed-hero.corpo-hero-v2::after { background: linear-gradient(to top, rgba(10, 10, 10, 0.96) 30%, rgba(10, 10, 10, 0.45)); }
 }
 
 /* ═════════════ TÉMOIGNAGES (js/temoignages.js) — thème clair ou sombre ═════════════ */
@@ -638,8 +669,7 @@ html:not(.js-rv) .cam-band {
 /* ═════════════ ROAST LAB simplifié : des paires lisibles ═════════════ */
 /* Fonctionne sur thème sombre (Corpo, Roast) et clair (Mariage) : le texte hérite de la page */
 .roast-lab { --lab-accent: var(--secondary-color); --lab-line: rgba(255, 255, 255, 0.12); --lab-fill: rgba(255, 255, 255, 0.04); }
-body:has(.wedding-hero) .roast-lab,
-body:has(.wed-hero) .roast-lab { --lab-accent: #8a6516; --lab-line: rgba(60, 40, 10, 0.16); --lab-fill: rgba(255, 255, 255, 0.55); }
+body:has(.wedding-hero) .roast-lab { --lab-accent: #8a6516; --lab-line: rgba(60, 40, 10, 0.16); --lab-fill: rgba(255, 255, 255, 0.55); }
 .roast-lab .roast-lab-intro { padding: 0; margin-bottom: 1.4rem; }
 .roast-lab .lab-tabs { margin-bottom: 1.6rem; }
 .roast-lab .example-title {
@@ -715,6 +745,29 @@ body:has(.wed-hero) .roast-lab { --lab-accent: #8a6516; --lab-line: rgba(60, 40,
     .lab-to { padding: 0.35rem 0; }
     .lab-to i { transform: rotate(90deg); }
 }
+
+/* ═════════════ PAGE CHANSONS : grille de personnages ═════════════ */
+.perso-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+    gap: 1rem;
+}
+.perso-grid li {
+    display: grid;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 0.8rem 0.6rem 1rem;
+    border-radius: 8px;
+    background: radial-gradient(ellipse 60% 50% at 50% 35%, rgba(212, 175, 55, 0.14), transparent 70%), rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+.perso-grid img { width: 100%; height: auto; aspect-ratio: 1200 / 1536; object-fit: contain; object-position: bottom; }
+.perso-grid span { font-family: 'Playfair Display', serif; font-style: italic; color: var(--secondary-color); }
+.res-story .video-showcase { margin: 0; }
+.res-story .video-thumbnail { max-width: none; }
 
 /* ═════════════ PAGE RÉSIDENCES ═════════════ */
 .res-hero {

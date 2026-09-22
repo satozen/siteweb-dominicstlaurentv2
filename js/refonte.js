@@ -91,11 +91,11 @@
             strip.classList.add('is-marquee');
         }
 
-        cameleon();
+        cameleon(countUp);
     });
 
     /* ═════ Hero caméléon : un éventail de personnages, la souris choisit lequel s'avance ═════ */
-    function cameleon() {
+    function cameleon(countUp) {
         var stage = document.querySelector('.cam-stage');
         if (!stage) return;
         var figs = Array.from(stage.querySelectorAll('.cam-fig'));
@@ -189,7 +189,7 @@
             var pin = hero.querySelector('.cam-pin');
             var order = [home].concat(figs.map(function (_, k) { return k; }).filter(function (k) { return k !== home; }));
             var REVEAL = 0.55, DOCKED = 0.85; // révélations jusqu'à 55 % du trajet, rangement jusqu'à 85 %, puis on reste rangé
-            var ticking = false;
+            var ticking = false, counted = false;
             function frame() {
                 ticking = false;
                 var track = hero.offsetHeight - pin.offsetHeight;
@@ -198,7 +198,10 @@
                 hero.style.setProperty('--dock', dock.toFixed(3));
                 var docked = dock >= 1;
                 hero.classList.toggle('is-docked', docked);
-                if (docked) { start(); return; }
+                if (docked) {
+                    if (!counted) { counted = true; hero.querySelectorAll('.cam-stats .stat-number').forEach(countUp); }
+                    start(); return;
+                }
                 stop();
                 if (dock > 0) { show(home); return; } // pendant le rangement, Dominic revient au centre
                 show(order[Math.min(Math.floor(p / REVEAL * order.length), order.length - 1)]);
