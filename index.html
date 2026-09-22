@@ -156,17 +156,17 @@
     </header>
 
     <section class="cam-hero">
+      <div class="cam-pin">
         <div class="cam-copy">
             <p class="cam-kicker">L'artiste caméléon</p>
             <h1 class="cam-name"><span>Dominic</span><span>St&#8209;Laurent</span></h1>
             <p class="cam-role">Ce soir : <span class="cam-role-word" aria-live="polite"><span>Animateur</span></span></p>
-            <p class="cam-desc">Animateur, chanteur, imitateur, DJ : tout est là! Une préparation chirurgicale, des performances qui décoiffent, et cette touche personnalisée qui fait dire «&nbsp;Comment il savait ça?!&nbsp;»</p>
+            <p class="cam-desc">Animateur, chanteur, imitateur, DJ : tout est là!<span class="cam-desc-more"> Une préparation chirurgicale, des performances qui décoiffent, et cette touche personnalisée qui fait dire «&nbsp;Comment il savait ça?!&nbsp;»</span></p>
             <div class="cam-cta">
                 <a href="#contact" class="cta-button">Booker Dominic</a>
                 <a href="#video" class="cam-link">Voir Dominic en action<i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="cam-picker">
-                <span class="cam-hint">Survolez les facettes de Dominic</span>
                 <ol class="cam-dots">
                     <li><button type="button" aria-pressed="false" aria-label="Voir : Capitaine Crochet"></button></li>
                     <li><button type="button" aria-pressed="false" aria-label="Voir : Maître de cirque"></button></li>
@@ -189,6 +189,7 @@
             <!-- Base de l'éventail : le bandeau. (La version « manche de couteau » est archivée : images/hero/sources/archives/) -->
             <p class="cam-band" aria-hidden="true"><span>Le couteau suisse de la scène</span></p>
         </div>
+      </div>
     </section>
 
     <main class="main-content">
@@ -211,6 +212,50 @@
                     <div class="credibility-item">
                         <i class="fas fa-building"></i>
                         <span>Chartwell · Groupe Maurice · Cogir</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vidéos : tout de suite après l'accueil -->
+        <section id="video" class="container">
+            <h2 class="section-title">Dominic en Action</h2>
+            <div class="video-grid">
+                <div class="video-thumbnail">
+                    <a href="#" class="video-link" data-video-id="vgcMsGcKn3w">
+                        <img width="1280" height="720" src="https://img.youtube.com/vi/vgcMsGcKn3w/maxresdefault.jpg" alt="Dominic en action" loading="lazy">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <h3>L'Artiste Caméléon</h3>
+                </div>
+                <div class="video-thumbnail">
+                    <a href="#" class="video-link" data-video-id="QOpQRBdZ5oY">
+                        <img width="1280" height="720" src="https://img.youtube.com/vi/QOpQRBdZ5oY/maxresdefault.jpg" alt="Dominic l'imitateur" loading="lazy">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <h3>L'Imitateur</h3>
+                </div>
+                <div class="video-thumbnail">
+                    <a href="#" class="video-link" data-video-id="LClkc0RBVR8">
+                        <img width="480" height="360" src="https://img.youtube.com/vi/LClkc0RBVR8/hqdefault.jpg" alt="Dominic le chanteur" loading="lazy">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <h3>Le Chanteur</h3>
+                </div>
+            </div>
+
+            <!-- Modal pour la vidéo -->
+            <div class="video-modal" id="videoModal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="video-container">
+                        <iframe frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -368,48 +413,6 @@
             </div>
         </section>
 
-        <section id="video" class="container">
-            <h2 class="section-title">Dominic en Action</h2>
-            <div class="video-grid">
-                <div class="video-thumbnail">
-                    <a href="#" class="video-link" data-video-id="vgcMsGcKn3w">
-                        <img width="1280" height="720" src="https://img.youtube.com/vi/vgcMsGcKn3w/maxresdefault.jpg" alt="Dominic en action" loading="lazy">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </a>
-                    <h3>L'Artiste Caméléon</h3>
-                </div>
-                <div class="video-thumbnail">
-                    <a href="#" class="video-link" data-video-id="QOpQRBdZ5oY">
-                        <img width="1280" height="720" src="https://img.youtube.com/vi/QOpQRBdZ5oY/maxresdefault.jpg" alt="Dominic l'imitateur" loading="lazy">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </a>
-                    <h3>L'Imitateur</h3>
-                </div>
-                <div class="video-thumbnail">
-                    <a href="#" class="video-link" data-video-id="LClkc0RBVR8">
-                        <img width="480" height="360" src="https://img.youtube.com/vi/LClkc0RBVR8/hqdefault.jpg" alt="Dominic le chanteur" loading="lazy">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </a>
-                    <h3>Le Chanteur</h3>
-                </div>
-            </div>
-
-            <!-- Modal pour la vidéo -->
-            <div class="video-modal" id="videoModal">
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-                    <div class="video-container">
-                        <iframe frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Dans les medias -->
         <section id="medias" class="container press-section">

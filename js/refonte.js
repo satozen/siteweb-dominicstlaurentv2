@@ -102,6 +102,7 @@
         var word = document.querySelector('.cam-role-word');
         var dots = Array.from(document.querySelectorAll('.cam-dots button'));
         var home = Math.max(figs.findIndex(function (f) { return f.classList.contains('is-active'); }), 0), current = home, timer = null;
+        var mobile = matchMedia('(max-width: 1024px)').matches;
         var hero = stage.closest('.cam-hero');
         var spread = parseFloat(getComputedStyle(stage).getPropertyValue('--spread')) || 9;
 
@@ -153,8 +154,12 @@
             d.addEventListener('click', function () { stop(); show(k); start(); });
         });
 
-        // Au repos, les personnages s'avancent à tour de rôle
-        function start() { if (!reduce && !timer && !document.hidden) timer = setInterval(function () { show(current + 1); }, 2800); }
+        // Au repos, les personnages s'avancent à tour de rôle (deux fois plus vite une fois rangé sur mobile)
+        function start() {
+            if (reduce || timer || document.hidden) return;
+            if (mobile && !hero.classList.contains('is-docked')) return; // mobile : c'est le défilement qui révèle
+            timer = setInterval(function () { show(current + 1); }, mobile ? 1400 : 2800);
+        }
         function stop() { clearInterval(timer); timer = null; }
         document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
 
@@ -164,7 +169,7 @@
             if (hero) hero.classList.add('is-in'); // la base apparaît
             setTimeout(function () {
                 stage.classList.add('is-open'); // les lames se déplient une à une
-                setTimeout(function () { stage.classList.add('is-ready'); start(); }, reduce ? 0 : 1900);
+                setTimeout(function () { stage.classList.add('is-ready'); start(); scrollFx(); }, reduce ? 0 : 1900);
             }, reduce ? 0 : 700);
         }
         if (!pending) open();
@@ -174,5 +179,33 @@
             function done() { if (--pending === 0) open(); }
         });
         setTimeout(function () { if (!stage.classList.contains('is-open')) open(); }, 4000); // filet de sécurité
+
+        /* Mobile : le défilement révèle les personnages un à un, puis range l'éventail à côté du nom */
+        var fxOn = false;
+        function scrollFx() {
+            if (!mobile || fxOn) return;
+            fxOn = true;
+            if (reduce) { hero.classList.add('is-static', 'is-docked'); return; }
+            var pin = hero.querySelector('.cam-pin');
+            var order = [home].concat(figs.map(function (_, k) { return k; }).filter(function (k) { return k !== home; }));
+            var REVEAL = 0.55, DOCKED = 0.85; // révélations jusqu'à 55 % du trajet, rangement jusqu'à 85 %, puis on reste rangé
+            var ticking = false;
+            function frame() {
+                ticking = false;
+                var track = hero.offsetHeight - pin.offsetHeight;
+                var p = track > 0 ? Math.min(Math.max((scrollY - hero.offsetTop) / track, 0), 1) : 1;
+                var dock = Math.min(Math.max((p - REVEAL) / (DOCKED - REVEAL), 0), 1);
+                hero.style.setProperty('--dock', dock.toFixed(3));
+                var docked = dock >= 1;
+                hero.classList.toggle('is-docked', docked);
+                if (docked) { start(); return; }
+                stop();
+                if (dock > 0) { show(home); return; } // pendant le rangement, Dominic revient au centre
+                show(order[Math.min(Math.floor(p / REVEAL * order.length), order.length - 1)]);
+            }
+            addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+            addEventListener('resize', frame);
+            frame();
+        }
     }
 })();
