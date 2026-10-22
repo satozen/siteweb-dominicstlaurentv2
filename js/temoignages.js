@@ -43,6 +43,11 @@
         },
         {
             tags: ['corpo', 'accueil'],
+            texte: 'On a tout de suite aimé son **énergie** et sa **polyvalence incroyable** : dynamique, créatif, captivant, avec une capacité à créer une ambiance inoubliable et **électriser une salle**. […] Une très belle découverte… et un vrai **coup de cœur** Immersive.',
+            auteur: 'Immersive', role: 'Gala Proprias de Proprio Direct', date: '2026'
+        },
+        {
+            tags: ['corpo', 'accueil'],
             texte: 'J\'ai eu la chance d\'aller observer l\'heure où le jeu Défi d\'Évasion était en action et que dire!!!! WOW!!! […] La participation dans la salle était incroyable, nous pouvions sentir la compétition!!',
             auteur: 'Sandra B.', role: 'Mantra Pharma — Les Rendez-vous Mantra', date: '2026'
         },
