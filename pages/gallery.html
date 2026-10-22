@@ -97,7 +97,7 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
             gap: 1.5rem;
             grid-auto-flow: dense;
         }
@@ -368,7 +368,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
                 gap: 1rem;
             }
 
@@ -484,7 +484,7 @@
                         <a href="#" class="social-icon" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://youtube.com/@dominicstlaurent?si=e8heqAlxwrQ_Ibnw" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@dominicstlaurent" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -513,7 +513,6 @@
         const portfolioImages = [
             { src: '../images/gallery/DSTL_Afro_siteweb.webp', title: 'Dominic en action', tag: 'Costume', desc: 'La polyvalence incarnée — un artiste, mille visages.' },
             { src: '../images/gallery/DSTL_Astronaute_siteweb.webp', title: 'L\'Astronaute', tag: 'Personnage', desc: 'Animation costumée pour événements familiaux et corporatifs.' },
-            { src: '../images/gallery/DSTL_Audrey_siteweb.webp', title: 'Audrey est revenue', tag: 'Télévision', desc: 'Rôle nommé aux Gémeaux dans cette série télévisée.' },
             { src: '../images/gallery/DSTL_Ballons_siteweb.webp', title: 'Ambiance festive', tag: 'Résidence', desc: 'Animation chaleureuse pour les résidences de personnes aînées.' },
             { src: '../images/gallery/DSTL_Beige_siteweb.webp', title: 'Sur scène', tag: 'Performance', desc: 'Énergie et charisme sur chaque scène.' },
             { src: '../images/gallery/DSTL_Blonde_siteweb.webp', title: 'Transformation', tag: 'Costume', desc: 'L\'art du déguisement au service du divertissement.' },
@@ -533,6 +532,9 @@
             { src: '../images/gallery/DSTL_Header1_siteweb.webp', title: 'En scène', tag: 'Performance', desc: 'Le couteau suisse de la scène en action.' },
             { src: '../images/gallery/DSTL_Header2_siteweb.webp', title: 'Show Time', tag: 'Performance', desc: 'Chaque spectacle est une expérience unique.' },
             { src: '../images/gallery/DSTL_Noir_siteweb.webp', title: 'Maître de Cérémonie', tag: 'Corporatif', desc: 'Élégance et professionnalisme pour vos événements.' },
+            { src: '../images/gallery/DSTL_PeterPan_Crochet_siteweb.webp', title: 'Capitaine Crochet', tag: 'Théâtre', desc: 'En coulisses avant Peter Pan, la comédie musicale.' },
+            { src: '../images/gallery/DSTL_PeterPan_Mouche_siteweb.webp', title: 'Crochet et Monsieur Mouche', tag: 'Théâtre', desc: 'Duo de pirates sur la scène de la Salle Albert-Rousseau.' },
+            { src: '../images/gallery/Peter Pan Première_ 46_pirates_cecco.webp', title: 'Les pirates de Peter Pan', tag: 'Théâtre', desc: 'Le Capitaine Crochet et son équipage, Peter Pan, la comédie musicale.' },
             { src: '../images/gallery/DSTL_Rose_siteweb.webp', title: 'Ambiance rose', tag: 'Costume', desc: 'Créativité sans limites dans chaque personnage.' },
             { src: '../images/gallery/DSTL_Rouge_siteweb.webp', title: 'Rouge passion', tag: 'Performance', desc: 'Intensité et passion sur scène.' },
             { src: '../images/gallery/DSTL_Sol_siteweb.webp', title: 'Au sol', tag: 'Performance', desc: 'L\'engagement physique total dans chaque numéro.' },
@@ -554,7 +556,7 @@
                 item.className = 'gallery-item';
                 item.dataset.index = offset + i;
                 item.innerHTML = `
-                    <img src="${img.src}" alt="${img.title}" loading="lazy">
+                    <img src="${img.src.replace('/gallery/', '/gallery/thumbs/')}" alt="${img.title}" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
                             <span class="gallery-tag">${img.tag}</span>

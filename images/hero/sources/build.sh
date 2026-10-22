@@ -19,5 +19,5 @@ for spec in $SPECS; do
        \( \( -size 1536x40 gradient:black-white -rotate -90 \) \( -size 1120x1536 xc:white \) \
           \( -size 1536x40 gradient:black-white -rotate 90 \) +append \) -compose multiply -composite \) \
     -alpha off -compose CopyOpacity -composite \
-    -quality 86 -define webp:alpha-quality=92 -define webp:method=6 "../$out.webp" && echo "ok $out ← $src"
+    -quality 76 -define webp:alpha-quality=80 -define webp:method=6 "../$out.webp" && echo "ok $out ← $src"
 done

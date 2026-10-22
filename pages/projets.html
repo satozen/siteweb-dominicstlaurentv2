@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets Numériques | Portfolio | Dominic St-Laurent</title>
+    <title>Idéation, conception et consultation | Dominic St-Laurent</title>
     <link rel="canonical" href="https://www.dominicstlaurent.ca/pages/projets.html">
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -17,15 +17,15 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_CA">
     <meta property="og:site_name" content="Dominic St-Laurent">
-    <meta property="og:title" content="Projets Numériques | Portfolio | Dominic St-Laurent">
-    <meta property="og:description" content="Portfolio de projets numériques par Dominic St-Laurent. Applications interactives, outils éducatifs et produits complets - de l&#x27;idée à la réalisation.">
+    <meta property="og:title" content="Idéation, conception et consultation | Dominic St-Laurent">
+    <meta property="og:description" content="Consultant créatif 360° : Dominic St-Laurent vous aide à imaginer, concevoir et réaliser vos projets artistiques, publicitaires et numériques, à l&#x27;intersection de la scène et de la technologie.">
     <meta property="og:url" content="https://www.dominicstlaurent.ca/pages/projets.html">
     <meta property="og:image" content="https://www.dominicstlaurent.ca/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <script src="../js/analytics.js" defer></script>
-    <meta name="description" content="Portfolio de projets numériques par Dominic St-Laurent. Applications interactives, outils éducatifs et produits complets - de l'idée à la réalisation.">
+    <meta name="description" content="Consultant créatif 360° : Dominic St-Laurent vous aide à imaginer, concevoir et réaliser vos projets artistiques, publicitaires et numériques, à l'intersection de la scène et de la technologie.">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="../js/main.js" defer></script>
@@ -74,6 +74,8 @@
 
         .dev-hero .hero-content {
             position: relative;
+            width: 100%;
+            min-width: 0;
             z-index: 2;
             max-width: 900px;
             padding: 2rem;
@@ -137,7 +139,7 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
@@ -367,7 +369,7 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -398,6 +400,52 @@
         }
 
         .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Étapes de travail */
+        .process-steps-section {
+            padding: 4rem 0;
+        }
+
+        .process-steps {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 860px) {
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .process-steps { grid-template-columns: 1fr; }
+        }
+
+        .process-steps li {
+            border-top: 2px solid rgba(212, 175, 55, 0.4);
+            padding-top: 1rem;
+        }
+
+        .process-steps span {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .process-steps h4 {
+            color: var(--accent-color);
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .process-steps p {
             color: var(--text-muted);
             font-size: 0.9rem;
             line-height: 1.6;
@@ -472,29 +520,83 @@
         <div class="code-rain"></div>
         <div class="hero-content">
             <div class="hero-subtitle-line" style="justify-content: center;">
-                <span><i class="fas fa-lightbulb"></i> Créateur de Projets</span>
+                <span><i class="fas fa-lightbulb"></i> Idéation · Conception · Consultation</span>
             </div>
-            <h1 class="magic-text">Des Idées.<br>Des Projets. Des Produits.</h1>
+            <h1 class="magic-text">Vous avez l'idée.<br>On la rend réelle.</h1>
             <p class="subtitle">
-                En plus d'animer vos événements, je crée des projets numériques complets — 
-                de l'idée initiale jusqu'au produit fini. Applications, outils éducatifs, 
-                expériences interactives.
+                Consultant créatif 360°, je vous aide à imaginer, concevoir et réaliser vos projets :
+                artistiques, publicitaires ou numériques. Je travaille au croisement de la scène,
+                de la technologie et de l'idéation, là où une bonne idée devient quelque chose de concret.
             </p>
             <div class="tech-stack">
-                <span class="tech-badge"><i class="fas fa-rocket"></i>Produits</span>
-                <span class="tech-badge"><i class="fas fa-gamepad"></i>Apps Interactives</span>
-                <span class="tech-badge"><i class="fas fa-graduation-cap"></i>Outils Éducatifs</span>
-                <span class="tech-badge"><i class="fas fa-robot"></i>IA Intégrée</span>
-                <span class="tech-badge"><i class="fas fa-paint-brush"></i>Design UX</span>
+                <span class="tech-badge"><i class="fas fa-brain"></i>Idéation & brainstorm</span>
+                <span class="tech-badge"><i class="fas fa-pencil-ruler"></i>Conception</span>
+                <span class="tech-badge"><i class="fas fa-bullhorn"></i>Publicité</span>
+                <span class="tech-badge"><i class="fas fa-theater-masks"></i>Projets artistiques</span>
+                <span class="tech-badge"><i class="fas fa-robot"></i>Tech & IA</span>
             </div>
         </div>
     </section>
 
     <main class="main-content">
+        <!-- Ce que je fais -->
+        <section class="skills-section">
+            <div class="container">
+                <h2 class="section-title">Ce que je fais pour vous</h2>
+                <p class="section-intro">Un pied sur scène, l'autre dans la techno. Je mets les deux au service de votre projet, du premier brainstorm jusqu'au livrable.</p>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-brain"></i>
+                        <h4>Idéation & brainstorm</h4>
+                        <p>J'anime vos séances de remue-méninges : on part dans toutes les directions, puis on atterrit avec des idées claires, y compris celles que personne n'osait dire.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <h4>Conception</h4>
+                        <p>Campagne, événement, spectacle, produit : je transforme une intuition en concept solide, nommé et prêt à présenter.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-bullhorn"></i>
+                        <h4>Publicité & contenu</h4>
+                        <p>Concepts publicitaires, scripts, capsules, personnages, chansons de marque. Écrire pour faire rire et pour convaincre, parfois en même temps.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-theater-masks"></i>
+                        <h4>Projets artistiques</h4>
+                        <p>Spectacle, série web, comédie musicale, album : je vous accompagne de la page blanche à la première, avec l'œil de quelqu'un qui monte sur scène.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-robot"></i>
+                        <h4>Tech & IA</h4>
+                        <p>Sites, applications, outils interactifs, IA générative quand elle apporte vraiment quelque chose. Je parle le langage des créatifs comme celui des développeurs.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-compass"></i>
+                        <h4>Consultation 360°</h4>
+                        <p>Votre projet est déjà en marche? Je regarde l'ensemble (idée, message, public, technique) et je vous dis franchement ce qui manque.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comment on travaille -->
+        <section class="process-steps-section">
+            <div class="container">
+                <h2 class="section-title">Comment on travaille</h2>
+                <ol class="process-steps">
+                    <li><span>1</span><h4>On jase</h4><p>Vous me racontez votre projet, vos contraintes, votre public. Je pose les questions qui dérangent un peu.</p></li>
+                    <li><span>2</span><h4>On brasse des idées</h4><p>Brainstorm, pistes, références : on ouvre grand avant de choisir.</p></li>
+                    <li><span>3</span><h4>On conçoit</h4><p>Le concept retenu prend forme : texte, maquette, prototype, plan de match.</p></li>
+                    <li><span>4</span><h4>On réalise</h4><p>Je le livre clé en main ou je vous passe le relais avec un plan clair. C'est vous qui choisissez.</p></li>
+                </ol>
+            </div>
+        </section>
+
         <section class="portfolio-section">
             <div class="container">
                 <h2 class="section-title">Mes Créations</h2>
-                <p class="section-intro">Des projets complets que j'ai imaginés, conçus et réalisés de A à Z.</p>
+                <p class="section-intro">Quelques projets que j'ai imaginés, conçus et réalisés de A à Z.</p>
 
                 <div class="portfolio-grid">
                     
@@ -709,42 +811,12 @@
             </div>
         </section>
 
-        <!-- Section Approche -->
-        <section class="skills-section">
-            <div class="container">
-                <h2 class="section-title">Mon Approche</h2>
-                <p class="section-intro">Chaque projet part d'un besoin réel et devient un produit qui fonctionne.</p>
-
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h4>L'Idée d'Abord</h4>
-                        <p>Tout commence par un problème à résoudre ou une expérience à créer. La technologie suit, pas l'inverse.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-users"></i>
-                        <h4>Pensé pour les Gens</h4>
-                        <p>Interfaces intuitives, parcours fluides. Si c'est compliqué à utiliser, c'est raté.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-rocket"></i>
-                        <h4>Du Concept au Produit</h4>
-                        <p>Je ne fais pas juste du code — je crée des projets complets, prêts à être utilisés.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-robot"></i>
-                        <h4>IA Quand Ça Fait du Sens</h4>
-                        <p>J'intègre l'intelligence artificielle là où elle apporte vraiment de la valeur.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- CTA -->
         <section class="dev-cta">
             <div class="container">
-                <h2>Une idée de projet?</h2>
-                <p>Vous avez une idée qui vous trotte dans la tête? Un outil qui devrait exister? Parlons-en!</p>
+                <h2>Un projet qui vous trotte dans la tête?</h2>
+                <p>Une campagne, un spectacle, une app, un événement qui sort de l'ordinaire : les meilleurs projets commencent par une conversation.</p>
                 <a href="../index.html#contact" class="cta-button">Discutons de votre idée</a>
             </div>
         </section>
@@ -762,7 +834,7 @@
                         <a href="#" class="social-icon" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://youtube.com/@dominicstlaurent?si=e8heqAlxwrQ_Ibnw" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@dominicstlaurent" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>

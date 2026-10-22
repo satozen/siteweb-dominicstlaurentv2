@@ -936,3 +936,23 @@ body:has(.wedding-hero) .roast-lab { --lab-accent: #8a6516; --lab-line: rgba(60,
     .credibility-strip.is-marquee .credibility-items { animation: none; }
     .magic-text, .animate-float { animation: none !important; }
 }
+
+/* ───────────── Accueil : section idéation & conception ───────────── */
+.ideation-teaser { text-align: center; }
+.ideation-pillars {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 2rem;
+    max-width: 820px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+.ideation-pillars li {
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+.ideation-pillars i { color: var(--secondary-color); margin-right: 0.5rem; }
